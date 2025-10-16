@@ -21,7 +21,7 @@ jobs:
   jvm-build-test:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast:
+      fail-fast: false
       matrix:
         java:
           - 17
