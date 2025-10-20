@@ -82,7 +82,10 @@ tasks.withType<Test> {
 tasks.withType<Javadoc> {
   isFailOnError = false
 
+  val opts = options as StandardJavadocDocletOptions
+  opts.addStringOption("Xdoclint:syntax,html", "-quiet")
+
   if (JavaVersion.current().isJava9Compatible) {
-    (options as StandardJavadocDocletOptions).addBooleanOption("html5", true)
+    opts.addBooleanOption("html5", true)
   }
 }
