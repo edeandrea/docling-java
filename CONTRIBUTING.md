@@ -12,6 +12,7 @@ But first, read this page (including the small print at the end).
   + [Create your branch from main](#create-your-branch-from-main)
   + [Keep commits focused](#keep-commits-focused)
   + [Code reviews](#code-reviews)
+  + [PR Guidelines](#pr-guidelines)
   + [Coding Guidelines](#coding-guidelines)
   + [Continuous Integration](#continuous-integration)
   + [Tests and documentation are not optional](#tests-and-documentation-are-not-optional)
@@ -63,6 +64,9 @@ Remember each issue should be focused on a single item of interest since the iss
 All submissions, including submissions by project members, need to be reviewed by at least one committer before being merged.
 
 [GitHub Pull Request Review Process](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) is followed for every pull request.
+
+### PR Guidelines
+We follow the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/). Please follow the spec when creating commits and pull requests!
 
 ### Coding Guidelines
 
