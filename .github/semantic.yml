@@ -1,3 +1,4 @@
-titleAndCommits: true
+#titleAndCommits: true
+titleOnly: true
 allowMergeCommits: true
 allowRevertCommits: true
