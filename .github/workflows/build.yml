@@ -30,7 +30,6 @@ jobs:
         module:
           - api
           - client
-          - docs
           - testing
           - testcontainers
     name: jvm-build-test-${{ matrix.module }}-java${{ matrix.java }}
