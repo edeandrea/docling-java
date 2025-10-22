@@ -7,7 +7,7 @@ updates:
     labels:
       - "version-upgrade"
     commit-message:
-      prefix: chore
+      prefix: chore(deps)
 
   - package-ecosystem: github-actions
     directory: /
@@ -16,4 +16,4 @@ updates:
     labels:
       - "version-upgrade"
     commit-message:
-      prefix: chore
+      prefix: chore(deps)
