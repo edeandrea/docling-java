@@ -1,5 +1,7 @@
 package ai.docling.testcontainers;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -12,11 +14,9 @@ import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import tools.jackson.databind.ObjectMapper;
-
 import ai.docling.testcontainers.config.DoclingContainerConfig;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import tools.jackson.databind.ObjectMapper;
 
 @Testcontainers
 class DoclingContainerAvailableTests {

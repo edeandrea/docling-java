@@ -7,12 +7,12 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.Objects;
 
-import tools.jackson.databind.json.JsonMapper;
-
 import ai.docling.api.DoclingApi;
 import ai.docling.api.convert.request.ConvertDocumentRequest;
 import ai.docling.api.convert.response.ConvertDocumentResponse;
 import ai.docling.api.health.HealthCheckResponse;
+
+import tools.jackson.databind.json.JsonMapper;
 
 /**
  * Default implementation for the Docling API client.

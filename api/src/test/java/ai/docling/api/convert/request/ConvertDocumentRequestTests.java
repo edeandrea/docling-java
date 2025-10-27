@@ -1,22 +1,19 @@
 package ai.docling.api.convert.request;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-import ai.docling.api.convert.request.options.ConvertDocumentOptions;
-
-import ai.docling.api.convert.request.source.FileSource;
-import ai.docling.api.convert.request.source.HttpSource;
-
-import ai.docling.api.convert.request.target.InBodyTarget;
-
-import ai.docling.api.convert.request.target.ZipTarget;
-
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import ai.docling.api.convert.request.options.ConvertDocumentOptions;
+import ai.docling.api.convert.request.source.FileSource;
+import ai.docling.api.convert.request.source.HttpSource;
+import ai.docling.api.convert.request.target.InBodyTarget;
+import ai.docling.api.convert.request.target.ZipTarget;
 
 /**
  * Unit tests for {@link ConvertDocumentRequest}.
