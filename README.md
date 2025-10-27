@@ -1,4 +1,81 @@
-This project is currently a work in progress and just getting off the ground! Check back soon!
+# Welcome to the Docling Java Project!
+
+This is repository for Docling Java, a Java API for using [Docling](https://github.com/docling-project).
+
+[![Docs](https://img.shields.io/badge/docs-live-brightgreen)](https://docling-project.github.io/docling-java/)
+[![docling-api version](https://img.shields.io/maven-central/v/ai.docling/docling-api)](https://docling-project.github.io/docling-java)
+[![License MIT](https://img.shields.io/github/license/docling-project/docling-java)](https://opensource.org/licenses/MIT)
+[![Discord](https://img.shields.io/discord/1399788921306746971?color=6A7EC2&logo=discord&logoColor=ffffff)](https://docling.ai/discord)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11397/badge)](https://www.bestpractices.dev/projects/11397)
+
+[Docling](https://github.com/docling-project) simplifies document processing, parsing diverse formats — including advanced PDF understanding — and providing seamless integrations with the gen AI ecosystem.
+
+## Features
+
+* 🗂️ Parsing of [multiple document formats][supported_formats] incl. PDF, DOCX, PPTX, XLSX, HTML, WAV, MP3, VTT, images (PNG, TIFF, JPEG, ...), and more
+* 📑 Advanced PDF understanding incl. page layout, reading order, table structure, code, formulas, image classification, and more
+* 🧬 Unified, expressive [DoclingDocument][docling_document] representation format
+* ↪️ Various [export formats][supported_formats] and options, including Markdown, HTML, [DocTags](https://arxiv.org/abs/2503.11576) and lossless JSON
+* 🔒 Local execution capabilities for sensitive data and air-gapped environments
+* 🤖 Plug-and-play [integrations][integrations] including [LangChain4j](https://docs.langchain4j.dev/)
+* 🔍 Extensive OCR support for scanned PDFs and images
+* 👓 Support of several Visual Language Models ([GraniteDocling](https://huggingface.co/ibm-granite/granite-docling-258M))
+* 🎙️ Audio support with Automatic Speech Recognition (ASR) models
+
+## Artifacts
+
+This project aims to provide the following artifacts:
+
+* [`docling-api`](api): The core API for interacting with Docling. Should be framework-agnostic.
+* [`docling-client`](client): A reference implementation of the [`docling-api`](api) using Java's [`HttpClient`](https://openjdk.org/groups/net/httpclient/intro.html) and [Jackson](https://github.com/FasterXML/jackson).
+* [`docling-testing`](testing): Utilities for testing Docling
+* [`docling-testcontainers`](testcontainers): A [Testcontainers module](https://testcontainers.com/) for running Docling in a Docker container.
+
+## Getting started
+
+Use `DoclingApi.convertSource()` to convert individual documents. For example:
+
+```java
+import ai.docling.api.DoclingApi;
+import ai.docling.api.convert.request.ConvertDocumentRequest;
+import ai.docling.api.convert.response.ConvertDocumentResponse;
+import ai.docling.client.DoclingClient;
+
+DoclingApi doclingApi = DoclingClient.builder()
+    .baseUrl("<location of docling server>")
+    .build();
+
+ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+    .addHttpSources(URI.create("https://arxiv.org/pdf/2408.09869"))
+    .build();
+
+ConvertDocumentResponse response = doclingApi.convertSource(request);
+System.out.println(response.document().markdownContent());
+```
+
+More [usage information](https://docling-project.github.io/docling-java) are available in the docs.
+
+## Get help and support
+
+Please feel free to connect with us using the [discussion section](https://github.com/docling-project/docling-java/discussions).
+
+
+## Contributing
+
+Please read [Contributing to Docling Java](CONTRIBUTING.md) for details.
+
+## License
+
+The Docling codebase is under MIT license.
+For individual model usage, please refer to the model licenses found in the original packages.
+
+### IBM ❤️ Open Source AI
+
+The project was started by the AI for knowledge team at IBM Research Zurich.
+
+[supported_formats]: https://docling-project.github.io/docling/usage/supported_formats/
+[docling_document]: https://docling-project.github.io/docling/concepts/docling_document/
+[integrations]: https://docling-project.github.io/docling/integrations/
 
 ## Contributors ✨
 
