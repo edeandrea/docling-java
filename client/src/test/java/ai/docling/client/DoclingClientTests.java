@@ -1,5 +1,7 @@
 package ai.docling.client;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -19,8 +21,6 @@ import ai.docling.api.convert.response.ConvertDocumentResponse;
 import ai.docling.api.health.HealthCheckResponse;
 import ai.docling.testcontainers.DoclingContainer;
 import ai.docling.testcontainers.config.DoclingContainerConfig;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Integration tests for {@link DoclingClient}.

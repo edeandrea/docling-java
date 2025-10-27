@@ -78,9 +78,9 @@ When inserting you can:
 """
 
 import math
-import yaml
-import textwrap
 import os.path
+import textwrap
+import yaml
 
 
 def loadAttributes(env):
