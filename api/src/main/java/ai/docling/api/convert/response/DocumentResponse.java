@@ -14,6 +14,7 @@ import tools.jackson.databind.annotation.JsonPOJOBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = DocumentResponse.Builder.class)
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder = DocumentResponse.Builder.class)
 public interface DocumentResponse {
   /**
    * Retrieves the content of the doc tags, if available.
@@ -133,6 +134,7 @@ public interface DocumentResponse {
    * accessibility outside the defining package or class hierarchy.
    */
   @JsonPOJOBuilder(withPrefix = "")
+  @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   class Builder {
     protected String doctagsContent;
     protected String filename;
