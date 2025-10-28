@@ -29,6 +29,10 @@ mkdocs {
   )
 }
 
+tasks.register("build") {
+  dependsOn(tasks.named("mkdocsBuild"))
+}
+
 tasks.withType<PublishToMavenRepository>().configureEach {
   enabled = false
 }
