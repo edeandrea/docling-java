@@ -9,7 +9,6 @@ import java.time.Duration;
 import java.util.Base64;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -23,13 +22,10 @@ import ai.docling.api.health.HealthCheckResponse;
 import ai.docling.testcontainers.DoclingContainer;
 import ai.docling.testcontainers.config.DoclingContainerConfig;
 
-/**
- * Integration tests for {@link DoclingClient}.
- */
 @Testcontainers
-class DoclingClientTests {
+abstract class AbstractDoclingClientTests {
   @Container
-  private static final DoclingContainer doclingContainer = new DoclingContainer(
+  protected static final DoclingContainer doclingContainer = new DoclingContainer(
     DoclingContainerConfig.builder()
         .imageName(DoclingContainerConfig.DOCLING_IMAGE)
         .enableUi(true)
@@ -37,18 +33,11 @@ class DoclingClientTests {
       Optional.of(Duration.ofMinutes(2))
   );
 
-  private static DoclingApi doclingClient;
-
-  @BeforeAll
-  static void setUp() {
-    doclingClient = DoclingClient.builder()
-        .baseUrl("http://localhost:%s".formatted(doclingContainer.getMappedPort(DoclingContainerConfig.DEFAULT_DOCLING_PORT)))
-        .build();
-  }
+  protected abstract DoclingApi getDoclingClient();
 
   @Test
   void shouldSuccessfullyCallHealthEndpoint() {
-    HealthCheckResponse response = doclingClient.health();
+    HealthCheckResponse response = getDoclingClient().health();
 
     assertThat(response)
         .isNotNull()
@@ -62,7 +51,7 @@ class DoclingClientTests {
         .addHttpSources(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/"))
         .build();
 
-    ConvertDocumentResponse response = doclingClient.convertSource(request);
+    ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 
     assertThat(response).isNotNull();
 
@@ -84,7 +73,7 @@ class DoclingClientTests {
         .addFileSources("story.pdf", Base64.getEncoder().encodeToString(fileResource))
         .build();
 
-    ConvertDocumentResponse response = doclingClient.convertSource(request);
+    ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 
     assertThat(response).isNotNull();
     assertThat(response.status()).isNotEmpty();
@@ -111,7 +100,7 @@ class DoclingClientTests {
         .options(options)
         .build();
 
-    ConvertDocumentResponse response = doclingClient.convertSource(request);
+    ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 
     assertThat(response).isNotNull();
     assertThat(response.status()).isNotEmpty();

@@ -15,19 +15,24 @@ import ai.docling.api.convert.request.ConvertDocumentRequest;
 import ai.docling.api.convert.response.ConvertDocumentResponse;
 import ai.docling.api.health.HealthCheckResponse;
 
-import tools.jackson.databind.json.JsonMapper;
-
 /**
- * Default implementation for the Docling API client.
+ * Abstract class representing a client for interacting with the Docling API.
+ *
+ * <p>This class handles the foundational functionality needed to perform HTTP
+ * requests to the Docling API, with customizable base URL and HTTP client
+ * configurations. It provides abstract methods for JSON serialization and
+ * deserialization, allowing implementation-specific customization.
+ *
+ * <p>Concrete subclasses must implement {@link #readValue(String, Class)} and
+ * {@link #writeValueAsString(Object)} for serialization and deserialization behavior.
  */
-public class DoclingClient implements DoclingApi {
-  private static final URI DEFAULT_BASE_URL = URI.create("http://localhost:5001");
+public abstract class DoclingClient implements DoclingApi {
+  protected static final URI DEFAULT_BASE_URL = URI.create("http://localhost:5001");
 
   private final URI baseUrl;
   private final HttpClient httpClient;
-  private final JsonMapper jsonMapper;
 
-  private DoclingClient(Builder builder) {
+  protected DoclingClient(DoclingClientBuilder builder) {
     this.baseUrl = ensureNotNull(builder.baseUrl, "baseUrl");
 
     if (Objects.equals(this.baseUrl.getScheme(), "http")) {
@@ -38,8 +43,28 @@ public class DoclingClient implements DoclingApi {
     }
 
     this.httpClient = ensureNotNull(builder.httpClientBuilder, "httpClientBuilder").build();
-    this.jsonMapper = ensureNotNull(builder.jsonMapperBuilder, "jsonMapperBuilder").build();
   }
+
+  /**
+   * Reads and deserializes the given JSON string into an instance of the specified type.
+   *
+   * @param json      the JSON string to deserialize; must not be {@code null}
+   * @param valueType the {@link Class} of the target type; must not be {@code null}
+   * @param <T>       the type of the object to be deserialized
+   * @return an instance of {@code T} deserialized from the provided JSON
+   * @throws RuntimeException if the JSON parsing fails
+   */
+  protected abstract <T> T readValue(String json, Class<T> valueType);
+
+  /**
+   * Serializes the given object into its JSON string representation.
+   *
+   * @param <T>   the type of the object to serialize
+   * @param value the object to serialize; must not be {@code null}
+   * @return the JSON string representation of the given object
+   * @throws RuntimeException if serialization fails
+   */
+  protected abstract <T> String writeValueAsString(T value);
 
   @Override
   public HealthCheckResponse health() {
@@ -51,7 +76,7 @@ public class DoclingClient implements DoclingApi {
 
     return httpClient.sendAsync(httpRequest, BodyHandlers.ofString())
         .thenApply(HttpResponse::body)
-        .thenApply(json -> jsonMapper.readValue(json, HealthCheckResponse.class))
+        .thenApply(json -> readValue(json, HealthCheckResponse.class))
         .join();
   }
 
@@ -61,80 +86,79 @@ public class DoclingClient implements DoclingApi {
         .uri(baseUrl.resolve("/v1/convert/source"))
         .header("Accept", "application/json")
         .header("Content-Type", "application/json")
-        .POST(HttpRequest.BodyPublishers.ofString(jsonMapper.writeValueAsString(request)))
+        .POST(HttpRequest.BodyPublishers.ofString(writeValueAsString(request)))
         .build();
 
     return httpClient.sendAsync(httpRequest, BodyHandlers.ofString())
         .thenApply(HttpResponse::body)
-        .thenApply(json -> jsonMapper.readValue(json, ConvertDocumentResponse.class))
+        .thenApply(json -> readValue(json, ConvertDocumentResponse.class))
         .join();
   }
 
-  @Override
-  public Builder toBuilder() {
-    return new Builder(this);
-  }
-
   /**
-   * Creates and returns a new instance of {@link Builder} for constructing a {@link DoclingClient}.
-   * The builder allows customization of configuration such as base URL, HTTP client, and JSON mapper.
+   * Abstract base class for building instances of {@link DoclingClient}.
    *
-   * @return a new {@link Builder} instance for creating a {@link DoclingClient}.
+   * <p>This builder class provides methods for configuring shared properties such as the
+   * base URL and the HTTP client. Concrete subclasses may extend this builder to
+   * add additional configuration options.
+   *
+   * @param <C> the type of {@link DoclingClient} being built
+   * @param <B> the type of the builder implementation
    */
-  public static Builder builder() {
-    return new Builder();
-  }
-
-  /**
-   * A builder class for creating instances of {@link DoclingClient}. This builder supports a fluent
-   * API for configuring properties such as the base URL, HTTP client, and JSON mapper.
-   *
-   * <p>The {@link Builder} provides customization options through the available methods and ensures
-   * proper validation of inputs during configuration.
-   *
-   * <p>An instance of {@code Builder} can be obtained via {@link DoclingClient#builder()} or
-   * {@link DoclingClient#toBuilder()}.
-   *
-   * <p>This class is an implementation of {@link DoclingApiBuilder}, allowing it to construct
-   * {@code DoclingClient} instances as part of the API construction process.
-   */
-  public static final class Builder implements DoclingApiBuilder<DoclingClient, Builder> {
+  public abstract static class DoclingClientBuilder<C extends DoclingClient, B extends DoclingClientBuilder<C, B>> implements DoclingApiBuilder<C, B> {
     private URI baseUrl = DEFAULT_BASE_URL;
     private HttpClient.Builder httpClientBuilder = HttpClient.newBuilder();
-    private JsonMapper.Builder jsonMapperBuilder = JsonMapper.builder();
 
-    private Builder() {
+    /**
+     * Protected constructor for use by subclasses of {@link DoclingClientBuilder}.
+     *
+     * <p>Initializes a new instance of the builder with default configuration values.
+     * This constructor ensures that the builder cannot be instantiated directly,
+     * promoting proper use and extension by subclasses.
+     */
+    protected DoclingClientBuilder() {
     }
 
-    private Builder(DoclingClient doclingClient) {
+    /**
+     * Initializes a new {@link DoclingClientBuilder} instance using the configuration
+     * from the provided {@link DoclingClient}.
+     *
+     * @param doclingClient the {@link DoclingClient} whose configuration (e.g., base URL)
+     *                      will be used to initialize the builder
+     */
+    protected DoclingClientBuilder(DoclingClient doclingClient) {
       this.baseUrl = doclingClient.baseUrl;
       this.httpClientBuilder = HttpClient.newBuilder();
-      this.jsonMapperBuilder = doclingClient.jsonMapper.rebuild();
     }
 
     /**
-     * Sets the base URL for the Docling API service.
+     * Sets the base URL for the client.
      *
-     * <p>The URL string will be parsed and converted to a {@link URI}.
+     * <p>This method configures the base URL that will be used for all API requests
+     * executed by the client. The provided URL must be non-null and not blank.
      *
-     * @param baseUrl the base URL as a string (must not be blank)
-     * @return this {@link Builder} instance for method chaining
-     * @throws IllegalArgumentException if baseUrl is null or blank
+     * @param baseUrl the base URL to use, as a {@code String}
+     * @return this builder instance for method chaining
+     * @throws IllegalArgumentException if {@code baseUrl} is null, blank, or invalid
      */
-    public Builder baseUrl(String baseUrl) {
+    public B baseUrl(String baseUrl) {
       this.baseUrl = URI.create(ensureNotBlank(baseUrl, "baseUrl"));
-      return this;
+      return (B) this;
     }
 
     /**
-     * Sets the base URL for the Docling API service.
+     * Sets the base URL for the client.
      *
-     * @param baseUrl the base URL as a {@link URI}
-     * @return this {@link Builder} instance for method chaining
+     * <p>This method configures the base URL that will be used for all API requests
+     * executed by the client. The provided URL must be non-null.
+     *
+     * @param baseUrl the base URL to use, as a {@link URI}
+     * @return this builder instance for method chaining
+     * @throws IllegalArgumentException if {@code baseUrl} is null
      */
-    public Builder baseUrl(URI baseUrl) {
+    public B baseUrl(URI baseUrl) {
       this.baseUrl = baseUrl;
-      return this;
+      return (B) this;
     }
 
     /**
@@ -144,38 +168,11 @@ public class DoclingClient implements DoclingApi {
      * proxy settings, SSL context, and other connection parameters.
      *
      * @param httpClientBuilder the {@link HttpClient.Builder} to use
-     * @return this {@link Builder} instance for method chaining
+     * @return this {@link DoclingJackson3Client.Builder} instance for method chaining
      */
-    public Builder httpClientBuilder(HttpClient.Builder httpClientBuilder) {
+    public B httpClientBuilder(HttpClient.Builder httpClientBuilder) {
       this.httpClientBuilder = httpClientBuilder;
-      return this;
-    }
-
-    /**
-     * Sets the JSON mapper builder to be used for creating the JSON mapper.
-     *
-     * <p>This allows customization of JSON serialization and deserialization behavior,
-     * such as configuring features, modules, or property naming strategies.
-     *
-     * @param jsonMapperBuilder the {@link JsonMapper.Builder} to use
-     * @return this {@link Builder} instance for method chaining
-     */
-    public Builder jsonParser(JsonMapper.Builder jsonMapperBuilder) {
-      this.jsonMapperBuilder = jsonMapperBuilder;
-      return this;
-    }
-
-    /**
-     * Builds and returns a new {@link DoclingClient} instance with the configured properties.
-     *
-     * <p>This method validates all required parameters and constructs the client.
-     *
-     * @return a new {@link DoclingClient} instance
-     * @throws IllegalArgumentException if any required parameter is null
-     */
-    @Override
-    public DoclingClient build() {
-      return new DoclingClient(this);
+      return (B) this;
     }
   }
 }
