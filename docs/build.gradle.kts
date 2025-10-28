@@ -40,7 +40,3 @@ tasks.withType<PublishToMavenRepository>().configureEach {
 tasks.withType<PublishToMavenLocal>().configureEach {
   enabled = false
 }
-
-tasks.register("build") {
-  dependsOn(tasks.named("mkdocsBuild"))
-}
