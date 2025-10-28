@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-  api(platform(libs.jackson.bom))
   api(project(":docling-api"))
+  api(platform(libs.jackson.bom))
   compileOnly(libs.jackson.databind)
   compileOnly(libs.jackson2.databind)
 
