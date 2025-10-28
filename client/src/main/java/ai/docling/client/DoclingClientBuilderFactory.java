@@ -45,7 +45,7 @@ public final class DoclingClientBuilderFactory {
       return (B) DoclingJackson2Client.builder();
     }
 
-    throw new IllegalStateException("Neither Jackson 2 or 3 is on the classpath.");
+    throw new IllegalStateException("Neither Jackson 2 or 3 is on the classpath");
   }
 
   /**

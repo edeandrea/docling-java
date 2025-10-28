@@ -38,7 +38,7 @@ public class DoclingJackson2Client extends DoclingClient {
    *
    * @return a new {@link Builder} instance for configuring and building a {@link DoclingJackson2Client}
    */
-  public static Builder builder() {
+  static Builder builder() {
     return new Builder();
   }
 

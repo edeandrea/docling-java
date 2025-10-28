@@ -1,7 +1,10 @@
 package ai.docling.client;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
@@ -19,10 +22,19 @@ class DoclingClientBuilderFactoryTests {
         .isExactlyInstanceOf(DoclingJackson3Client.Builder.class);
   }
 
+  @Test
+  void noBuilderWhenNeitherArePresent() {
+    var classLoader = new ClassHidingClassLoader("com.fasterxml.jackson.databind.json.JsonMapper", "tools.jackson.databind.json.JsonMapper");
+
+    assertThatExceptionOfType(IllegalStateException.class)
+        .isThrownBy(() -> DoclingClientBuilderFactory.<DoclingClient, DoclingClientBuilder>newBuilder(classLoader))
+        .withMessage("Neither Jackson 2 or 3 is on the classpath");
+  }
+
   @ParameterizedTest
   @MethodSource("correctBuilderArguments")
   void correctBuilder(String classToHide, Class<?> expectedBuilderClass) {
-    var classLoader = new DelegatingClassLoader(classToHide, Thread.currentThread().getContextClassLoader());
+    var classLoader = new ClassHidingClassLoader(classToHide);
 
     assertThat(DoclingClientBuilderFactory.<DoclingClient, DoclingClientBuilder>newBuilder(classLoader))
         .isNotNull()
@@ -36,21 +48,25 @@ class DoclingClientBuilderFactoryTests {
     );
   }
 
-  private static class DelegatingClassLoader extends ClassLoader {
-    private final String classToHide;
-    private final ClassLoader parent;
+  private static class ClassHidingClassLoader extends ClassLoader {
+    private final Set<String> classedToHide = new HashSet<>();
 
-    public DelegatingClassLoader(String classToHide, ClassLoader parent) {
+    public ClassHidingClassLoader(String... classesToHide) {
+      this(Thread.currentThread().getContextClassLoader(), classesToHide);
+    }
+
+    public ClassHidingClassLoader(ClassLoader parent, String... classesToHide) {
       super(parent);
 
-      this.classToHide = classToHide;
-      this.parent = parent;
+      if (classesToHide != null) {
+        this.classedToHide.addAll(Set.of(classesToHide));
+      }
     }
 
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
-      if (classToHide.equals(name)) {
-        throw new ClassNotFoundException("Class %s not found".formatted(classToHide));
+      if (this.classedToHide.contains(name)) {
+        throw new ClassNotFoundException("Class %s not found".formatted(name));
       }
 
       return super.loadClass(name);
