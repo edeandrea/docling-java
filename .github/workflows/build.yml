@@ -46,7 +46,7 @@ jobs:
       - name: build-test-${{ matrix.module }}-java${{ matrix.java }}
         run: |
           ./gradlew --no-daemon -Pjava.version=${{ matrix.java }} \
-            :docling-${{ matrix.module }}:clean :${{ matrix.module }}:build
+            :${{ matrix.module }}:clean :${{ matrix.module }}:build
 
   docs:
     runs-on: ubuntu-latest
