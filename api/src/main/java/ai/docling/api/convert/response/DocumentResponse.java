@@ -9,11 +9,8 @@ import org.jspecify.annotations.Nullable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import tools.jackson.databind.annotation.JsonDeserialize;
-import tools.jackson.databind.annotation.JsonPOJOBuilder;
-
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
-@JsonDeserialize(builder = DocumentResponse.Builder.class)
+@tools.jackson.databind.annotation.JsonDeserialize(builder = DocumentResponse.Builder.class)
 @com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder = DocumentResponse.Builder.class)
 public interface DocumentResponse {
   /**
@@ -133,7 +130,7 @@ public interface DocumentResponse {
    * This class is intended for internal use and is protected to restrict its
    * accessibility outside the defining package or class hierarchy.
    */
-  @JsonPOJOBuilder(withPrefix = "")
+  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   class Builder {
     protected String doctagsContent;
