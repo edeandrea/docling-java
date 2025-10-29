@@ -26,10 +26,10 @@ This is repository for Docling Java, a Java API for using [Docling](https://gith
 
 This project aims to provide the following artifacts:
 
-* [`docling-api`](api): The core API for interacting with Docling. Should be framework-agnostic.
-* [`docling-client`](client): A reference implementation of the [`docling-api`](api) using Java's [`HttpClient`](https://openjdk.org/groups/net/httpclient/intro.html) and [Jackson](https://github.com/FasterXML/jackson).
-* [`docling-testing`](testing): Utilities for testing Docling
-* [`docling-testcontainers`](testcontainers): A [Testcontainers module](https://testcontainers.com/) for running Docling in a Docker container.
+* [`docling-api`](docling-api): The core API for interacting with Docling. Should be framework-agnostic.
+* [`docling-serve-client`](docling-serve-client): A reference implementation of the [`docling-api`](docling-api) using Java's [`HttpClient`](https://openjdk.org/groups/net/httpclient/intro.html) and [Jackson](https://github.com/FasterXML/jackson) to connect to a [Docling Serve](https://github.com/docling-project/docling-serve) endpoint.
+* [`docling-testing`](docling-testing): Utilities for testing Docling integration.
+* [`docling-testcontainers`](docling-testcontainers): A [Testcontainers module](https://testcontainers.com/) for running Docling in a Docker container.
 
 ## Getting started
 
@@ -38,19 +38,20 @@ Use `DoclingApi.convertSource()` to convert individual documents. For example:
 ```java
 import ai.docling.api.DoclingApi;
 import ai.docling.api.convert.request.ConvertDocumentRequest;
+import ai.docling.api.convert.request.source.HttpSource;
 import ai.docling.api.convert.response.ConvertDocumentResponse;
-import ai.docling.client.DoclingClient;
+import ai.docling.client.serve.DoclingServeClientBuilderFactory;
 
-DoclingApi doclingApi = DoclingClient.builder()
-    .baseUrl("<location of docling server>")
+DoclingApi doclingApi = DoclingServeClientBuilderFactory.newBuilder()
+    .baseUrl("<location of docling serve instance>")
     .build();
 
-ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-    .addHttpSources(URI.create("https://arxiv.org/pdf/2408.09869"))
+ConvertDocumentRequest request = new ConvertDocumentRequest()
+    .withSources(List.of(new HttpSource().withUrl(URI.create("https://arxiv.org/pdf/2408.09869"))))
     .build();
 
 ConvertDocumentResponse response = doclingApi.convertSource(request);
-System.out.println(response.document().markdownContent());
+System.out.println(response.getDocument().getMarkdownContent());
 ```
 
 More [usage information](https://docling-project.github.io/docling-java) are available in the docs.
@@ -58,7 +59,6 @@ More [usage information](https://docling-project.github.io/docling-java) are ava
 ## Get help and support
 
 Please feel free to connect with us using the [discussion section](https://github.com/docling-project/docling-java/discussions).
-
 
 ## Contributing
 

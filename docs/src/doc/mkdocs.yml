@@ -58,7 +58,7 @@ nav:
       - Getting started: getting-started.md
   - Artifacts:
     - API: api.md
-    - Client: client.md
+    - Serve Client: serve-client.md
     - Testing: testing.md
     - Testcontainers: testcontainers.md
 

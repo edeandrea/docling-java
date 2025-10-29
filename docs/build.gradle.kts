@@ -23,7 +23,7 @@ mkdocs {
       "project-groupId" to "${project.group}",
       "project-artifactId" to "${rootProject.name}",
       "api-artifactId" to project(":docling-api").name,
-      "client-artifactId" to project(":docling-client").name,
+      "serve-client-artifactId" to project(":docling-serve-client").name,
       "testing-artifactId" to project(":docling-testing").name,
       "testcontainers-artifactId" to project(":docling-testcontainers").name
   )
