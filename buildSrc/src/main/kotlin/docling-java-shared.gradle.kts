@@ -22,7 +22,7 @@ publishing {
       from(components["java"])
 
       pom {
-        url = "https://github.com/docling-project/docling-java"
+        url = "https://docling-project.github.io/docling-java"
         licenses {
           name = "MIT License"
           url = "https://opensource.org/license/mit"
