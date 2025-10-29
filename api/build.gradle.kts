@@ -3,9 +3,7 @@ plugins {
 }
 
 dependencies {
-  api(platform(libs.jackson.bom))
-  api(libs.jackson.annotations)
-  implementation(libs.jackson.databind)
-  implementation(libs.jackson2.databind)
+  implementation(platform(libs.jackson.bom))
+  implementation(libs.jackson.annotations)
   testImplementation(project(":docling-testcontainers"))
 }

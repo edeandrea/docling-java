@@ -2,6 +2,7 @@ package ai.docling.api.convert.request;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.InstanceOfAssertFactories.type;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -19,99 +20,90 @@ import ai.docling.api.convert.request.target.ZipTarget;
  * Unit tests for {@link ConvertDocumentRequest}.
  */
 class ConvertDocumentRequestTests {
-
-  @Test
-  void whenSourcesIsNullThenThrow() {
-    assertThatThrownBy(() -> new ConvertDocumentRequest(null, ConvertDocumentOptions.builder().build(), null))
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("sources cannot be null or empty");
-  }
-
-  @Test
-  void whenSourcesIsEmptyThenThrow() {
-    assertThatThrownBy(() -> new ConvertDocumentRequest(List.of(), ConvertDocumentOptions.builder().build(), null))
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("sources cannot be null or empty");
-  }
-
   @Test
   void whenOptionsIsNullThenThrow() {
-    assertThatThrownBy(() -> new ConvertDocumentRequest(List.of(HttpSource.from("http://example.com")), null, null))
+    var uri = URI.create("http://example.com");
+    var httpSource = new HttpSource().withUrl(uri);
+
+    assertThatThrownBy(() -> new ConvertDocumentRequest().withSources(List.of(httpSource)).withOptions(null))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessageContaining("options cannot be null");
   }
 
   @Test
   void buildWithHttpSourcesAsList() {
-    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-        .httpSources(List.of(HttpSource.from("http://example.com")))
-        .target(InBodyTarget.create())
-        .build();
-    assertThat(request.sources()).hasSize(1);
-    assertThat(request.sources().get(0)).isInstanceOf(HttpSource.class);
+    ConvertDocumentRequest request = new ConvertDocumentRequest()
+        .withSources(List.of(new HttpSource().withUrl(URI.create("http://example.com"))))
+        .withTarget(new InBodyTarget());
+    assertThat(request.getSources()).hasSize(1);
+    assertThat(request.getSources().get(0)).isInstanceOf(HttpSource.class);
   }
 
   @Test
   void buildWithHttpSourcesAsVarargs() {
-    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-        .addHttpSources(URI.create("http://example.com"), URI.create("http://example.org"))
-        .build();
-    assertThat(request.sources()).hasSize(2);
-    assertThat(request.sources().get(0)).isInstanceOf(HttpSource.class);
-    assertThat(request.sources().get(1)).isInstanceOf(HttpSource.class);
+    ConvertDocumentRequest request = new ConvertDocumentRequest()
+        .withSources(List.of(new HttpSource().withUrl(URI.create("http://example.com")), new HttpSource().withUrl(URI.create("http://example.org"))));
+
+    assertThat(request.getSources())
+        .hasSize(2)
+        .allSatisfy(source -> assertThat(source).isInstanceOf(HttpSource.class));
   }
 
   @Test
   void buildWithFileSourcesAsList() {
-    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-        .fileSources(List.of(FileSource.from("file:///path/to/file.txt", "content")))
-        .build();
-    assertThat(request.sources()).hasSize(1);
-    assertThat(request.sources().get(0)).isInstanceOf(FileSource.class);
+    ConvertDocumentRequest request = new ConvertDocumentRequest()
+        .withSources(List.of(new FileSource().withFilename("file:///path/to/file.txt").withBase64String("content")));
+
+    assertThat(request.getSources())
+        .hasSize(1)
+        .allSatisfy(source -> assertThat(source).isInstanceOf(FileSource.class));
   }
 
   @Test
   void buildWithFileSourcesAsVarargs() {
-    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-        .addFileSources("file1.txt", "base64string1")
-        .addFileSources("file2.txt", "base64string2")
-        .target(ZipTarget.create())
-        .build();
-    assertThat(request.sources()).hasSize(2);
-    assertThat(request.sources().get(0)).isInstanceOf(FileSource.class);
-    assertThat(request.sources().get(1)).isInstanceOf(FileSource.class);
+    ConvertDocumentRequest request = new ConvertDocumentRequest()
+        .withSources(List.of(
+            new FileSource().withFilename("file1.txt").withBase64String("base64string1"),
+            new FileSource().withFilename("file2.txt").withBase64String("base64string2")
+            )
+        )
+        .withTarget(new ZipTarget());
+
+    assertThat(request.getSources())
+        .hasSize(2)
+        .allSatisfy(source -> assertThat(source).isInstanceOf(FileSource.class));
   }
 
   @Test
   void whenMixedSourcesThenThrow() {
-    assertThatThrownBy(() -> ConvertDocumentRequest.builder()
-        .httpSources(List.of(HttpSource.from("http://example.com")))
-        .addFileSources("file.txt", "base64string")
-        .build())
+    var sources = List.of(
+        new HttpSource().withUrl(URI.create("http://example.com")),
+        new FileSource().withFilename("file.txt").withBase64String("base64string")
+    );
+    assertThatThrownBy(() -> new ConvertDocumentRequest().withSources(sources))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessageContaining("All sources must be of the same type (HttpSource or FileSource)");
   }
 
   @Test
   void convertDocumentRequestIsImmutable() {
-    List<FileSource> sources = new ArrayList<>(List.of(FileSource.from("test.txt", "dGVzdCBjb250ZW50")));
+    List<FileSource> sources = new ArrayList<>(List.of(new FileSource().withFilename("test.txt").withBase64String("dGVzdCBjb250ZW50")));
 
-    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-        .fileSources(sources)
-        .options(ConvertDocumentOptions.builder()
-            .doOcr(true)
-            .build())
-        .target(InBodyTarget.create())
-        .build();
+    ConvertDocumentRequest request = new ConvertDocumentRequest()
+        .withSources(sources)
+        .withOptions(new ConvertDocumentOptions().withDoOcr(true))
+        .withTarget(new InBodyTarget());
 
-    assertThat(request.sources()).isEqualTo(sources);
+    assertThat(request.getSources())
+        .usingRecursiveFieldByFieldElementComparator()
+        .containsExactlyInAnyOrderElementsOf(sources);
 
-    sources.add(FileSource.from("changed.txt", "Y2hhbmdlZA=="));
+    sources.add(new FileSource().withFilename("changed.txt").withBase64String("Y2hhbmdlZA=="));
 
-    assertThat(request.sources()).hasSize(1);
-    FileSource originalFileSource = (FileSource) request.sources().get(0);
-    assertThat(originalFileSource.filename()).isEqualTo("test.txt");
-    assertThat(originalFileSource.base64String()).isEqualTo("dGVzdCBjb250ZW50");
+    assertThat(request.getSources())
+        .singleElement()
+        .asInstanceOf(type(FileSource.class))
+        .extracting(FileSource::getFilename, FileSource::getBase64String)
+        .containsExactly("test.txt", "dGVzdCBjb250ZW50");
   }
-
 }

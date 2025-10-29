@@ -11,16 +11,16 @@ class ZipTargetTests {
 
   @Test
   void whenValidParametersThenCreateZipTarget() {
-    ZipTarget zipTarget = ZipTarget.create();
+    ZipTarget zipTarget = new ZipTarget();
 
-    assertThat(zipTarget.kind()).isEqualTo(Target.Kind.ZIP);
+    assertThat(zipTarget.getKind()).isEqualTo(Target.Kind.ZIP);
   }
 
   @Test
   void kindIsAlwaysSetToZip() {
-    ZipTarget zipTarget = new ZipTarget(Target.Kind.PUT);
+    ZipTarget zipTarget = new ZipTarget().withKind(Target.Kind.PUT);
 
-    assertThat(zipTarget.kind()).isEqualTo(Target.Kind.ZIP);
+    assertThat(zipTarget.getKind()).isEqualTo(Target.Kind.ZIP);
   }
 
 }

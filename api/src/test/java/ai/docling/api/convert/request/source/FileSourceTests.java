@@ -12,44 +12,44 @@ class FileSourceTests {
 
   @Test
   void whenBase64StringIsNullThenThrow() {
-    assertThatThrownBy(() -> new FileSource(Source.Kind.FILE, null, "test.txt"))
+    assertThatThrownBy(() -> new FileSource().withFilename("test.txt").withBase64String(null))
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("base64String cannot be null or empty");
+        .hasMessageContaining("base64String cannot be null or blank");
   }
 
   @Test
   void whenBase64StringIsEmptyThenThrow() {
-    assertThatThrownBy(() -> new FileSource(Source.Kind.FILE, "", "test.txt"))
+    assertThatThrownBy(() -> new FileSource().withFilename("test.txt").withBase64String(""))
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("base64String cannot be null or empty");
+        .hasMessageContaining("base64String cannot be null or blank");
   }
 
   @Test
   void whenBase64StringIsBlankThenThrow() {
-    assertThatThrownBy(() -> new FileSource(Source.Kind.FILE, "   ", "test.txt"))
+    assertThatThrownBy(() -> new FileSource().withFilename("test.txt").withBase64String("   "))
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("base64String cannot be null or empty");
+        .hasMessageContaining("base64String cannot be null or blank");
   }
 
   @Test
   void whenFilenameIsNullThenThrow() {
-    assertThatThrownBy(() -> new FileSource(Source.Kind.FILE, "dGVzdCBjb250ZW50", null))
+    assertThatThrownBy(() -> new FileSource().withFilename(null).withBase64String("dGVzdCBjb250ZW50"))
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("filename cannot be null or empty");
+        .hasMessageContaining("filename cannot be null or blank");
   }
 
   @Test
   void whenFilenameIsEmptyThenThrow() {
-    assertThatThrownBy(() -> new FileSource(Source.Kind.FILE, "dGVzdCBjb250ZW50", ""))
+    assertThatThrownBy(() -> new FileSource().withFilename("").withBase64String("dGVzdCBjb250ZW50"))
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("filename cannot be null or empty");
+        .hasMessageContaining("filename cannot be null or blank");
   }
 
   @Test
   void whenFilenameIsBlankThenThrow() {
-    assertThatThrownBy(() -> new FileSource(Source.Kind.FILE, "dGVzdCBjb250ZW50", "   "))
+    assertThatThrownBy(() -> new FileSource().withFilename("   ").withBase64String("dGVzdCBjb250ZW50"))
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("filename cannot be null or empty");
+        .hasMessageContaining("filename cannot be null or blank");
   }
 
   @Test
@@ -57,18 +57,18 @@ class FileSourceTests {
     String base64String = "dGVzdCBjb250ZW50";
     String filename = "test.txt";
 
-    FileSource fileSource = new FileSource(Source.Kind.FILE, base64String, filename);
+    FileSource fileSource = new FileSource().withBase64String(base64String).withFilename(filename);
 
-    assertThat(fileSource.kind()).isEqualTo(Source.Kind.FILE);
-    assertThat(fileSource.base64String()).isEqualTo(base64String);
-    assertThat(fileSource.filename()).isEqualTo(filename);
+    assertThat(fileSource.getKind()).isEqualTo(Source.Kind.FILE);
+    assertThat(fileSource.getBase64String()).isEqualTo(base64String);
+    assertThat(fileSource.getFilename()).isEqualTo(filename);
   }
 
   @Test
   void kindIsAlwaysSetToFile() {
-    FileSource fileSource = new FileSource(Source.Kind.HTTP, "dGVzdCBjb250ZW50", "test.txt");
+    FileSource fileSource = new FileSource().withKind(Source.Kind.HTTP).withBase64String("dGVzdCBjb250ZW50").withFilename("test.txt");
 
-    assertThat(fileSource.kind()).isEqualTo(Source.Kind.FILE);
+    assertThat(fileSource.getKind()).isEqualTo(Source.Kind.FILE);
   }
 
   @Test
@@ -76,11 +76,11 @@ class FileSourceTests {
     String filename = "document.pdf";
     String base64String = "dGVzdCBjb250ZW50";
 
-    FileSource fileSource = FileSource.from(filename, base64String);
+    FileSource fileSource = new FileSource().withFilename(filename).withBase64String(base64String);
 
-    assertThat(fileSource.kind()).isEqualTo(Source.Kind.FILE);
-    assertThat(fileSource.base64String()).isEqualTo(base64String);
-    assertThat(fileSource.filename()).isEqualTo(filename);
+    assertThat(fileSource.getKind()).isEqualTo(Source.Kind.FILE);
+    assertThat(fileSource.getBase64String()).isEqualTo(base64String);
+    assertThat(fileSource.getFilename()).isEqualTo(filename);
   }
 
   @Test
@@ -88,14 +88,14 @@ class FileSourceTests {
     String filename = "presentation.pptx";
     String base64String = "dGVzdCBjb250ZW50";
 
-    FileSource fileSource = FileSource.builder()
-        .filename(filename)
-        .base64String(base64String)
-        .build();
+    FileSource fileSource = new FileSource()
+        .withFilename(filename)
+        .withBase64String(base64String)
+        ;
 
-    assertThat(fileSource.kind()).isEqualTo(Source.Kind.FILE);
-    assertThat(fileSource.base64String()).isEqualTo(base64String);
-    assertThat(fileSource.filename()).isEqualTo(filename);
+    assertThat(fileSource.getKind()).isEqualTo(Source.Kind.FILE);
+    assertThat(fileSource.getBase64String()).isEqualTo(base64String);
+    assertThat(fileSource.getFilename()).isEqualTo(filename);
   }
 
 }

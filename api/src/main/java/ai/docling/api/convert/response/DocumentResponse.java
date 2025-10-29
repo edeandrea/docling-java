@@ -1,269 +1,258 @@
 package ai.docling.api.convert.response;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import org.jspecify.annotations.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(JsonInclude.Include.NON_ABSENT)
-@tools.jackson.databind.annotation.JsonDeserialize(builder = DocumentResponse.Builder.class)
-@com.fasterxml.jackson.databind.annotation.JsonDeserialize(builder = DocumentResponse.Builder.class)
-public interface DocumentResponse {
+/**
+ * A simple mutable POJO representing the converted document returned by the
+ * Docling Convert API. The properties map 1:1 to the JSON payload using the
+ * {@link JsonProperty} names declared on each field.
+ *
+ * <p>Serialization is configured with {@link JsonInclude.Include#NON_EMPTY},
+ * meaning nulls, empty strings, and empty collections/maps are omitted from the
+ * serialized JSON.</p>
+ *
+ * <p>Notes on mutability and maps:</p>
+ * <ul>
+ *   <li>{@code jsonContent} defaults to an empty map and is never exposed as
+ *   {@code null}. The getter returns an unmodifiable view.</li>
+ *   <li>When setting {@code jsonContent} with a non-null map, the reference is
+ *   preserved; subsequent external modifications to the provided map are
+ *   observable via {@link #getJsonContent()}.</li>
+ * </ul>
+ */
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class DocumentResponse {
+
+  @JsonProperty("doctags_content")
+  private String doctagsContent;
+
+  @JsonProperty("filename")
+  private String filename;
+
+  @JsonProperty("html_content")
+  private String htmlContent;
+
+  @JsonProperty("json_content")
+  private Map<String, Object> jsonContent = new HashMap<>();
+
+  @JsonProperty("md_content")
+  private String markdownContent;
+
+  @JsonProperty("text_content")
+  private String textContent;
+
+  // Getters and setters
   /**
-   * Retrieves the content of the doc tags, if available.
+   * Returns the DocTags representation of the document, if available.
    *
-   * @return the content of the doc tags, or null if not present
+   * @return doctags content, or {@code null} if not present
    */
   @Nullable
-  String doctagsContent();
-
-  /**
-   * Retrieves the filename associated with the document.
-   *
-   * @return the filename of the document as a string
-   */
-  String filename();
-
-  /**
-   * Retrieves the HTML content associated with the document, if available.
-   *
-   * @return the HTML content as a string, or null if not present
-   */
-  @Nullable
-  String htmlContent();
-
-  /**
-   * Retrieves the JSON content associated with the document.
-   *
-   * @return a map representing the JSON content, or an empty map if no JSON content is present
-   */
-  Map<String, Object> jsonContent();
-
-  /**
-   * Retrieves the Markdown content associated with the document, if available.
-   *
-   * @return the Markdown content as a string, or null if no Markdown content is present
-   */
-  @Nullable
-  String markdownContent();
-
-  /**
-   * Retrieves the plain text content associated with the document, if available.
-   *
-   * @return the plain text content as a string, or null if no text content is present
-   */
-  @Nullable
-  String textContent();
-
-  /**
-   * Creates a new {@code Builder} instance initialized with the current state of the {@code DocumentResponse}.
-   *
-   * @return a {@code Builder} instance populated with the values from this {@code DocumentResponse}
-   */
-  default Builder toBuilder() {
-    return new Builder(this);
+  public String getDoctagsContent() {
+    return doctagsContent;
   }
 
   /**
-   * Creates and returns a new instance of the {@code Builder} class, which can be used to
-   * construct a {@code DocumentResponse} object in a step-by-step manner.
+   * Sets the DocTags representation of the document.
    *
-   * @return a new {@code Builder} instance
+   * @param doctagsContent the DocTags content; may be {@code null}
    */
-  static Builder builder() {
-    return new Builder();
+  public void setDoctagsContent(@Nullable String doctagsContent) {
+    this.doctagsContent = doctagsContent;
   }
 
   /**
-   * Default implementation of the {@link DocumentResponse} interface.
-   * This record represents the response containing document data in various formats.
-   * It is an immutable data structure that consolidates information related to a document,
-   * such as its filename, content in multiple formats, and metadata.
+   * Returns the original filename of the processed document.
    *
-   * Each instance ensures the provided JSON content is unmodifiable by copying
-   * the input map if it is present, or initializing it to an empty map otherwise.
+   * @return filename, or {@code null} if unknown
    */
-  record DefaultDocumentResponse(String doctagsContent,
-                                 String filename,
-                                 String htmlContent,
-                                 Map<String, Object> jsonContent,
-                                 String markdownContent,
-                                 String textContent) implements DocumentResponse {
+  @Nullable
+  public String getFilename() {
+    return filename;
+  }
 
-    public DefaultDocumentResponse {
-      jsonContent = Optional.ofNullable(jsonContent)
-          .map(Map::copyOf)
-          .orElseGet(Map::of);
-    }
+  /**
+   * Sets the original filename of the processed document.
+   *
+   * @param filename the filename; may be {@code null}
+   */
+  public void setFilename(@Nullable String filename) {
+    this.filename = filename;
+  }
 
-    public DefaultDocumentResponse(Builder builder) {
-      this(builder.doctagsContent,
-          builder.filename,
-          builder.htmlContent,
-          builder.jsonContent,
-          builder.markdownContent,
-          builder.textContent);
+  /**
+   * Returns the HTML content produced by the conversion.
+   *
+   * @return HTML content, or {@code null} if not produced
+   */
+  @Nullable
+  public String getHtmlContent() {
+    return htmlContent;
+  }
+
+  /**
+   * Sets the HTML content produced by the conversion.
+   *
+   * @param htmlContent the HTML content; may be {@code null}
+   */
+  public void setHtmlContent(@Nullable String htmlContent) {
+    this.htmlContent = htmlContent;
+  }
+
+  /**
+   * Returns an unmodifiable view of the JSON content map. Never {@code null}.
+   * When set via {@link #setJsonContent(Map)}, the provided map reference is
+   * preserved (if non-null), so external changes to that map will be reflected
+   * here.
+   *
+   * @return unmodifiable view of the JSON content map (possibly empty)
+   */
+  public Map<String, Object> getJsonContent() {
+    return Collections.unmodifiableMap(jsonContent);
+  }
+
+  /**
+   * Sets the JSON content map. If {@code jsonContent} is {@code null}, an empty
+   * map is assigned. Otherwise, the provided map reference is preserved so that
+   * subsequent modifications to the same map are visible via
+   * {@link #getJsonContent()}.
+   *
+   * @param jsonContent the JSON content map; may be {@code null}
+   */
+  public void setJsonContent(@Nullable Map<String, Object> jsonContent) {
+    this.jsonContent.clear();
+
+    if (jsonContent != null) {
+      this.jsonContent.putAll(jsonContent);
     }
   }
 
   /**
-   * A builder class for constructing instances of {@code DocumentResponse}.
+   * Returns the Markdown content produced by the conversion.
    *
-   * This class provides a step-by-step approach to configure and create a
-   * {@code DocumentResponse} object. Each method in this class sets a specific
-   * property of the object being built. Once all the desired properties are set,
-   * the {@code build} method is used to create the final {@code DocumentResponse}
-   * instance.
-   *
-   * The builder supports customization of various document-related attributes,
-   * including doc tags content, filename, HTML content, JSON content, Markdown
-   * content, and plain text content.
-   *
-   * By default, the builder initializes attributes with an empty state or default
-   * values. If a {@code DocumentResponse} instance is provided to the constructor,
-   * the builder is pre-populated with the attributes from the given response.
-   *
-   * This class is intended for internal use and is protected to restrict its
-   * accessibility outside the defining package or class hierarchy.
+   * @return Markdown content, or {@code null} if not produced
    */
-  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
-  @com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
-  class Builder {
-    protected String doctagsContent;
-    protected String filename;
-    protected String htmlContent;
-    protected Map<String, Object> jsonContent = new HashMap<>();
-    protected String markdownContent;
-    protected String textContent;
+  @Nullable
+  public String getMarkdownContent() {
+    return markdownContent;
+  }
 
-    /**
-     * Constructs a new {@code Builder} instance.
-     *
-     * This constructor initializes a builder with default or empty states for all
-     * attributes. It is protected to restrict direct instantiation outside of the
-     * defining package or class hierarchy.
-     *
-     * The {@code Builder} class is primarily used to facilitate the creation of
-     * {@code DocumentResponse} objects through a step-by-step configuration process.
-     */
-    protected Builder() {
+  /**
+   * Sets the Markdown content produced by the conversion.
+   *
+   * @param markdownContent the Markdown content; may be {@code null}
+   */
+  public void setMarkdownContent(@Nullable String markdownContent) {
+    this.markdownContent = markdownContent;
+  }
 
-    }
+  /**
+   * Returns the plain text content produced by the conversion.
+   *
+   * @return plain text content, or {@code null} if not produced
+   */
+  @Nullable
+  public String getTextContent() {
+    return textContent;
+  }
 
-    /**
-     * Constructs a new {@code Builder} instance using the provided {@code DocumentResponse}.
-     *
-     * This constructor initializes the builder's fields with the data from the given
-     * {@code DocumentResponse} object. It allows for the creation of a {@code Builder}
-     * instance pre-populated with the state of an existing {@code DocumentResponse}.
-     *
-     * @param documentResponse the {@code DocumentResponse} instance whose data will
-     *                          populate the fields of this builder
-     */
-    protected Builder(DocumentResponse documentResponse) {
-      this.doctagsContent = documentResponse.doctagsContent();
-      this.filename = documentResponse.filename();
-      this.htmlContent = documentResponse.htmlContent();
-      this.jsonContent = documentResponse.jsonContent();
-      this.markdownContent = documentResponse.markdownContent();
-      this.textContent = documentResponse.textContent();
-    }
+  /**
+   * Sets the plain text content produced by the conversion.
+   *
+   * @param textContent the text content; may be {@code null}
+   */
+  public void setTextContent(@Nullable String textContent) {
+    this.textContent = textContent;
+  }
 
-    /**
-     * Sets the doctags content for the builder instance.
-     *
-     * @param doctagsContent the doctags content to be set
-     * @return this Builder instance for method chaining
-     */
-    @JsonProperty("doctags_content")
-    public Builder doctagsContent(String doctagsContent) {
-      this.doctagsContent = doctagsContent;
-      return this;
-    }
+  // Fluent builder-style methods
+  /**
+   * Fluent setter for {@link #setDoctagsContent(String)}.
+   *
+   * @param doctagsContent the DocTags content; may be {@code null}
+   * @return this instance for chaining
+   */
+  public DocumentResponse withDoctagsContent(@Nullable String doctagsContent) {
+    setDoctagsContent(doctagsContent);
+    return this;
+  }
 
-    /**
-     * Sets the filename for the builder instance.
-     *
-     * @param filename the filename to be set
-     * @return this Builder instance for method chaining
-     */
-    @JsonProperty("filename")
-    public Builder filename(String filename) {
-      this.filename = filename;
-      return this;
-    }
+  /**
+   * Fluent setter for {@link #setFilename(String)}.
+   *
+   * @param filename the filename; may be {@code null}
+   * @return this instance for chaining
+   */
+  public DocumentResponse withFilename(@Nullable String filename) {
+    setFilename(filename);
+    return this;
+  }
 
-    /**
-     * Sets the HTML content for the builder instance.
-     *
-     * @param htmlContent the HTML content to be set
-     * @return this Builder instance for method chaining
-     */
-    @JsonProperty("html_content")
-    public Builder htmlContent(String htmlContent) {
-      this.htmlContent = htmlContent;
-      return this;
-    }
+  /**
+   * Fluent setter for {@link #setHtmlContent(String)}.
+   *
+   * @param htmlContent the HTML content; may be {@code null}
+   * @return this instance for chaining
+   */
+  public DocumentResponse withHtmlContent(@Nullable String htmlContent) {
+    setHtmlContent(htmlContent);
+    return this;
+  }
 
-    /**
-     * Sets the JSON content for the builder instance.
-     *
-     * The JSON content is represented as a map of key-value pairs, where the keys
-     * are {@code String} objects, and the values are {@code Object} instances.
-     *
-     * @param jsonContent the JSON content to be set, represented as a {@code Map<String, Object>}
-     * @return this {@link Builder} instance for method chaining
-     */
-    @JsonProperty("json_content")
-    public Builder jsonContent(Map<String, Object> jsonContent) {
-      this.jsonContent = jsonContent;
-      return this;
-    }
+  /**
+   * Fluent setter for {@link #setJsonContent(Map)}.
+   *
+   * @param jsonContent the JSON content map; may be {@code null}
+   * @return this instance for chaining
+   */
+  public DocumentResponse withJsonContent(@Nullable Map<String, Object> jsonContent) {
+    setJsonContent(jsonContent);
+    return this;
+  }
 
-    /**
-     * Sets the Markdown content for this builder instance.
-     *
-     * The Markdown content represents the textual data formatted in Markdown syntax,
-     * which can include headings, lists, links, and other Markdown elements.
-     *
-     * @param markdownContent the Markdown content to be set, represented as a {@code String}
-     * @return this {@link Builder} instance for method chaining
-     */
-    @JsonProperty("md_content")
-    public Builder markdownContent(String markdownContent) {
-      this.markdownContent = markdownContent;
-      return this;
-    }
+  /**
+   * Fluent setter for {@link #setMarkdownContent(String)}.
+   *
+   * @param markdownContent the Markdown content; may be {@code null}
+   * @return this instance for chaining
+   */
+  public DocumentResponse withMarkdownContent(@Nullable String markdownContent) {
+    setMarkdownContent(markdownContent);
+    return this;
+  }
 
-    /**
-     * Sets the plain text content for this builder instance.
-     *
-     * The plain text content represents unformatted textual data that can be
-     * used for display or processing purposes within the application.
-     *
-     * @param textContent the plain text content to be set, represented as a {@code String}
-     * @return this {@link Builder} instance for method chaining
-     */
-    @JsonProperty("text_content")
-    public Builder textContent(String textContent) {
-      this.textContent = textContent;
-      return this;
-    }
+  /**
+   * Fluent setter for {@link #setTextContent(String)}.
+   *
+   * @param textContent the text content; may be {@code null}
+   * @return this instance for chaining
+   */
+  public DocumentResponse withTextContent(@Nullable String textContent) {
+    setTextContent(textContent);
+    return this;
+  }
 
-    /**
-     * Creates and returns a {@link DocumentResponse} instance based on the current state of this {@link Builder}.
-     *
-     * <p>The returned {@link DocumentResponse} will encapsulate the values configured in the builder,
-     * and further modifications to the builder instance will not affect the created {@code DocumentResponse}.
-     *
-     * @return a new {@code DocumentResponse} instance constructed from the builder's state
-     */
-    public DocumentResponse build() {
-      return new DefaultDocumentResponse(this);
-    }
+  /**
+   * Returns a string representation containing the actual values of all fields.
+   *
+   * @return string representation of this response
+   */
+  @Override
+  public String toString() {
+    return "DocumentResponse{" +
+        "doctagsContent=" + (doctagsContent == null ? "null" : "'" + doctagsContent + "'") +
+        ", filename=" + (filename == null ? "null" : "'" + filename + "'") +
+        ", htmlContent=" + (htmlContent == null ? "null" : "'" + htmlContent + "'") +
+        ", jsonContent=" + (jsonContent == null ? "null" : jsonContent.toString()) +
+        ", markdownContent=" + (markdownContent == null ? "null" : "'" + markdownContent + "'") +
+        ", textContent=" + (textContent == null ? "null" : "'" + textContent + "'") +
+        '}';
   }
 }

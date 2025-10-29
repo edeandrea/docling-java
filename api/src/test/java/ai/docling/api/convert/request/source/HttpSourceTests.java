@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
+import ai.docling.api.convert.request.source.Source.Kind;
+
 /**
  * Unit tests for {@link HttpSource}.
  */
@@ -16,7 +18,7 @@ class HttpSourceTests {
 
   @Test
   void whenUrlIsNullThenThrow() {
-    assertThatThrownBy(() -> new HttpSource(Source.Kind.HTTP, null, null))
+    assertThatThrownBy(() -> new HttpSource().withUrl(null))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessageContaining("url cannot be null");
   }
@@ -26,52 +28,41 @@ class HttpSourceTests {
     URI url = URI.create("https://example.com/document.pdf");
     Map<String, Object> headers = Map.of("Authorization", "Bearer token123");
 
-    HttpSource httpSource = new HttpSource(Source.Kind.HTTP, url, headers);
+    HttpSource httpSource = new HttpSource().withUrl(url).withHeaders(headers);
 
-    assertThat(httpSource.kind()).isEqualTo(Source.Kind.HTTP);
-    assertThat(httpSource.url()).isEqualTo(url);
-    assertThat(httpSource.headers()).isEqualTo(headers);
+    assertThat(httpSource.getKind()).isEqualTo(Source.Kind.HTTP);
+    assertThat(httpSource.getUrl()).isEqualTo(url);
+    assertThat(httpSource.getHeaders()).isEqualTo(headers);
   }
 
   @Test
   void whenRequiredParametersThenCreateHttpSource() {
     URI url = URI.create("https://example.com/document.pdf");
 
-    HttpSource httpSource = new HttpSource(Source.Kind.HTTP, url, null);
+    HttpSource httpSource = new HttpSource().withUrl(url);
 
-    assertThat(httpSource.kind()).isEqualTo(Source.Kind.HTTP);
-    assertThat(httpSource.url()).isEqualTo(url);
-    assertThat(httpSource.headers()).isNull();
+    assertThat(httpSource.getKind()).isEqualTo(Source.Kind.HTTP);
+    assertThat(httpSource.getUrl()).isEqualTo(url);
+    assertThat(httpSource.getHeaders()).isNotNull().isEmpty();
   }
 
   @Test
   void kindIsAlwaysSetToHttp() {
     URI url = URI.create("https://example.com/document.pdf");
-    HttpSource httpSource = new HttpSource(Source.Kind.FILE, url, null);
+    HttpSource httpSource = new HttpSource().withUrl(url);
 
-    assertThat(httpSource.kind()).isEqualTo(Source.Kind.HTTP);
-  }
-
-  @Test
-  void fromStaticMethodWithStringCreatesHttpSource() {
-    String urlString = "https://example.com/document.pdf";
-
-    HttpSource httpSource = HttpSource.from(urlString);
-
-    assertThat(httpSource.kind()).isEqualTo(Source.Kind.HTTP);
-    assertThat(httpSource.url()).isEqualTo(URI.create(urlString));
-    assertThat(httpSource.headers()).isNull();
+    assertThat(httpSource.getKind()).isEqualTo(Kind.HTTP);
   }
 
   @Test
   void fromStaticMethodWithUriCreatesHttpSource() {
     URI url = URI.create("https://example.com/document.pdf");
 
-    HttpSource httpSource = HttpSource.from(url);
+    HttpSource httpSource = new HttpSource().withUrl(url);
 
-    assertThat(httpSource.kind()).isEqualTo(Source.Kind.HTTP);
-    assertThat(httpSource.url()).isEqualTo(url);
-    assertThat(httpSource.headers()).isNull();
+    assertThat(httpSource.getKind()).isEqualTo(Source.Kind.HTTP);
+    assertThat(httpSource.getUrl()).isEqualTo(url);
+    assertThat(httpSource.getHeaders()).isNotNull().isEmpty();
   }
 
   @Test
@@ -79,32 +70,31 @@ class HttpSourceTests {
     URI url = URI.create("https://example.com/presentation.pptx");
     Map<String, Object> headers = Map.of("User-Agent", "test-agent");
 
-    HttpSource httpSource = HttpSource.builder()
-        .url(url)
-        .headers(headers)
-        .build();
+    HttpSource httpSource = new HttpSource()
+        .withUrl(url)
+        .withHeaders(headers)
+        ;
 
-    assertThat(httpSource.kind()).isEqualTo(Source.Kind.HTTP);
-    assertThat(httpSource.url()).isEqualTo(url);
-    assertThat(httpSource.headers()).isEqualTo(headers);
+    assertThat(httpSource.getKind()).isEqualTo(Source.Kind.HTTP);
+    assertThat(httpSource.getUrl()).isEqualTo(url);
+    assertThat(httpSource.getHeaders()).isEqualTo(headers);
   }
 
   @Test
   void httpSourceIsImmutable() {
     Map<String, Object> headers = new HashMap<>(Map.of("Authorization", "Bearer token123"));
 
-    HttpSource httpSource = HttpSource.builder()
-        .url(URI.create("https://example.com/test.pdf"))
-        .headers(headers)
-        .build();
+    HttpSource httpSource = new HttpSource()
+        .withUrl(URI.create("https://example.com/test.pdf"))
+        .withHeaders(headers);
 
-    assertThat(httpSource.headers()).isEqualTo(headers);
+    assertThat(httpSource.getHeaders()).isEqualTo(headers);
 
     headers.put("newStuff", "awesome");
 
-    assertThat(httpSource.headers()).size().isEqualTo(1);
-    assertThat(httpSource.headers()).containsEntry("Authorization", "Bearer token123");
-    assertThat(httpSource.headers()).doesNotContainKey("newStuff");
+    assertThat(httpSource.getHeaders()).size().isEqualTo(1);
+    assertThat(httpSource.getHeaders()).containsEntry("Authorization", "Bearer token123");
+    assertThat(httpSource.getHeaders()).doesNotContainKey("newStuff");
   }
 
 }

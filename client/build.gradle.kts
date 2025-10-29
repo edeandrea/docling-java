@@ -4,9 +4,9 @@ plugins {
 
 dependencies {
   api(project(":docling-api"))
-  api(platform(libs.jackson.bom))
-  compileOnly(libs.jackson.databind)
-  compileOnly(libs.jackson2.databind)
+  implementation(platform(libs.jackson.bom))
+  implementation(libs.jackson.databind)
+  implementation(libs.jackson2.databind)
 
   testImplementation(platform(libs.testcontainers.bom))
   testImplementation(libs.testcontainers.junit.jupiter)

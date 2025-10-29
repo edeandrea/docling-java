@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+import ai.docling.api.convert.request.target.Target.Kind;
+
 /**
  * Unit tests for {@link InBodyTarget}.
  */
@@ -11,16 +13,16 @@ class InBodyTargetTests {
 
   @Test
   void whenValidParametersThenCreateInBodyTarget() {
-    InBodyTarget inBodyTarget = InBodyTarget.create();
+    InBodyTarget inBodyTarget = new InBodyTarget();
 
-    assertThat(inBodyTarget.kind()).isEqualTo(Target.Kind.INBODY);
+    assertThat(inBodyTarget.getKind()).isEqualTo(Kind.INBODY);
   }
 
   @Test
   void kindIsAlwaysSetToInBody() {
-    InBodyTarget inBodyTarget = new InBodyTarget(Target.Kind.PUT);
+    InBodyTarget inBodyTarget = new InBodyTarget().withKind(Kind.PUT);
 
-    assertThat(inBodyTarget.kind()).isEqualTo(Target.Kind.INBODY);
+    assertThat(inBodyTarget.getKind()).isEqualTo(Kind.INBODY);
   }
 
 }

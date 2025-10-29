@@ -24,76 +24,75 @@ class DocumentResponseTests {
     String markdownContent = "# Test Document\n\nThis is a test document.";
     String textContent = "Test Document\n\nThis is a test document.";
 
-    DocumentResponse response = DocumentResponse.builder()
-        .doctagsContent(doctagsContent)
-        .filename(filename)
-        .htmlContent(htmlContent)
-        .jsonContent(jsonContent)
-        .markdownContent(markdownContent)
-        .textContent(textContent)
-        .build();
+    DocumentResponse response = new DocumentResponse()
+        .withDoctagsContent(doctagsContent)
+        .withFilename(filename)
+        .withHtmlContent(htmlContent)
+        .withJsonContent(new HashMap<>(jsonContent))
+        .withMarkdownContent(markdownContent)
+        .withTextContent(textContent);
 
-    assertThat(response.doctagsContent()).isEqualTo(doctagsContent);
-    assertThat(response.filename()).isEqualTo(filename);
-    assertThat(response.htmlContent()).isEqualTo(htmlContent);
-    assertThat(response.jsonContent()).isEqualTo(jsonContent);
-    assertThat(response.markdownContent()).isEqualTo(markdownContent);
-    assertThat(response.textContent()).isEqualTo(textContent);
+    assertThat(response.getDoctagsContent()).isEqualTo(doctagsContent);
+    assertThat(response.getFilename()).isEqualTo(filename);
+    assertThat(response.getHtmlContent()).isEqualTo(htmlContent);
+    assertThat(response.getJsonContent()).containsExactlyInAnyOrderEntriesOf(jsonContent);
+    assertThat(response.getMarkdownContent()).isEqualTo(markdownContent);
+    assertThat(response.getTextContent()).isEqualTo(textContent);
   }
 
   @Test
   void createResponseWithNullFields() {
-    DocumentResponse response = DocumentResponse.builder().build();
+    DocumentResponse response = new DocumentResponse();
 
-    assertThat(response.doctagsContent()).isNull();
-    assertThat(response.filename()).isNull();
-    assertThat(response.htmlContent()).isNull();
-    assertThat(response.jsonContent()).isNotNull().isEmpty();
-    assertThat(response.markdownContent()).isNull();
-    assertThat(response.textContent()).isNull();
+    assertThat(response.getDoctagsContent()).isNull();
+    assertThat(response.getFilename()).isNull();
+    assertThat(response.getHtmlContent()).isNull();
+    assertThat(response.getJsonContent()).isNotNull().isEmpty();
+    assertThat(response.getMarkdownContent()).isNull();
+    assertThat(response.getTextContent()).isNull();
   }
 
   @Test
   void createResponseWithEmptyFields() {
     String filename = "empty-document.txt";
-    Map<String, Object> jsonContent = Map.of();
     String markdownContent = "";
     String textContent = "";
 
-    DocumentResponse response = DocumentResponse.builder()
-        .filename(filename)
-        .jsonContent(jsonContent)
-        .markdownContent(markdownContent)
-        .textContent(textContent)
-        .build();
+    DocumentResponse response = new DocumentResponse()
+        .withFilename(filename)
+        .withMarkdownContent(markdownContent)
+        .withTextContent(textContent);
 
-    assertThat(response.doctagsContent()).isNull();
-    assertThat(response.filename()).isEqualTo(filename);
-    assertThat(response.htmlContent()).isNull();
-    assertThat(response.jsonContent()).isEmpty();
-    assertThat(response.markdownContent()).isEmpty();
-    assertThat(response.textContent()).isEmpty();
+    assertThat(response.getDoctagsContent()).isNull();
+    assertThat(response.getFilename()).isEqualTo(filename);
+    assertThat(response.getHtmlContent()).isNull();
+    assertThat(response.getJsonContent()).isNotNull().isEmpty();
+    assertThat(response.getMarkdownContent()).isEmpty();
+    assertThat(response.getTextContent()).isEmpty();
   }
 
   @Test
-  void documentResponseIsImmutable() {
+  void documentResponseJsonContentReflectsOriginalMapChanges() {
     Map<String, Object> jsonContent = new HashMap<>(Map.of(
         "original", "value",
         "count", 1
     ));
 
-    DocumentResponse response = DocumentResponse.builder()
-        .jsonContent(jsonContent)
-        .build();
+    DocumentResponse response = new DocumentResponse();
+    response.setJsonContent(jsonContent);
 
-    assertThat(response.jsonContent()).isEqualTo(jsonContent);
+    assertThat(response.getJsonContent()).containsExactlyInAnyOrderEntriesOf(jsonContent);
 
     jsonContent.put("modified", "new value");
 
-    assertThat(response.jsonContent()).hasSize(2);
-    assertThat(response.jsonContent().get("original")).isEqualTo("value");
-    assertThat(response.jsonContent().get("count")).isEqualTo(1);
-    assertThat(response.jsonContent()).doesNotContainKey("modified");
+    assertThat(response.getJsonContent()).hasSize(2);
+
+    response.setJsonContent(jsonContent);
+    assertThat(response.getJsonContent()).hasSize(3);
+
+    assertThat(response.getJsonContent().get("original")).isEqualTo("value");
+    assertThat(response.getJsonContent().get("count")).isEqualTo(1);
+    assertThat(response.getJsonContent()).containsKey("modified");
   }
 
 }

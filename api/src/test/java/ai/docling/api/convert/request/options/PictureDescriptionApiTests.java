@@ -24,48 +24,39 @@ class PictureDescriptionApiTests {
     String prompt = "Describe this image in detail";
     Integer concurrency = 2;
 
-    PictureDescriptionApi api = new PictureDescriptionApi(
-        url,
-        headers,
-        params,
-        timeout,
-        concurrency,
-        prompt
-    );
+    PictureDescriptionApi api = new PictureDescriptionApi()
+        .withUrl(url)
+        .withHeaders(headers)
+        .withParams(params)
+        .withTimeout(timeout)
+        .withConcurrency(concurrency)
+        .withPrompt(prompt);
 
-    assertThat(api.url()).isEqualTo(url);
-    assertThat(api.headers()).isEqualTo(headers);
-    assertThat(api.params()).isEqualTo(params);
-    assertThat(api.timeout()).isEqualTo(timeout);
-    assertThat(api.concurrency()).isEqualTo(concurrency);
-    assertThat(api.prompt()).isEqualTo(prompt);
+    assertThat(api.getUrl()).isEqualTo(url);
+    assertThat(api.getHeaders()).isEqualTo(headers);
+    assertThat(api.getParams()).isEqualTo(params);
+    assertThat(api.getTimeout()).isEqualTo(timeout);
+    assertThat(api.getConcurrency()).isEqualTo(concurrency);
+    assertThat(api.getPrompt()).isEqualTo(prompt);
   }
 
   @Test
   void createApiWithOnlyRequiredFields() {
     URI url = URI.create("https://api.example.com/vision");
 
-    PictureDescriptionApi api = PictureDescriptionApi.builder()
-        .url(url)
-        .build();
+    PictureDescriptionApi api = new PictureDescriptionApi()
+        .withUrl(url);
 
-    assertThat(api.url()).isEqualTo(url);
-    assertThat(api.headers()).isNull();
-    assertThat(api.params()).isNull();
-    assertThat(api.timeout()).isNull();
-    assertThat(api.prompt()).isNull();
+    assertThat(api.getUrl()).isEqualTo(url);
+    assertThat(api.getHeaders()).isEmpty();
+    assertThat(api.getParams()).isEmpty();
+    assertThat(api.getTimeout()).isNull();
+    assertThat(api.getPrompt()).isNull();
   }
 
   @Test
   void createApiWithNullUrlThrowsException() {
-    assertThatThrownBy(() -> new PictureDescriptionApi(
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-    ))
+    assertThatThrownBy(() -> new PictureDescriptionApi().withUrl(null))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessage("url cannot be null");
   }
@@ -76,25 +67,24 @@ class PictureDescriptionApiTests {
     Map<String, Object> headers = new HashMap<>(Map.of("Authorization", "Bearer original"));
     Map<String, Object> params = new HashMap<>(Map.of("model", "original-model"));
 
-    PictureDescriptionApi api = PictureDescriptionApi.builder()
-        .url(url)
-        .headers(headers)
-        .params(params)
-        .timeout(Duration.ofSeconds(10))
-        .concurrency(3)
-        .prompt("Original prompt")
-        .build();
+    PictureDescriptionApi api = new PictureDescriptionApi()
+        .withUrl(url)
+        .withHeaders(headers)
+        .withParams(params)
+        .withTimeout(Duration.ofSeconds(10))
+        .withConcurrency(3)
+        .withPrompt("Original prompt");
 
-    assertThat(api.headers()).isEqualTo(headers);
-    assertThat(api.params()).isEqualTo(params);
+    assertThat(api.getHeaders()).isEqualTo(headers);
+    assertThat(api.getParams()).isEqualTo(params);
 
     headers.put("X-Custom-Header", "modified");
     params.put("temperature", 0.8);
 
-    assertThat(api.headers()).hasSize(1);
-    assertThat(api.headers().get("Authorization")).isEqualTo("Bearer original");
-    assertThat(api.params()).hasSize(1);
-    assertThat(api.params().get("model")).isEqualTo("original-model");
+    assertThat(api.getHeaders()).hasSize(1);
+    assertThat(api.getHeaders().get("Authorization")).isEqualTo("Bearer original");
+    assertThat(api.getParams()).hasSize(1);
+    assertThat(api.getParams().get("model")).isEqualTo("original-model");
   }
 
 }

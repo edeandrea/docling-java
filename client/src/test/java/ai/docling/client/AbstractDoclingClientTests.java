@@ -7,24 +7,23 @@ import java.io.InputStream;
 import java.net.URI;
 import java.time.Duration;
 import java.util.Base64;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import ai.docling.api.DoclingApi;
 import ai.docling.api.convert.request.ConvertDocumentRequest;
 import ai.docling.api.convert.request.options.ConvertDocumentOptions;
 import ai.docling.api.convert.request.options.TableFormerMode;
+import ai.docling.api.convert.request.source.FileSource;
+import ai.docling.api.convert.request.source.HttpSource;
 import ai.docling.api.convert.response.ConvertDocumentResponse;
 import ai.docling.api.health.HealthCheckResponse;
 import ai.docling.testcontainers.DoclingContainer;
 import ai.docling.testcontainers.config.DoclingContainerConfig;
 
-@Testcontainers
 abstract class AbstractDoclingClientTests {
-  @Container
   protected static final DoclingContainer doclingContainer = new DoclingContainer(
     DoclingContainerConfig.builder()
         .imageName(DoclingContainerConfig.DOCLING_IMAGE)
@@ -32,6 +31,10 @@ abstract class AbstractDoclingClientTests {
         .build(),
       Optional.of(Duration.ofMinutes(2))
   );
+
+  static {
+    doclingContainer.start();
+  }
 
   protected abstract DoclingApi getDoclingClient();
 
@@ -41,70 +44,66 @@ abstract class AbstractDoclingClientTests {
 
     assertThat(response)
         .isNotNull()
-        .extracting(HealthCheckResponse::status)
+        .extracting(HealthCheckResponse::getStatus)
         .isEqualTo("ok");
   }
 
   @Test
   void shouldConvertHttpSourceSuccessfully() {
-    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-        .addHttpSources(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/"))
-        .build();
+    ConvertDocumentRequest request = new ConvertDocumentRequest()
+        .withSources(List.of(new HttpSource().withUrl(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/"))));
 
     ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 
     assertThat(response).isNotNull();
 
-    assertThat(response.status()).isNotEmpty();
-    assertThat(response.document()).isNotNull();
-    assertThat(response.document().filename()).isNotEmpty();
+    assertThat(response.getStatus()).isNotEmpty();
+    assertThat(response.getDocument()).isNotNull();
+    assertThat(response.getDocument().getFilename()).isNotEmpty();
 
-    if (response.processingTime() != null) {
-      assertThat(response.processingTime()).isPositive();
+    if (response.getProcessingTime() != null) {
+      assertThat(response.getProcessingTime()).isPositive();
     }
 
-    assertThat(response.document().markdownContent()).isNotEmpty();
+    assertThat(response.getDocument().getMarkdownContent()).isNotEmpty();
   }
 
   @Test
   void shouldConvertFileSourceSuccessfully() throws IOException {
     var fileResource = readFileFromClasspath("story.pdf");
-    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-        .addFileSources("story.pdf", Base64.getEncoder().encodeToString(fileResource))
-        .build();
+    ConvertDocumentRequest request = new ConvertDocumentRequest()
+        .withSources(List.of(new FileSource().withFilename("story.pdf").withBase64String(Base64.getEncoder().encodeToString(fileResource))));
 
     ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 
     assertThat(response).isNotNull();
-    assertThat(response.status()).isNotEmpty();
-    assertThat(response.document()).isNotNull();
-    assertThat(response.document().filename()).isEqualTo("story.pdf");
+    assertThat(response.getStatus()).isNotEmpty();
+    assertThat(response.getDocument()).isNotNull();
+    assertThat(response.getDocument().getFilename()).isEqualTo("story.pdf");
 
-    if (response.processingTime() != null) {
-      assertThat(response.processingTime()).isPositive();
+    if (response.getProcessingTime() != null) {
+      assertThat(response.getProcessingTime()).isPositive();
     }
 
-    assertThat(response.document().markdownContent()).isNotEmpty();
+    assertThat(response.getDocument().getMarkdownContent()).isNotEmpty();
   }
 
   @Test
   void shouldHandleConversionWithDifferentDocumentOptions() {
-    ConvertDocumentOptions options = ConvertDocumentOptions.builder()
-        .doOcr(true)
-        .includeImages(true)
-        .tableMode(TableFormerMode.FAST)
-        .build();
+    ConvertDocumentOptions options = new ConvertDocumentOptions()
+        .withDoOcr(true)
+        .withIncludeImages(true)
+        .withTableMode(TableFormerMode.FAST);
 
-    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
-        .addHttpSources(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/"))
-        .options(options)
-        .build();
+    ConvertDocumentRequest request = new ConvertDocumentRequest()
+        .withSources(List.of(new HttpSource().withUrl(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/"))))
+        .withOptions(options);
 
     ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 
     assertThat(response).isNotNull();
-    assertThat(response.status()).isNotEmpty();
-    assertThat(response.document()).isNotNull();
+    assertThat(response.getStatus()).isNotEmpty();
+    assertThat(response.getDocument()).isNotNull();
   }
 
   private static byte[] readFileFromClasspath(String filePath) throws IOException {

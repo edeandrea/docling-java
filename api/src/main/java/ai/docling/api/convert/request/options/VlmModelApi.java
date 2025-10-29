@@ -2,6 +2,7 @@ package ai.docling.api.convert.request.options;
 
 import java.net.URI;
 import java.time.Duration;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,137 +15,291 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * API details for using a vision-language model for the VLM pipeline.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public record VlmModelApi(
-
-    @JsonProperty("url") URI url,
-
-    @JsonProperty("headers") @Nullable Map<String, Object> headers,
-
-    @JsonProperty("params") @Nullable Map<String, Object> params,
-
-    @JsonProperty("timeout") @Nullable Duration timeout,
-
-    @JsonProperty("concurrency") @Nullable Integer concurrency,
-
-    @JsonProperty("prompt") @Nullable String prompt,
-
-    @JsonProperty("scale") @Nullable Integer scale,
-
-    @JsonProperty("response_format") ResponseFormat responseFormat
-
-) {
-
-  public VlmModelApi {
-    if (url == null) {
-      throw new IllegalArgumentException("url cannot be null");
-    }
-    if (responseFormat == null) {
-      throw new IllegalArgumentException("responseFormat cannot be null");
-    }
-
-    if (headers != null) {
-      headers = new HashMap<>(headers);
-    }
-    if (params != null) {
-      params = new HashMap<>(params);
-    }
-  }
-
-  public static Builder builder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    @Nullable
+public class VlmModelApi {
+    @JsonProperty("url")
     private URI url;
-    @Nullable
-    private Map<String, Object> headers;
-    @Nullable
-    private Map<String, Object> params;
-    @Nullable
+
+    @JsonProperty("headers")
+    private Map<String, Object> headers = new HashMap<>();
+
+    @JsonProperty("params")
+    private Map<String, Object> params = new HashMap<>();
+
+    @JsonProperty("timeout")
     private Duration timeout;
-    @Nullable
+
+    @JsonProperty("concurrency")
     private Integer concurrency;
-    @Nullable
+
+    @JsonProperty("prompt")
     private String prompt;
-    @Nullable
+
+    @JsonProperty("scale")
     private Integer scale;
-    @Nullable
+
+    @JsonProperty("response_format")
     private ResponseFormat responseFormat;
 
-    private Builder() {
-    }
-
     /**
-     * Endpoint which accepts OpenAI API compatible requests.
+     * Gets the endpoint which accepts OpenAI API compatible requests.
+     *
+     * @return the API endpoint URL
      */
-    public Builder url(URI url) {
-      this.url = url;
-      return this;
+    @Nullable
+    public URI getUrl() {
+        return url;
     }
 
     /**
-     * Headers used for calling the API endpoint.
+     * Sets the endpoint which accepts OpenAI API compatible requests.
+     *
+     * @param url the API endpoint URL
+     */
+    public void setUrl(@Nullable URI url) {
+        this.url = url;
+    }
+
+    /**
+     * Sets the endpoint which accepts OpenAI API compatible requests.
+     *
+     * @param url the API endpoint URL
+     * @return this instance for method chaining
+     */
+    public VlmModelApi withUrl(@Nullable URI url) {
+        setUrl(url);
+        return this;
+    }
+
+    /**
+     * Gets the headers used for calling the API endpoint.
      * For example, it could include authentication headers.
+     *
+     * @return the headers map
      */
-    public Builder headers(@Nullable Map<String, Object> headers) {
-      this.headers = headers;
-      return this;
+    public Map<String, Object> getHeaders() {
+        return Collections.unmodifiableMap(headers);
     }
 
     /**
-     * Model parameters.
+     * Sets the headers used for calling the API endpoint.
+     * For example, it could include authentication headers.
+     *
+     * @param headers the headers map
      */
-    public Builder params(@Nullable Map<String, Object> params) {
-      this.params = params;
-      return this;
+    public void setHeaders(@Nullable Map<String, Object> headers) {
+      this.headers.clear();
+      
+      if (headers != null) {
+        this.headers.putAll(headers);
+      }
     }
 
     /**
-     * Timeout for the API request.
+     * Sets the headers used for calling the API endpoint.
+     * For example, it could include authentication headers.
+     *
+     * @param headers the headers map
+     * @return this instance for method chaining
      */
-    public Builder timeout(@Nullable Duration timeout) {
-      this.timeout = timeout;
-      return this;
+    public VlmModelApi withHeaders(@Nullable Map<String, Object> headers) {
+        setHeaders(headers);
+        return this;
     }
 
     /**
-     * Maximum number of concurrent requests to the API.
+     * Gets the model parameters.
+     *
+     * @return the model parameters
      */
-    public Builder concurrency(@Nullable Integer concurrency) {
-      this.concurrency = concurrency;
-      return this;
+    public Map<String, Object> getParams() {
+        return Collections.unmodifiableMap(params);
     }
 
     /**
-     * Prompt used when calling the vision-language model.
+     * Sets the model parameters.
+     *
+     * @param params the model parameters
      */
-    public Builder prompt(@Nullable String prompt) {
-      this.prompt = prompt;
-      return this;
+    public void setParams(@Nullable Map<String, Object> params) {
+      this.params.clear();
+      
+      if (params != null) {
+        this.params.putAll(params);
+      }
     }
 
     /**
-     * Scale factor of the images used.
+     * Sets the model parameters.
+     *
+     * @param params the model parameters
+     * @return this instance for method chaining
      */
-    public Builder scale(@Nullable Integer scale) {
-      this.scale = scale;
-      return this;
+    public VlmModelApi withParams(@Nullable Map<String, Object> params) {
+        setParams(params);
+        return this;
     }
 
     /**
-     * Type of response generated by the model.
+     * Gets the timeout for the API request.
+     *
+     * @return the timeout duration
      */
-    public Builder responseFormat(ResponseFormat responseFormat) {
-      this.responseFormat = responseFormat;
-      return this;
+    @Nullable
+    public Duration getTimeout() {
+        return timeout;
     }
 
-    public VlmModelApi build() {
-      return new VlmModelApi(url, headers, params, timeout, concurrency, prompt, scale, responseFormat);
+    /**
+     * Sets the timeout for the API request.
+     *
+     * @param timeout the timeout duration
+     */
+    public void setTimeout(@Nullable Duration timeout) {
+        this.timeout = timeout;
     }
 
-  }
+    /**
+     * Sets the timeout for the API request.
+     *
+     * @param timeout the timeout duration
+     * @return this instance for method chaining
+     */
+    public VlmModelApi withTimeout(@Nullable Duration timeout) {
+        setTimeout(timeout);
+        return this;
+    }
 
+    /**
+     * Gets the maximum number of concurrent requests to the API.
+     *
+     * @return the concurrency limit
+     */
+    @Nullable
+    public Integer getConcurrency() {
+        return concurrency;
+    }
+
+    /**
+     * Sets the maximum number of concurrent requests to the API.
+     *
+     * @param concurrency the concurrency limit
+     */
+    public void setConcurrency(@Nullable Integer concurrency) {
+        this.concurrency = concurrency;
+    }
+
+    /**
+     * Sets the maximum number of concurrent requests to the API.
+     *
+     * @param concurrency the concurrency limit
+     * @return this instance for method chaining
+     */
+    public VlmModelApi withConcurrency(@Nullable Integer concurrency) {
+        setConcurrency(concurrency);
+        return this;
+    }
+
+    /**
+     * Gets the prompt used when calling the vision-language model.
+     *
+     * @return the prompt
+     */
+    @Nullable
+    public String getPrompt() {
+        return prompt;
+    }
+
+    /**
+     * Sets the prompt used when calling the vision-language model.
+     *
+     * @param prompt the prompt
+     */
+    public void setPrompt(@Nullable String prompt) {
+        this.prompt = prompt;
+    }
+
+    /**
+     * Sets the prompt used when calling the vision-language model.
+     *
+     * @param prompt the prompt
+     * @return this instance for method chaining
+     */
+    public VlmModelApi withPrompt(@Nullable String prompt) {
+        setPrompt(prompt);
+        return this;
+    }
+
+    /**
+     * Gets the scale factor of the images used.
+     *
+     * @return the scale factor
+     */
+    @Nullable
+    public Integer getScale() {
+        return scale;
+    }
+
+    /**
+     * Sets the scale factor of the images used.
+     *
+     * @param scale the scale factor
+     */
+    public void setScale(@Nullable Integer scale) {
+        this.scale = scale;
+    }
+
+    /**
+     * Sets the scale factor of the images used.
+     *
+     * @param scale the scale factor
+     * @return this instance for method chaining
+     */
+    public VlmModelApi withScale(@Nullable Integer scale) {
+        setScale(scale);
+        return this;
+    }
+
+    /**
+     * Gets the type of response generated by the model.
+     *
+     * @return the response format
+     */
+    @Nullable
+    public ResponseFormat getResponseFormat() {
+        return responseFormat;
+    }
+
+    /**
+     * Sets the type of response generated by the model.
+     *
+     * @param responseFormat the response format
+     */
+    public void setResponseFormat(@Nullable ResponseFormat responseFormat) {
+        this.responseFormat = responseFormat;
+    }
+
+    /**
+     * Sets the type of response generated by the model.
+     *
+     * @param responseFormat the response format
+     * @return this instance for method chaining
+     */
+    public VlmModelApi withResponseFormat(@Nullable ResponseFormat responseFormat) {
+        setResponseFormat(responseFormat);
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "VlmModelApi{" +
+                "url=" + url +
+                ", headers=" + headers +
+                ", params=" + params +
+                ", timeout=" + timeout +
+                ", concurrency=" + concurrency +
+                ", prompt='" + prompt + '\'' +
+                ", scale=" + scale +
+                ", responseFormat=" + responseFormat +
+                '}';
+    }
 }

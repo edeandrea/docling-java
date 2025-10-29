@@ -15,28 +15,26 @@ class ErrorItemTests {
     String errorMessage = "Failed to parse document structure";
     String moduleName = "docling.core.parser";
 
-    ErrorItem errorItem = new ErrorItem(
-        componentType,
-        errorMessage,
-        moduleName
-    );
+    ErrorItem errorItem = new ErrorItem()
+        .withComponentType(componentType)
+        .withErrorMessage(errorMessage)
+        .withModuleName(moduleName);
 
-    assertThat(errorItem.componentType()).isEqualTo(componentType);
-    assertThat(errorItem.errorMessage()).isEqualTo(errorMessage);
-    assertThat(errorItem.moduleName()).isEqualTo(moduleName);
+    assertThat(errorItem.getComponentType()).isEqualTo(componentType);
+    assertThat(errorItem.getErrorMessage()).isEqualTo(errorMessage);
+    assertThat(errorItem.getModuleName()).isEqualTo(moduleName);
   }
 
   @Test
   void createErrorItemWithNullFields() {
-    ErrorItem errorItem = new ErrorItem(
-        null,
-        null,
-        null
-    );
+    ErrorItem errorItem = new ErrorItem()
+        .withComponentType(null)
+        .withErrorMessage(null)
+        .withModuleName(null);
 
-    assertThat(errorItem.componentType()).isNull();
-    assertThat(errorItem.errorMessage()).isNull();
-    assertThat(errorItem.moduleName()).isNull();
+    assertThat(errorItem.getComponentType()).isNull();
+    assertThat(errorItem.getErrorMessage()).isNull();
+    assertThat(errorItem.getModuleName()).isNull();
   }
 
   @Test
@@ -45,15 +43,14 @@ class ErrorItemTests {
     String errorMessage = "";
     String moduleName = "";
 
-    ErrorItem errorItem = new ErrorItem(
-        componentType,
-        errorMessage,
-        moduleName
-    );
+    ErrorItem errorItem = new ErrorItem()
+        .withComponentType(componentType)
+        .withErrorMessage(errorMessage)
+        .withModuleName(moduleName);
 
-    assertThat(errorItem.componentType()).isEmpty();
-    assertThat(errorItem.errorMessage()).isEmpty();
-    assertThat(errorItem.moduleName()).isEmpty();
+    assertThat(errorItem.getComponentType()).isEmpty();
+    assertThat(errorItem.getErrorMessage()).isEmpty();
+    assertThat(errorItem.getModuleName()).isEmpty();
   }
 
 }

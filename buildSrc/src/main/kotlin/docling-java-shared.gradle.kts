@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
 plugins {
   id("docling-shared")
   `java-library`
@@ -78,6 +80,10 @@ tasks.withType<Test> {
   testLogging {
     events("PASSED", "FAILED", "SKIPPED", "STANDARD_OUT", "STANDARD_ERROR")
     showStandardStreams = true
+    showCauses = true
+    showExceptions = true
+    showStackTraces = true
+    exceptionFormat = TestExceptionFormat.FULL
   }
 }
 
