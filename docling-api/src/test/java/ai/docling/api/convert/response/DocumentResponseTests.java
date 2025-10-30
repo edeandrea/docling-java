@@ -24,13 +24,14 @@ class DocumentResponseTests {
     String markdownContent = "# Test Document\n\nThis is a test document.";
     String textContent = "Test Document\n\nThis is a test document.";
 
-    DocumentResponse response = new DocumentResponse()
-        .withDoctagsContent(doctagsContent)
-        .withFilename(filename)
-        .withHtmlContent(htmlContent)
-        .withJsonContent(new HashMap<>(jsonContent))
-        .withMarkdownContent(markdownContent)
-        .withTextContent(textContent);
+    DocumentResponse response = DocumentResponse.builder()
+        .doctagsContent(doctagsContent)
+        .filename(filename)
+        .htmlContent(htmlContent)
+        .jsonContent(new HashMap<>(jsonContent))
+        .markdownContent(markdownContent)
+        .textContent(textContent)
+        .build();
 
     assertThat(response.getDoctagsContent()).isEqualTo(doctagsContent);
     assertThat(response.getFilename()).isEqualTo(filename);
@@ -42,7 +43,7 @@ class DocumentResponseTests {
 
   @Test
   void createResponseWithNullFields() {
-    DocumentResponse response = new DocumentResponse();
+    DocumentResponse response = DocumentResponse.builder().build();
 
     assertThat(response.getDoctagsContent()).isNull();
     assertThat(response.getFilename()).isNull();
@@ -58,10 +59,11 @@ class DocumentResponseTests {
     String markdownContent = "";
     String textContent = "";
 
-    DocumentResponse response = new DocumentResponse()
-        .withFilename(filename)
-        .withMarkdownContent(markdownContent)
-        .withTextContent(textContent);
+    DocumentResponse response = DocumentResponse.builder()
+        .filename(filename)
+        .markdownContent(markdownContent)
+        .textContent(textContent)
+        .build();
 
     assertThat(response.getDoctagsContent()).isNull();
     assertThat(response.getFilename()).isEqualTo(filename);
@@ -78,8 +80,9 @@ class DocumentResponseTests {
         "count", 1
     ));
 
-    DocumentResponse response = new DocumentResponse();
-    response.setJsonContent(jsonContent);
+    DocumentResponse response = DocumentResponse.builder()
+        .jsonContent(jsonContent)
+        .build();
 
     assertThat(response.getJsonContent()).containsExactlyInAnyOrderEntriesOf(jsonContent);
 
@@ -87,12 +90,11 @@ class DocumentResponseTests {
 
     assertThat(response.getJsonContent()).hasSize(2);
 
-    response.setJsonContent(jsonContent);
+    response = response.toBuilder().jsonContent(jsonContent).build();
     assertThat(response.getJsonContent()).hasSize(3);
 
     assertThat(response.getJsonContent().get("original")).isEqualTo("value");
     assertThat(response.getJsonContent().get("count")).isEqualTo(1);
     assertThat(response.getJsonContent()).containsKey("modified");
   }
-
 }

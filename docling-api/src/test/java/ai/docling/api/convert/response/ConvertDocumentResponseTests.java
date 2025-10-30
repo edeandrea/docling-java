@@ -16,17 +16,18 @@ class ConvertDocumentResponseTests {
 
   @Test
   void createResponseWithAllFields() {
-    DocumentResponse document = new DocumentResponse()
-        .withDoctagsContent("doctags content")
-        .withFilename("test-file.pdf")
-        .withHtmlContent("<html>content</html>")
-        .withJsonContent(Map.of("key", "value"))
-        .withMarkdownContent("# Markdown content")
-        .withTextContent("Plain text content");
+    DocumentResponse document = DocumentResponse.builder()
+        .doctagsContent("doctags content")
+        .filename("test-file.pdf")
+        .htmlContent("<html>content</html>")
+        .jsonContent("key", "value")
+        .markdownContent("# Markdown content")
+        .textContent("Plain text content")
+        .build();
 
     List<ErrorItem> errors = List.of(
-        new ErrorItem().withComponentType("parser").withErrorMessage("Parse error").withModuleName("pdf_module"),
-        new ErrorItem().withComponentType("converter").withErrorMessage("Conversion warning").withModuleName("html_module")
+        ErrorItem.builder().componentType("parser").errorMessage("Parse error").moduleName("pdf_module").build(),
+        ErrorItem.builder().componentType("converter").errorMessage("Conversion warning").moduleName("html_module").build()
     );
 
     Double processingTime = 1.5;
@@ -36,12 +37,13 @@ class ConvertDocumentResponseTests {
         "convert_time", 0.7
     );
 
-    ConvertDocumentResponse response = new ConvertDocumentResponse()
-        .withDocument(document)
-        .withErrors(errors)
-        .withProcessingTime(processingTime)
-        .withStatus(status)
-        .withTimings(timings);
+    ConvertDocumentResponse response = ConvertDocumentResponse.builder()
+        .document(document)
+        .errors(errors)
+        .processingTime(processingTime)
+        .status(status)
+        .timings(timings)
+        .build();
 
     assertThat(response.getDocument()).isEqualTo(document);
     assertThat(response.getErrors()).containsExactlyInAnyOrderElementsOf(errors);
@@ -52,7 +54,7 @@ class ConvertDocumentResponseTests {
 
   @Test
   void createResponseWithNullFields() {
-    ConvertDocumentResponse response = new ConvertDocumentResponse();
+    ConvertDocumentResponse response = ConvertDocumentResponse.builder().build();
 
     assertThat(response.getDocument()).isNull();
     assertThat(response.getErrors()).isNotNull().isEmpty();
@@ -63,14 +65,16 @@ class ConvertDocumentResponseTests {
 
   @Test
   void createResponseWithEmptyCollections() {
-    DocumentResponse document = new DocumentResponse()
-        .withFilename("empty-file.txt")
-        .withTextContent("");
+    DocumentResponse document = DocumentResponse.builder()
+        .filename("empty-file.txt")
+        .textContent("")
+        .build();
 
-    ConvertDocumentResponse response = new ConvertDocumentResponse()
-        .withDocument(document)
-        .withProcessingTime(0.1)
-        .withStatus("completed");
+    ConvertDocumentResponse response = ConvertDocumentResponse.builder()
+        .document(document)
+        .processingTime(0.1)
+        .status("completed")
+        .build();
 
     assertThat(response.getDocument()).isEqualTo(document);
     assertThat(response.getErrors()).isEmpty();
@@ -82,19 +86,20 @@ class ConvertDocumentResponseTests {
   @Test
   void convertDocumentResponseIsImmutable() {
     List<ErrorItem> errors = new ArrayList<>(List.of(
-        new ErrorItem().withComponentType("original").withErrorMessage("Original error").withModuleName("original_module")
+        ErrorItem.builder().componentType("original").errorMessage("Original error").moduleName("original_module").build()
     ));
 
     Map<String, Object> timings = new HashMap<>(Map.of("original_time", 1.0));
 
-    ConvertDocumentResponse response = new ConvertDocumentResponse()
-        .withErrors(errors)
-        .withTimings(timings);
+    ConvertDocumentResponse response = ConvertDocumentResponse.builder()
+        .errors(errors)
+        .timings(timings)
+        .build();
 
     assertThat(response.getErrors()).containsExactlyInAnyOrderElementsOf(errors);
     assertThat(response.getTimings()).containsExactlyInAnyOrderEntriesOf(timings);
 
-    errors.add(new ErrorItem().withComponentType("modified").withErrorMessage("Modified error").withModuleName("modified_module"));
+    errors.add(ErrorItem.builder().componentType("modified").errorMessage("Modified error").moduleName("modified_module").build());
     timings.put("modified_time", 3.0);
 
     assertThat(response.getErrors()).hasSize(1);

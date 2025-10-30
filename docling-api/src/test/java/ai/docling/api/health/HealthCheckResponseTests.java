@@ -13,14 +13,16 @@ class HealthCheckResponseTests {
   void whenValidParametersThenCreateHealthCheckResponse() {
     String status = "healthy";
 
-    HealthCheckResponse response = new HealthCheckResponse().withStatus(status);
+    HealthCheckResponse response = HealthCheckResponse.builder()
+        .status(status)
+        .build();
 
     assertThat(response.getStatus()).isEqualTo(status);
   }
 
   @Test
   void whenStatusIsNullThenCreateHealthCheckResponse() {
-    HealthCheckResponse response = new HealthCheckResponse().withStatus(null);
+    HealthCheckResponse response = HealthCheckResponse.builder().build();
 
     assertThat(response.getStatus()).isNull();
   }
@@ -29,7 +31,9 @@ class HealthCheckResponseTests {
   void whenEmptyStatusThenCreateHealthCheckResponse() {
     String status = "";
 
-    HealthCheckResponse response = new HealthCheckResponse().withStatus(status);
+    HealthCheckResponse response = HealthCheckResponse.builder()
+        .status(status)
+        .build();
 
     assertThat(response.getStatus()).isEqualTo(status);
   }

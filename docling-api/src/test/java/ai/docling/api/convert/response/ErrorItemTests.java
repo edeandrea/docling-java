@@ -15,10 +15,11 @@ class ErrorItemTests {
     String errorMessage = "Failed to parse document structure";
     String moduleName = "docling.core.parser";
 
-    ErrorItem errorItem = new ErrorItem()
-        .withComponentType(componentType)
-        .withErrorMessage(errorMessage)
-        .withModuleName(moduleName);
+    ErrorItem errorItem = ErrorItem.builder()
+        .componentType(componentType)
+        .errorMessage(errorMessage)
+        .moduleName(moduleName)
+        .build();
 
     assertThat(errorItem.getComponentType()).isEqualTo(componentType);
     assertThat(errorItem.getErrorMessage()).isEqualTo(errorMessage);
@@ -27,10 +28,7 @@ class ErrorItemTests {
 
   @Test
   void createErrorItemWithNullFields() {
-    ErrorItem errorItem = new ErrorItem()
-        .withComponentType(null)
-        .withErrorMessage(null)
-        .withModuleName(null);
+    ErrorItem errorItem = ErrorItem.builder().build();
 
     assertThat(errorItem.getComponentType()).isNull();
     assertThat(errorItem.getErrorMessage()).isNull();
@@ -43,10 +41,11 @@ class ErrorItemTests {
     String errorMessage = "";
     String moduleName = "";
 
-    ErrorItem errorItem = new ErrorItem()
-        .withComponentType(componentType)
-        .withErrorMessage(errorMessage)
-        .withModuleName(moduleName);
+    ErrorItem errorItem = ErrorItem.builder()
+        .componentType(componentType)
+        .errorMessage(errorMessage)
+        .moduleName(moduleName)
+        .build();
 
     assertThat(errorItem.getComponentType()).isEmpty();
     assertThat(errorItem.getErrorMessage()).isEmpty();

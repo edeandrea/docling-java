@@ -22,10 +22,11 @@ class PictureDescriptionLocalTests {
     String prompt = "Describe this image in detail";
     Map<String, Object> generationConfig = Map.of("max_length", 100, "temperature", 0.7);
 
-    PictureDescriptionLocal local = new PictureDescriptionLocal()
-        .withRepoId(repoId)
-        .withPrompt(prompt)
-        .withGenerationConfig(generationConfig);
+    PictureDescriptionLocal local = PictureDescriptionLocal.builder()
+        .repoId(repoId)
+        .prompt(prompt)
+        .generationConfig(generationConfig)
+        .build();
 
     assertThat(local.getRepoId()).isEqualTo(repoId);
     assertThat(local.getPrompt()).isEqualTo(prompt);
@@ -36,8 +37,9 @@ class PictureDescriptionLocalTests {
   void createLocalWithOnlyRequiredFields() {
     String repoId = "microsoft/Florence-2-large";
 
-    PictureDescriptionLocal local = new PictureDescriptionLocal()
-        .withRepoId(repoId);
+    PictureDescriptionLocal local = PictureDescriptionLocal.builder()
+        .repoId(repoId)
+        .build();
 
     assertThat(local.getRepoId()).isEqualTo(repoId);
     assertThat(local.getPrompt()).isNull();
@@ -48,9 +50,9 @@ class PictureDescriptionLocalTests {
   @NullAndEmptySource
   @ValueSource(strings = "   ")
   void createLocalWithNullRepoIdThrowsException(String repoId) {
-    assertThatThrownBy(() -> new PictureDescriptionLocal().withRepoId(null))
+    assertThatThrownBy(() -> PictureDescriptionLocal.builder().build())
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("repoId cannot be null or empty");
+        .hasMessage("repoId is marked non-null but is null");
   }
 
   @Test
@@ -58,10 +60,11 @@ class PictureDescriptionLocalTests {
     String repoId = "microsoft/Florence-2-large";
     Map<String, Object> generationConfig = new HashMap<>(Map.of("max_length", 100));
 
-    PictureDescriptionLocal local = new PictureDescriptionLocal()
-        .withRepoId(repoId)
-        .withPrompt("Original prompt")
-        .withGenerationConfig(generationConfig);
+    PictureDescriptionLocal local = PictureDescriptionLocal.builder()
+        .repoId(repoId)
+        .prompt("Original prompt")
+        .generationConfig(generationConfig)
+        .build();
 
     assertThat(local.getGenerationConfig()).isEqualTo(generationConfig);
 

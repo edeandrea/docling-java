@@ -7,8 +7,6 @@ import java.net.URI;
 
 import org.junit.jupiter.api.Test;
 
-import ai.docling.api.convert.request.target.Target.Kind;
-
 /**
  * Unit tests for {@link PutTarget}.
  */
@@ -16,28 +14,17 @@ class PutTargetTests {
 
   @Test
   void whenUriIsNullThenThrow() {
-    assertThatThrownBy(() -> new PutTarget().withUrl(null))
+    assertThatThrownBy(() -> PutTarget.builder().build())
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("url cannot be null");
+        .hasMessageContaining("url is marked non-null but is nul");
   }
 
   @Test
   void whenValidParametersThenCreatePutTarget() {
     URI uri = URI.create("https://example.com/upload");
 
-    PutTarget putTarget = new PutTarget().withUrl(uri);
+    PutTarget putTarget = PutTarget.builder().url(uri).build();
 
-    assertThat(putTarget.getKind()).isEqualTo(Target.Kind.PUT);
     assertThat(putTarget.getUrl()).isEqualTo(uri);
   }
-
-  @Test
-  void kindIsAlwaysSetToPut() {
-    URI uri = URI.create("https://example.com/upload");
-
-    PutTarget putTarget = new PutTarget().withKind(Kind.INBODY).withUrl(uri);
-
-    assertThat(putTarget.getKind()).isEqualTo(Kind.PUT);
-  }
-
 }

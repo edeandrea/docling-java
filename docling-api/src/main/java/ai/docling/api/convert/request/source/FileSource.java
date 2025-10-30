@@ -1,9 +1,5 @@
 package ai.docling.api.convert.request.source;
 
-import static ai.docling.api.util.ValidationUtils.ensureNotBlank;
-
-import org.jspecify.annotations.Nullable;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -21,73 +17,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * <p>By default, JSON includes non-empty fields only.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public final class FileSource extends Source<FileSource> {
+@tools.jackson.databind.annotation.JsonDeserialize(builder = FileSource.Builder.class)
+@lombok.extern.jackson.Jacksonized
+@lombok.Builder(toBuilder = true)
+@lombok.Getter
+@lombok.ToString
+public final class FileSource extends Source {
   @JsonProperty("base64_string")
+  @lombok.NonNull
   private String base64String;
 
   @JsonProperty("filename")
+  @lombok.NonNull
   private String filename;
 
-  public FileSource() {
-    super();
-    setKind(Kind.FILE);
-  }
-
-  /**
-   * Base64 content of the file.
-   * @return base64 content or {@code null}
-   */
-  @Nullable
-  public String getBase64String() {
-    return base64String;
-  }
-
-  /**
-   * Sets the base64 content of the file.
-   * @param base64String may be {@code null}
-   */
-  public void setBase64String(String base64String) {
-    this.base64String = ensureNotBlank(base64String, "base64String");
-  }
-
-  public FileSource withBase64String(String base64String) {
-    setBase64String(base64String);
-    return this;
-  }
-
-  /**
-   * Filename of the uploaded document.
-   * @return filename or {@code null}
-   */
-  @Nullable
-  public String getFilename() {
-    return filename;
-  }
-
-  /**
-   * Sets the filename of the uploaded document.
-   * @param filename may be {@code null}
-   */
-  public void setFilename(String filename) {
-    this.filename = ensureNotBlank(filename, "filename");
-  }
-
-  public FileSource withFilename(String filename) {
-    setFilename(filename);
-    return this;
-  }
-
-  @Override
-  public String toString() {
-    return "FileSource{" +
-        "kind='" + getKind() + "'" +
-        ", base64String=" + (base64String == null ? "null" : "'" + base64String + "'") +
-        ", filename=" + (filename == null ? "null" : "'" + filename + "'") +
-        '}';
-  }
-
-  @Override
-  public void setKind(@Nullable Kind kind) {
-    super.setKind(Kind.FILE);
-  }
+  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
+  public static class Builder { }
 }

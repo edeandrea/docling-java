@@ -9,8 +9,6 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import ai.docling.api.convert.request.source.Source.Kind;
-
 /**
  * Unit tests for {@link HttpSource}.
  */
@@ -18,9 +16,9 @@ class HttpSourceTests {
 
   @Test
   void whenUrlIsNullThenThrow() {
-    assertThatThrownBy(() -> new HttpSource().withUrl(null))
+    assertThatThrownBy(() -> HttpSource.builder().build())
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("url cannot be null");
+        .hasMessageContaining("url is marked non-null but is nul");
   }
 
   @Test
@@ -28,9 +26,8 @@ class HttpSourceTests {
     URI url = URI.create("https://example.com/document.pdf");
     Map<String, Object> headers = Map.of("Authorization", "Bearer token123");
 
-    HttpSource httpSource = new HttpSource().withUrl(url).withHeaders(headers);
+    HttpSource httpSource = HttpSource.builder().url(url).headers(headers).build();
 
-    assertThat(httpSource.getKind()).isEqualTo(Source.Kind.HTTP);
     assertThat(httpSource.getUrl()).isEqualTo(url);
     assertThat(httpSource.getHeaders()).isEqualTo(headers);
   }
@@ -39,28 +36,8 @@ class HttpSourceTests {
   void whenRequiredParametersThenCreateHttpSource() {
     URI url = URI.create("https://example.com/document.pdf");
 
-    HttpSource httpSource = new HttpSource().withUrl(url);
+    HttpSource httpSource = HttpSource.builder().url(url).build();
 
-    assertThat(httpSource.getKind()).isEqualTo(Source.Kind.HTTP);
-    assertThat(httpSource.getUrl()).isEqualTo(url);
-    assertThat(httpSource.getHeaders()).isNotNull().isEmpty();
-  }
-
-  @Test
-  void kindIsAlwaysSetToHttp() {
-    URI url = URI.create("https://example.com/document.pdf");
-    HttpSource httpSource = new HttpSource().withUrl(url);
-
-    assertThat(httpSource.getKind()).isEqualTo(Kind.HTTP);
-  }
-
-  @Test
-  void fromStaticMethodWithUriCreatesHttpSource() {
-    URI url = URI.create("https://example.com/document.pdf");
-
-    HttpSource httpSource = new HttpSource().withUrl(url);
-
-    assertThat(httpSource.getKind()).isEqualTo(Source.Kind.HTTP);
     assertThat(httpSource.getUrl()).isEqualTo(url);
     assertThat(httpSource.getHeaders()).isNotNull().isEmpty();
   }
@@ -70,12 +47,11 @@ class HttpSourceTests {
     URI url = URI.create("https://example.com/presentation.pptx");
     Map<String, Object> headers = Map.of("User-Agent", "test-agent");
 
-    HttpSource httpSource = new HttpSource()
-        .withUrl(url)
-        .withHeaders(headers)
-        ;
+    HttpSource httpSource = HttpSource.builder()
+        .url(url)
+        .headers(headers)
+        .build();
 
-    assertThat(httpSource.getKind()).isEqualTo(Source.Kind.HTTP);
     assertThat(httpSource.getUrl()).isEqualTo(url);
     assertThat(httpSource.getHeaders()).isEqualTo(headers);
   }
@@ -84,9 +60,10 @@ class HttpSourceTests {
   void httpSourceIsImmutable() {
     Map<String, Object> headers = new HashMap<>(Map.of("Authorization", "Bearer token123"));
 
-    HttpSource httpSource = new HttpSource()
-        .withUrl(URI.create("https://example.com/test.pdf"))
-        .withHeaders(headers);
+    HttpSource httpSource = HttpSource.builder()
+        .url(URI.create("https://example.com/test.pdf"))
+        .headers(headers)
+        .build();
 
     assertThat(httpSource.getHeaders()).isEqualTo(headers);
 

@@ -12,42 +12,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * are omitted from JSON.</p>
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@tools.jackson.databind.annotation.JsonDeserialize(builder = HealthCheckResponse.Builder.class)
+@lombok.extern.jackson.Jacksonized
+@lombok.Builder(toBuilder = true)
+@lombok.Getter
+@lombok.ToString
 public class HealthCheckResponse {
-
   @JsonProperty("status")
+  @Nullable
   private String status;
 
-  /**
-   * Returns the health status string.
-   * @return status or {@code null}
-   */
-  @Nullable
-  public String getStatus() {
-    return status;
-  }
-
-  /**
-   * Sets the health status string.
-   * @param status may be {@code null}
-   */
-  public void setStatus(@Nullable String status) {
-    this.status = status;
-  }
-
-  /**
-   * Fluent setter for {@link #setStatus(String)}.
-   * @param status may be {@code null}
-   * @return this instance for chaining
-   */
-  public HealthCheckResponse withStatus(@Nullable String status) {
-    setStatus(status);
-    return this;
-  }
-
-  @Override
-  public String toString() {
-    return "HealthCheckResponse{" +
-        "status=" + (status == null ? "null" : "'" + status + "'") +
-        '}';
-  }
+  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
+  public static class Builder { }
 }

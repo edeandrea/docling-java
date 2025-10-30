@@ -15,6 +15,8 @@ class DoclingServeJackson2ClientTests extends AbstractDoclingServeClientTests {
   static void setUp() {
     doclingClient = DoclingServeJackson2Client.builder()
         .baseUrl("http://localhost:%s".formatted(doclingContainer.getMappedPort(DoclingServeContainerConfig.DEFAULT_DOCLING_SERVE_PORT)))
+        .logRequests()
+        .logResponses()
         .build();
   }
 

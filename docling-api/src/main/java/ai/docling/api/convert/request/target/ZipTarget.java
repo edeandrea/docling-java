@@ -1,7 +1,5 @@
 package ai.docling.api.convert.request.target;
 
-import org.jspecify.annotations.Nullable;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
@@ -12,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  *
  * <p>This class overrides methods to specialize the behavior for the ZIP delivery kind:
  * <ul>
- *   <li>{@link #withKind(Kind)}: Returns a {@code ZipTarget} instance with the specified delivery kind.</li>
  *   <li>{@link #toString()}: Produces a string representation of the {@code ZipTarget} instance.</li>
  * </ul>
  *
@@ -22,21 +19,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  * <p>The {@link ZipTarget} instances are immutable and final.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public final class ZipTarget extends Target<ZipTarget> {
-  public ZipTarget() {
-    super();
-    setKind(Kind.ZIP);
-  }
+@tools.jackson.databind.annotation.JsonDeserialize(builder = ZipTarget.Builder.class)
+@lombok.extern.jackson.Jacksonized
+@lombok.Builder(toBuilder = true)
+@lombok.Getter
+@lombok.ToString
+public final class ZipTarget extends Target {
 
-  @Override
-  public String toString() {
-    return "ZipTarget{" +
-        "kind='" + getKind() + "'" +
-        '}';
-  }
-
-  @Override
-  public void setKind(@Nullable Kind kind) {
-    super.setKind(Kind.ZIP);
-  }
+  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
+  public static class Builder { }
 }

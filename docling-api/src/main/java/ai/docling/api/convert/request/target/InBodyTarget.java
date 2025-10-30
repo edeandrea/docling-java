@@ -1,7 +1,5 @@
 package ai.docling.api.convert.request.target;
 
-import org.jspecify.annotations.Nullable;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
@@ -15,21 +13,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  * <p>This class overrides {@link Object#toString()} for a string representation of the instance.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public final class InBodyTarget extends Target<InBodyTarget> {
-  public InBodyTarget() {
-    super();
-    setKind(Kind.INBODY);
-  }
+@tools.jackson.databind.annotation.JsonDeserialize(builder = InBodyTarget.Builder.class)
+@lombok.extern.jackson.Jacksonized
+@lombok.Builder(toBuilder = true)
+@lombok.Getter
+@lombok.ToString
+public final class InBodyTarget extends Target {
 
-  @Override
-  public String toString() {
-    return "InBodyTarget{" +
-        "kind='" + getKind() + "'" +
-        '}';
-  }
-
-  @Override
-  public void setKind(@Nullable Kind kind) {
-    super.setKind(Kind.INBODY);
-  }
+  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
+  public static class Builder { }
 }

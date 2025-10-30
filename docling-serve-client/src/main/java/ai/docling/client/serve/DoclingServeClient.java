@@ -6,9 +6,16 @@ import static ai.docling.api.util.ValidationUtils.ensureNotNull;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.net.http.HttpRequest.BodyPublisher;
+import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.nio.ByteBuffer;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.Flow.Subscriber;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import ai.docling.api.DoclingApi;
 import ai.docling.api.convert.request.ConvertDocumentRequest;
@@ -27,10 +34,13 @@ import ai.docling.api.health.HealthCheckResponse;
  * {@link #writeValueAsString(Object)} for serialization and deserialization behavior.
  */
 public abstract class DoclingServeClient implements DoclingApi {
+  private static final Logger LOG = Logger.getLogger(DoclingServeClient.class.getName());
   protected static final URI DEFAULT_BASE_URL = URI.create("http://localhost:5001");
 
   private final URI baseUrl;
   private final HttpClient httpClient;
+  private final boolean logRequests;
+  private final boolean logResponses;
 
   protected DoclingServeClient(DoclingServeClientBuilder builder) {
     this.baseUrl = ensureNotNull(builder.baseUrl, "baseUrl");
@@ -43,6 +53,8 @@ public abstract class DoclingServeClient implements DoclingApi {
     }
 
     this.httpClient = ensureNotNull(builder.httpClientBuilder, "httpClientBuilder").build();
+    this.logRequests = builder.logRequests;
+    this.logResponses = builder.logResponses;
   }
 
   /**
@@ -66,6 +78,63 @@ public abstract class DoclingServeClient implements DoclingApi {
    */
   protected abstract <T> String writeValueAsString(T value);
 
+  protected void logRequest(HttpRequest request) {
+    if (LOG.isLoggable(Level.INFO)) {
+      var stringBuilder = new StringBuilder();
+      stringBuilder.append("\n→ REQUEST: %s %s\n".formatted(request.method(), request.uri()));
+      stringBuilder.append("  HEADERS:\n");
+
+      request.headers().map().forEach((key, values) ->
+          stringBuilder.append("  %s: %s\n".formatted(key, String.join(", ", values)))
+      );
+
+      LOG.info(stringBuilder.toString());
+    }
+  }
+
+  protected void logResponse(HttpResponse<String> response, Optional<String> responseBody) {
+    if (LOG.isLoggable(Level.INFO)) {
+      var stringBuilder = new StringBuilder();
+      stringBuilder.append("\n← RESPONSE: %s\n".formatted(response.statusCode()));
+      stringBuilder.append("  HEADERS:\n");
+
+      response.headers().map().forEach((key, values) ->
+          stringBuilder.append("  %s: %s\n".formatted(key, String.join(", ", values)))
+      );
+
+      responseBody.ifPresent(body -> stringBuilder.append("  BODY:\n%s".formatted(body)));
+      LOG.info(stringBuilder.toString());
+    }
+  }
+
+  protected <T> T execute(HttpRequest request, Class<T> expectedValueType) {
+    if (this.logRequests) {
+      logRequest(request);
+    }
+
+    long startTime = System.currentTimeMillis();
+
+    try {
+      return httpClient.sendAsync(request, BodyHandlers.ofString())
+          .thenApply(response -> getResponse(response, expectedValueType))
+          .join();
+    }
+    finally {
+      long duration = System.currentTimeMillis() - startTime;
+      LOG.info(() -> "Request took %d ms".formatted(duration));
+    }
+  }
+
+  protected <T> T getResponse(HttpResponse<String> response, Class<T> expectedReturnType) {
+    var body = response.body();
+
+    if (this.logResponses) {
+      logResponse(response, Optional.ofNullable(body));
+    }
+
+    return readValue(body, expectedReturnType);
+  }
+
   @Override
   public HealthCheckResponse health() {
     var httpRequest = HttpRequest.newBuilder()
@@ -74,10 +143,7 @@ public abstract class DoclingServeClient implements DoclingApi {
         .GET()
         .build();
 
-    return httpClient.sendAsync(httpRequest, BodyHandlers.ofString())
-        .thenApply(HttpResponse::body)
-        .thenApply(json -> readValue(json, HealthCheckResponse.class))
-        .join();
+    return execute(httpRequest, HealthCheckResponse.class);
   }
 
   @Override
@@ -86,13 +152,34 @@ public abstract class DoclingServeClient implements DoclingApi {
         .uri(baseUrl.resolve("/v1/convert/source"))
         .header("Accept", "application/json")
         .header("Content-Type", "application/json")
-        .POST(HttpRequest.BodyPublishers.ofString(writeValueAsString(request)))
+        .POST(new LoggingBodyPublisher<>(request))
         .build();
 
-    return httpClient.sendAsync(httpRequest, BodyHandlers.ofString())
-        .thenApply(HttpResponse::body)
-        .thenApply(json -> readValue(json, ConvertDocumentResponse.class))
-        .join();
+    return execute(httpRequest, ConvertDocumentResponse.class);
+  }
+
+  private class LoggingBodyPublisher<T> implements BodyPublisher {
+    private final BodyPublisher delegate;
+    private final String stringContent;
+
+    private LoggingBodyPublisher(T content) {
+      this.stringContent = writeValueAsString(content);
+      this.delegate = BodyPublishers.ofString(this.stringContent);
+    }
+
+    @Override
+    public long contentLength() {
+      return this.delegate.contentLength();
+    }
+
+    @Override
+    public void subscribe(Subscriber<? super ByteBuffer> subscriber) {
+      if (logRequests) {
+        LOG.info(() -> "→ REQUEST BODY: %s".formatted(this.stringContent));
+      }
+
+      this.delegate.subscribe(subscriber);
+    }
   }
 
   /**
@@ -108,6 +195,8 @@ public abstract class DoclingServeClient implements DoclingApi {
   public abstract static class DoclingServeClientBuilder<C extends DoclingServeClient, B extends DoclingServeClientBuilder<C, B>> implements DoclingApiBuilder<C, B> {
     private URI baseUrl = DEFAULT_BASE_URL;
     private HttpClient.Builder httpClientBuilder = HttpClient.newBuilder();
+    private boolean logRequests = false;
+    private boolean logResponses = false;
 
     /**
      * Protected constructor for use by subclasses of {@link DoclingServeClientBuilder}.
@@ -172,6 +261,18 @@ public abstract class DoclingServeClient implements DoclingApi {
      */
     public B httpClientBuilder(HttpClient.Builder httpClientBuilder) {
       this.httpClientBuilder = httpClientBuilder;
+      return (B) this;
+    }
+
+    @Override
+    public B logRequests(boolean logRequests) {
+      this.logRequests = logRequests;
+      return (B) this;
+    }
+
+    @Override
+    public B logResponses(boolean logResponses) {
+      this.logResponses = logResponses;
       return (B) this;
     }
   }

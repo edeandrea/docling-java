@@ -24,13 +24,14 @@ class PictureDescriptionApiTests {
     String prompt = "Describe this image in detail";
     Integer concurrency = 2;
 
-    PictureDescriptionApi api = new PictureDescriptionApi()
-        .withUrl(url)
-        .withHeaders(headers)
-        .withParams(params)
-        .withTimeout(timeout)
-        .withConcurrency(concurrency)
-        .withPrompt(prompt);
+    PictureDescriptionApi api = PictureDescriptionApi.builder()
+        .url(url)
+        .headers(headers)
+        .params(params)
+        .timeout(timeout)
+        .concurrency(concurrency)
+        .prompt(prompt)
+        .build();
 
     assertThat(api.getUrl()).isEqualTo(url);
     assertThat(api.getHeaders()).isEqualTo(headers);
@@ -44,8 +45,9 @@ class PictureDescriptionApiTests {
   void createApiWithOnlyRequiredFields() {
     URI url = URI.create("https://api.example.com/vision");
 
-    PictureDescriptionApi api = new PictureDescriptionApi()
-        .withUrl(url);
+    PictureDescriptionApi api = PictureDescriptionApi.builder()
+        .url(url)
+        .build();
 
     assertThat(api.getUrl()).isEqualTo(url);
     assertThat(api.getHeaders()).isEmpty();
@@ -56,9 +58,9 @@ class PictureDescriptionApiTests {
 
   @Test
   void createApiWithNullUrlThrowsException() {
-    assertThatThrownBy(() -> new PictureDescriptionApi().withUrl(null))
+    assertThatThrownBy(() -> PictureDescriptionApi.builder().build())
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("url cannot be null");
+        .hasMessage("url is marked non-null but is null");
   }
 
   @Test
@@ -67,13 +69,14 @@ class PictureDescriptionApiTests {
     Map<String, Object> headers = new HashMap<>(Map.of("Authorization", "Bearer original"));
     Map<String, Object> params = new HashMap<>(Map.of("model", "original-model"));
 
-    PictureDescriptionApi api = new PictureDescriptionApi()
-        .withUrl(url)
-        .withHeaders(headers)
-        .withParams(params)
-        .withTimeout(Duration.ofSeconds(10))
-        .withConcurrency(3)
-        .withPrompt("Original prompt");
+    PictureDescriptionApi api = PictureDescriptionApi.builder()
+        .url(url)
+        .headers(headers)
+        .params(params)
+        .timeout(Duration.ofSeconds(10))
+        .concurrency(3)
+        .prompt("Original prompt")
+        .build();
 
     assertThat(api.getHeaders()).isEqualTo(headers);
     assertThat(api.getParams()).isEqualTo(params);

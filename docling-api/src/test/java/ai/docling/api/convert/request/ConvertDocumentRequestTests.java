@@ -23,26 +23,28 @@ class ConvertDocumentRequestTests {
   @Test
   void whenOptionsIsNullThenThrow() {
     var uri = URI.create("http://example.com");
-    var httpSource = new HttpSource().withUrl(uri);
+    var httpSource = HttpSource.builder().url(uri).build();
 
-    assertThatThrownBy(() -> new ConvertDocumentRequest().withSources(List.of(httpSource)).withOptions(null))
+    assertThatThrownBy(() -> ConvertDocumentRequest.builder().options(null).source(httpSource).build())
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("options cannot be null");
+        .hasMessageContaining("options is marked non-null but is null");
   }
 
   @Test
   void buildWithHttpSourcesAsList() {
-    ConvertDocumentRequest request = new ConvertDocumentRequest()
-        .withSources(List.of(new HttpSource().withUrl(URI.create("http://example.com"))))
-        .withTarget(new InBodyTarget());
+    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+        .source(HttpSource.builder().url(URI.create("http://example.com")).build())
+        .target(InBodyTarget.builder().build())
+        .build();
     assertThat(request.getSources()).hasSize(1);
     assertThat(request.getSources().get(0)).isInstanceOf(HttpSource.class);
   }
 
   @Test
   void buildWithHttpSourcesAsVarargs() {
-    ConvertDocumentRequest request = new ConvertDocumentRequest()
-        .withSources(List.of(new HttpSource().withUrl(URI.create("http://example.com")), new HttpSource().withUrl(URI.create("http://example.org"))));
+    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+        .sources(List.of(HttpSource.builder().url(URI.create("http://example.com")).build(), HttpSource.builder().url(URI.create("http://example.org")).build()))
+        .build();
 
     assertThat(request.getSources())
         .hasSize(2)
@@ -51,8 +53,9 @@ class ConvertDocumentRequestTests {
 
   @Test
   void buildWithFileSourcesAsList() {
-    ConvertDocumentRequest request = new ConvertDocumentRequest()
-        .withSources(List.of(new FileSource().withFilename("file:///path/to/file.txt").withBase64String("content")));
+    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+        .sources(List.of(FileSource.builder().filename("file:///path/to/file.txt").base64String("content").build()))
+        .build();
 
     assertThat(request.getSources())
         .hasSize(1)
@@ -61,13 +64,14 @@ class ConvertDocumentRequestTests {
 
   @Test
   void buildWithFileSourcesAsVarargs() {
-    ConvertDocumentRequest request = new ConvertDocumentRequest()
-        .withSources(List.of(
-            new FileSource().withFilename("file1.txt").withBase64String("base64string1"),
-            new FileSource().withFilename("file2.txt").withBase64String("base64string2")
+    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+        .sources(List.of(
+            FileSource.builder().filename("file1.txt").base64String("base64string1").build(),
+            FileSource.builder().filename("file2.txt").base64String("base64string2").build()
             )
         )
-        .withTarget(new ZipTarget());
+        .target(ZipTarget.builder().build())
+        .build();
 
     assertThat(request.getSources())
         .hasSize(2)
@@ -75,30 +79,20 @@ class ConvertDocumentRequestTests {
   }
 
   @Test
-  void whenMixedSourcesThenThrow() {
-    var sources = List.of(
-        new HttpSource().withUrl(URI.create("http://example.com")),
-        new FileSource().withFilename("file.txt").withBase64String("base64string")
-    );
-    assertThatThrownBy(() -> new ConvertDocumentRequest().withSources(sources))
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("All sources must be of the same type (HttpSource or FileSource)");
-  }
-
-  @Test
   void convertDocumentRequestIsImmutable() {
-    List<FileSource> sources = new ArrayList<>(List.of(new FileSource().withFilename("test.txt").withBase64String("dGVzdCBjb250ZW50")));
+    List<FileSource> sources = new ArrayList<>(List.of(FileSource.builder().filename("test.txt").base64String("dGVzdCBjb250ZW50").build()));
 
-    ConvertDocumentRequest request = new ConvertDocumentRequest()
-        .withSources(sources)
-        .withOptions(new ConvertDocumentOptions().withDoOcr(true))
-        .withTarget(new InBodyTarget());
+    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+        .sources(sources)
+        .options(ConvertDocumentOptions.builder().doOcr(true).build())
+        .target(InBodyTarget.builder().build())
+        .build();
 
     assertThat(request.getSources())
         .usingRecursiveFieldByFieldElementComparator()
         .containsExactlyInAnyOrderElementsOf(sources);
 
-    sources.add(new FileSource().withFilename("changed.txt").withBase64String("Y2hhbmdlZA=="));
+    sources.add(FileSource.builder().filename("changed.txt").base64String("Y2hhbmdlZA==").build());
 
     assertThat(request.getSources())
         .singleElement()

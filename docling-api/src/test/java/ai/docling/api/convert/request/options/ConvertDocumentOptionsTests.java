@@ -17,10 +17,11 @@ class ConvertDocumentOptionsTests {
     List<OutputFormat> toFormats = new ArrayList<>(List.of(OutputFormat.MARKDOWN));
     List<String> ocrLang = new ArrayList<>(List.of("en", "de"));
 
-    ConvertDocumentOptions options = new ConvertDocumentOptions()
-        .withFromFormats(fromFormats)
-        .withToFormats(toFormats)
-        .withOcrLang(ocrLang);
+    ConvertDocumentOptions options = ConvertDocumentOptions.builder()
+        .fromFormat(InputFormat.PDF)
+        .toFormat(OutputFormat.MARKDOWN)
+        .ocrLang(ocrLang)
+        .build();
 
     assertThat(options.getFromFormats()).isEqualTo(fromFormats);
     assertThat(options.getToFormats()).isEqualTo(toFormats);

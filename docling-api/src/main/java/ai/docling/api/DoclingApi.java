@@ -42,6 +42,47 @@ public interface DoclingApi {
    */
   interface DoclingApiBuilder<T extends DoclingApi, B extends DoclingApiBuilder<T, B>> {
     /**
+     * Enables logging of requests for the API client being built. This can be useful for
+     * debugging or monitoring the behavior of requests made to the API.
+     *
+     * <p>This method influences the logging behavior of requests initiated by the client
+     * without specifying further configuration details.
+     *
+     * @return {@code this} builder instance for fluent API usage.
+     */
+    default B logRequests() {
+      return logRequests(true);
+    }
+
+    /**
+     * Configures whether logging of API requests is enabled or not. Logging can help monitor or debug
+     * request communications with the API.
+     *
+     * @param logRequests {@code true} to enable request logging; {@code false} to disable it.
+     * @return {@code this} builder instance for fluent API usage.
+     */
+    B logRequests(boolean logRequests);
+
+    /**
+     * Enables logging of responses for the API client being built. This can assist in debugging or
+     * monitoring the behavior of responses received from the API.
+     *
+     * @return {@code this} builder instance for fluent API usage.
+     */
+    default B logResponses() {
+      return logResponses(true);
+    }
+
+    /**
+     * Configures whether logging of API responses is enabled or not. Logging can help monitor or debug
+     * the responses received from the API.
+     *
+     * @param logResponses {@code true} to enable response logging; {@code false} to disable it.
+     * @return {@code this} builder instance for fluent API usage.
+     */
+    B logResponses(boolean logResponses);
+
+    /**
      * Builds and returns an instance of the specified type, representing the completed configuration
      * of the builder. The returned instance is typically an implementation of the Docling API.
      *

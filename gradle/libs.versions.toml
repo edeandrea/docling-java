@@ -4,6 +4,8 @@ jackson2 = "2.20.0"
 jackson3 = "3.0.1"
 jspecify = "1.0.0"
 junit = "6.0.0"
+lombok = "1.18.42"
+lombok-gradle = "9.0.0"
 testcontainers = "2.0.1"
 
 [libraries]
@@ -28,3 +30,6 @@ junit-platform = { group = "org.junit.platform", name = "junit-platform-launcher
 # Testcontainers
 testcontainers-bom = { group = "org.testcontainers", name = "testcontainers-bom", version.ref = "testcontainers"}
 testcontainers-junit-jupiter = { group = "org.testcontainers", name = "testcontainers-junit-jupiter" }
+
+[plugins]
+lombok = { id = "io.freefair.lombok", version.ref = "lombok-gradle" }

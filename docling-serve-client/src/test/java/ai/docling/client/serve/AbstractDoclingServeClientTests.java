@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.net.URI;
 import java.time.Duration;
 import java.util.Base64;
-import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -50,8 +49,9 @@ abstract class AbstractDoclingServeClientTests {
 
   @Test
   void shouldConvertHttpSourceSuccessfully() {
-    ConvertDocumentRequest request = new ConvertDocumentRequest()
-        .withSources(List.of(new HttpSource().withUrl(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/"))));
+    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+        .source(HttpSource.builder().url(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/")).build())
+        .build();
 
     ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 
@@ -71,8 +71,13 @@ abstract class AbstractDoclingServeClientTests {
   @Test
   void shouldConvertFileSourceSuccessfully() throws IOException {
     var fileResource = readFileFromClasspath("story.pdf");
-    ConvertDocumentRequest request = new ConvertDocumentRequest()
-        .withSources(List.of(new FileSource().withFilename("story.pdf").withBase64String(Base64.getEncoder().encodeToString(fileResource))));
+    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+        .source(FileSource.builder()
+            .filename("story.pdf")
+            .base64String(Base64.getEncoder().encodeToString(fileResource))
+            .build()
+        )
+        .build();
 
     ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 
@@ -90,14 +95,16 @@ abstract class AbstractDoclingServeClientTests {
 
   @Test
   void shouldHandleConversionWithDifferentDocumentOptions() {
-    ConvertDocumentOptions options = new ConvertDocumentOptions()
-        .withDoOcr(true)
-        .withIncludeImages(true)
-        .withTableMode(TableFormerMode.FAST);
+    ConvertDocumentOptions options = ConvertDocumentOptions.builder()
+        .doOcr(true)
+        .includeImages(true)
+        .tableMode(TableFormerMode.FAST)
+        .build();
 
-    ConvertDocumentRequest request = new ConvertDocumentRequest()
-        .withSources(List.of(new HttpSource().withUrl(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/"))))
-        .withOptions(options);
+    ConvertDocumentRequest request = ConvertDocumentRequest.builder()
+        .source(HttpSource.builder().url(URI.create("https://docs.arconia.io/arconia-cli/latest/development/dev/")).build())
+        .options(options)
+        .build();
 
     ConvertDocumentResponse response = getDoclingClient().convertSource(request);
 

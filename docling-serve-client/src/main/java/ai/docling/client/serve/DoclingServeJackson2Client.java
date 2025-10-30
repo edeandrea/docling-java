@@ -71,7 +71,6 @@ public class DoclingServeJackson2Client extends DoclingServeClient {
    */
   public static final class Builder extends DoclingServeClientBuilder<DoclingServeJackson2Client, Builder> {
     private JsonMapper.Builder jsonMapperBuilder = JsonMapper.builder();
-
     private Builder() {
     }
 

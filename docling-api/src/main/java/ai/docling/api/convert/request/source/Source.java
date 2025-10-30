@@ -1,13 +1,27 @@
 package ai.docling.api.convert.request.source;
 
-import org.jspecify.annotations.Nullable;
-
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
  * Source of the document.
  */
-public sealed abstract class Source<S extends Source<S>> permits FileSource, HttpSource {
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "kind"
+)
+@JsonSubTypes({
+    @Type(value = FileSource.class, name = "file"),
+    @Type(value = HttpSource.class, name = "http")
+})
+@lombok.Getter
+@lombok.ToString
+public sealed abstract class Source permits FileSource, HttpSource {
   /**
    * Enum representing the type of {@link Source}.
    * <ul>
@@ -20,38 +34,5 @@ public sealed abstract class Source<S extends Source<S>> permits FileSource, Htt
   enum Kind {
     @JsonProperty("http") HTTP,
     @JsonProperty("file") FILE
-  }
-
-  @JsonProperty("kind")
-  private Kind kind = Kind.FILE;
-
-  /**
-   * Retrieves the {@link Kind} of this {@link Source}.
-   *
-   * @return the {@link Kind} of this {@code Source}, or {@code null} if not set.
-   */
-  @Nullable
-  public Kind getKind() {
-    return kind;
-  }
-
-  /**
-   * Sets the {@link Kind} of this {@code Source}.
-   *
-   * @param kind the {@link Kind} representing the type of this source; may be {@code null}.
-   */
-  public void setKind(@Nullable Kind kind) {
-    this.kind = kind;
-  }
-
-  /**
-   * Sets the {@link Kind} of this {@link Source} and returns the updated instance of {@link Source}.
-   *
-   * @param kind the {@link Kind} representing the type of this source; may be {@code null}.
-   * @return the updated {@code Source} instance with the newly set {@link Kind}.
-   */
-  public S withKind(@Nullable Kind kind) {
-    setKind(kind);
-    return (S) this;
   }
 }
