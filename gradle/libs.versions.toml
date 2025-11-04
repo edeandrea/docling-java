@@ -1,18 +1,35 @@
 [versions]
-junit = "6.0.0"
 assertj = "3.27.6"
-jackson = "3.0.1"
+jackson2 = "2.20.0"
+jackson3 = "3.0.1"
 jspecify = "1.0.0"
+junit = "6.0.0"
+lombok = "1.18.42"
+lombok-gradle = "9.0.0"
 testcontainers = "2.0.1"
 
 [libraries]
+# assertj
+assertj-core = { group = "org.assertj", name = "assertj-core", version.ref = "assertj" }
+
+# Jackson
+jackson-annotations = { group = "com.fasterxml.jackson.core", name = "jackson-annotations" }
+jackson-bom = { group = "tools.jackson", name = "jackson-bom", version.ref = "jackson3" }
+jackson2-bom = { group = "com.fasterxml.jackson", name = "jackson-bom", version.ref = "jackson2" }
+jackson-databind = { group = "tools.jackson.core", name = "jackson-databind" }
+jackson2-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jackson2" }
+
+# JSpecify
+jspecify = { group = "org.jspecify", name = "jspecify", version.ref = "jspecify" }
+
+# JUnit
 junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter" }
 junit-platform = { group = "org.junit.platform", name = "junit-platform-launcher" }
-assertj-core = { group = "org.assertj", name = "assertj-core", version.ref = "assertj" }
-jackson-bom = { group = "tools.jackson", name = "jackson-bom", version.ref = "jackson" }
-jackson-annotations = { group = "com.fasterxml.jackson.core", name = "jackson-annotations" }
-jackson-databind = { group = "tools.jackson.core", name = "jackson-databind" }
-jspecify = { group = "org.jspecify", name = "jspecify", version.ref = "jspecify" }
+
+# Testcontainers
 testcontainers-bom = { group = "org.testcontainers", name = "testcontainers-bom", version.ref = "testcontainers"}
 testcontainers-junit-jupiter = { group = "org.testcontainers", name = "testcontainers-junit-jupiter" }
+
+[plugins]
+lombok = { id = "io.freefair.lombok", version.ref = "lombok-gradle" }

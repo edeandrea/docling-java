@@ -4,10 +4,7 @@ plugins {
 }
 
 rootProject.name = "docling-java"
-include("api", "client", "docs", "testing", "testcontainers")
+include("docling-serve-api", "docling-serve-client", "docs", "docling-testing", "docling-testcontainers")
 
-project(":api").name = "docling-api"
-project(":client").name = "docling-client"
-project(":docs").name = "docling-docs"
-project(":testing").name = "docling-testing"
-project(":testcontainers").name = "docling-testcontainers"
+project(":docling-serve-api").projectDir = file("docling-serve/docling-serve-api")
+project(":docling-serve-client").projectDir = file("docling-serve/docling-serve-client")

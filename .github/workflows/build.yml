@@ -28,10 +28,10 @@ jobs:
           - 21
           - 25
         module:
-          - api
-          - client
-          - testing
-          - testcontainers
+          - docling-serve-api
+          - docling-serve-client
+          - docling-testing
+          - docling-testcontainers
     name: jvm-build-test-${{ matrix.module }}-java${{ matrix.java }}
     steps:
       - uses: actions/checkout@v5
@@ -46,7 +46,7 @@ jobs:
       - name: build-test-${{ matrix.module }}-java${{ matrix.java }}
         run: |
           ./gradlew --no-daemon -Pjava.version=${{ matrix.java }} \
-            :docling-${{ matrix.module }}:clean :docling-${{ matrix.module }}:build
+            :${{ matrix.module }}:clean :${{ matrix.module }}:build
 
   docs:
     runs-on: ubuntu-latest
@@ -68,4 +68,4 @@ jobs:
           cache: gradle
 
       - name: Generate documentation
-        run: ./gradlew --console=plain clean :docling-docs:mkdocsBuild
+        run: ./gradlew --console=plain clean :docs:mkdocsBuild
