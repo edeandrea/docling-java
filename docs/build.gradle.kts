@@ -52,7 +52,3 @@ tasks.withType<PublishToMavenRepository>().configureEach {
 tasks.withType<PublishToMavenLocal>().configureEach {
   enabled = false
 }
-
-tasks.named("gitPublishReset").configure {
-  enabled = false
-}
