@@ -153,7 +153,7 @@ jobs:
             const prNumber = process.env.PR_NUMBER;
             const body = [
               "HTML test reports are available as workflow artifacts (zipped HTML).",
-              `\n• Download: [Artifacts for this run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`,
+              `\n• Download: [Artifacts for this run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId})`,
             ].join("\n");
 
             await github.rest.issues.createComment({
