@@ -4,6 +4,11 @@ plugins {
 
 repositories {
   gradlePluginPortal()
+  mavenCentral()
+}
+
+dependencies {
+  implementation("org.yaml:snakeyaml:2.4")
 }
 
 // Read root gradle.properties
