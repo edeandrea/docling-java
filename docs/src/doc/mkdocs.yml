@@ -78,9 +78,12 @@ markdown_extensions:
   - pymdownx.details
   - attr_list
   - mkdocs-click
+  - toc:
+      permalink: "#"
 plugins:
   - search
   - markdownextradata
+  - include-markdown
 #  - macros:
 #      verbose: true
 #      module_name: mkdocs-customizations/macros/docissimo

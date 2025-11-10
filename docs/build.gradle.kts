@@ -13,7 +13,8 @@ python {
       "mkdocs-macros-plugin:1.3.7",
       "mkdocstrings:0.30.1",
       "mkdocstrings-python:1.18.2",
-      "griffe-pydantic:1.1.8"
+      "griffe-pydantic:1.1.8",
+      "mkdocs-include-markdown-plugin:7.2.0"
   )
 }
 
