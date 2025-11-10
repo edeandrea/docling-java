@@ -30,6 +30,7 @@ mkdocs {
   publish {
     // This is a hack because versionAliases is created final as an array without a setter
     // So it isn't friendly to the Gradle Kotlin DSL
+    docPath = "${project.version}"
     org.codehaus.groovy.runtime.InvokerHelper.setProperty(this, "versionAliases", arrayOf("dev"))
     rootRedirectTo = "dev"
     generateVersionsFile = true
