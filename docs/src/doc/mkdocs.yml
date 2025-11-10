@@ -101,6 +101,8 @@ extra_css:
 extra:
   version:
     provider: mike
+    default: dev
+    alias: true
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/docling-project/docling-java
