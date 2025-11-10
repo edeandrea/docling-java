@@ -57,6 +57,25 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Process tags and flags
+        run: |
+          INPUT="${{ inputs.tags }}"
+          TAGS=${INPUT:+$(echo "$INPUT" | tr -d ' ' | sed 's/,/ -t /g' | sed 's/^/-t /')}
+          echo "TAGS=$TAGS" >> $GITHUB_ENV
+      
+          CREATE_GITHUB_ISSUE_FLAG="--create-github-issue"
+          if [ "${{ inputs.createGithubIssue }}" == "false" ]; then
+            CREATE_GITHUB_ISSUE_FLAG="--no-create-github-issue"
+          fi
+      
+          echo "CREATE_GITHUB_ISSUE_FLAG=$CREATE_GITHUB_ISSUE_FLAG" >> $GITHUB_ENV
+          
+          # Set defaults for scheduled runs
+          echo "PARALLELISM=${{ inputs.parallelism || '4' }}" >> $GITHUB_ENV
+          echo "IMAGE=${{ inputs.image || 'docling-project/docling-serve' }}" >> $GITHUB_ENV
+          echo "REGISTRY=${{ inputs.registry || 'ghcr.io' }}" >> $GITHUB_ENV
+          echo "OUTPUT_DIR=${{ inputs.outputDir || 'results' }}" >> $GITHUB_ENV
+
       - name: Set up Java ${{ env.JAVA_VERSION }}
         uses: actions/setup-java@v5
         with:
@@ -86,8 +105,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           java -jar build/quarkus-app/quarkus-run.jar \
-            -p ${{ inputs.parallelism || '3' }} \
-            -i ${{ inputs.image }} \
-            -r ${{ inputs.registry }} \
-            -o ${{ inputs.outputDir }} \
+            -p ${{ env.PARALLELISM }} \
+            -i ${{ env.IMAGE }} \
+            -r ${{ env.REGISTRY }} \
+            -o ${{ env.OUTPUT_DIR }} \
             ${{ env.TAGS }} ${{ env.CREATE_GITHUB_ISSUE_FLAG }}
