@@ -92,9 +92,9 @@ jobs:
           TAGS=${INPUT:+$(echo "$INPUT" | tr -d ' ' | sed 's/,/ -t /g' | sed 's/^/-t /')}
           echo "TAGS=$TAGS" >> $GITHUB_ENV
           
-          CREATE_GITHUB_ISSUE_FLAG=""
+          CREATE_GITHUB_ISSUE_FLAG="--create-github-issue"
           if [ "${{ inputs.createGithubIssue }}" == "false" ]; then
-            CREATE_GITHUB_ISSUE_FLAG="-g"
+            CREATE_GITHUB_ISSUE_FLAG="--no-create-github-issue"
           fi
           
           echo "CREATE_GITHUB_ISSUE_FLAG=$CREATE_GITHUB_ISSUE_FLAG" >> $GITHUB_ENV
