@@ -26,7 +26,7 @@ public interface DoclingServeContainerConfig {
   /**
    * Default image name
    */
-  String DOCLING_IMAGE = "quay.io/" + DOCLING_ORG + "/" + DOCLING_IMAGE_NAME + ":v1.6.0";
+  String DOCLING_IMAGE = "ghcr.io/" + DOCLING_ORG + "/" + DOCLING_IMAGE_NAME + ":v1.6.0";
 
   /**
    * The container image name to use.
