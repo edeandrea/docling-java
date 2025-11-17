@@ -36,7 +36,7 @@ public class DoclingServeContainer extends GenericContainer<DoclingServeContaine
    * @param config the configuration details for the Docling container, including image name, environment variables, and other settings
    */
   public DoclingServeContainer(DoclingServeContainerConfig config) {
-    super(DockerImageName.parse(config.imageName()).asCompatibleSubstituteFor(DoclingServeContainerConfig.DOCLING_IMAGE));
+    super(DockerImageName.parse(config.image()).asCompatibleSubstituteFor(DoclingServeContainerConfig.DOCLING_IMAGE));
     this.config = config;
 
     // Configure the container

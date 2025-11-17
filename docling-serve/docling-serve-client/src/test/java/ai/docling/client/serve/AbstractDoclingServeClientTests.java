@@ -23,7 +23,7 @@ import ai.docling.testcontainers.serve.config.DoclingServeContainerConfig;
 abstract class AbstractDoclingServeClientTests {
   protected static final DoclingServeContainer doclingContainer = new DoclingServeContainer(
     DoclingServeContainerConfig.builder()
-        .imageName(DoclingServeContainerConfig.DOCLING_IMAGE)
+        .image(DoclingServeContainerConfig.DOCLING_IMAGE)
         .enableUi(true)
         .build()
   );

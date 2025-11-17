@@ -6,18 +6,18 @@ import java.util.Map;
 import java.util.Optional;
 
 final class DefaultDoclingContainerConfig implements DoclingServeContainerConfig {
-  private final String imageName;
+  private final String image;
   private final boolean enableUi;
   private final Map<String, String> containerEnv;
   private final Duration startupTimeout;
 
   DefaultDoclingContainerConfig(Builder builder) {
-    if ((builder.imageName == null) || builder.imageName.strip().isEmpty()) {
-      throw new IllegalArgumentException("imageName must be specified");
+    if ((builder.image== null) || builder.image.strip().isEmpty()) {
+      throw new IllegalArgumentException("image must be specified");
     }
 
     this.enableUi = builder.enableUi;
-    this.imageName = builder.imageName;
+    this.image = builder.image;
     this.startupTimeout = Optional.ofNullable(builder.startupTimeout)
         .orElse(Duration.ofMinutes(1));
     this.containerEnv = Optional.ofNullable(builder.containerEnv)
@@ -26,8 +26,8 @@ final class DefaultDoclingContainerConfig implements DoclingServeContainerConfig
   }
 
   @Override
-  public String imageName() {
-    return this.imageName;
+  public String image() {
+    return this.image;
   }
 
   @Override

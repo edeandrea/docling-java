@@ -24,14 +24,22 @@ public interface DoclingServeContainerConfig {
   String DOCLING_IMAGE_NAME = "docling-serve";
 
   /**
-   * Default image name
+   * Represents the version identifier for the docling-serve container image.
    */
-  String DOCLING_IMAGE = "ghcr.io/" + DOCLING_ORG + "/" + DOCLING_IMAGE_NAME + ":v1.6.0";
+  String DOCLING_IMAGE_VERSION = "v1.8.0";
 
   /**
-   * The container image name to use.
+   * Default image name
    */
-  String imageName();
+  String DOCLING_IMAGE = "ghcr.io/" + DOCLING_ORG + "/" + DOCLING_IMAGE_NAME + ":" + DOCLING_IMAGE_VERSION;
+
+  /**
+   * The container image to use.
+   * <p>
+   *   Default value: {@link #DOCLING_IMAGE}
+   * </p>
+   */
+  String image();
 
   /**
    * Whether or not to enable the docling UI
@@ -90,7 +98,7 @@ public interface DoclingServeContainerConfig {
      * that will be utilized when creating or configuring container instances.
      * It is a required field and must be set to a non-null, non-empty value.
      */
-    protected String imageName;
+    protected String image;
 
     /**
      * A flag indicating whether the Docling UI should be enabled or disabled.
@@ -139,7 +147,7 @@ public interface DoclingServeContainerConfig {
      * @param config the {@link DoclingServeContainerConfig} instance whose properties will be used to initialize the builder
      */
     protected Builder(DoclingServeContainerConfig config) {
-      this.imageName = config.imageName();
+      this.image = config.image();
       this.enableUi = config.enableUi();
       this.containerEnv = config.containerEnv();
       this.startupTimeout = config.startupTimeout();
@@ -149,12 +157,12 @@ public interface DoclingServeContainerConfig {
      * Sets the name of the container image to use for the configuration.
      * This value is required and must not be null or empty.
      *
-     * @param imageName the name of the container image
+     * @param image the name of the container image
      * @return the builder instance for method chaining
-     * @throws IllegalArgumentException if the provided imageName is null or empty
+     * @throws IllegalArgumentException if the provided image is null or empty
      */
-    public Builder imageName(String imageName) {
-      this.imageName = imageName;
+    public Builder image(String image) {
+      this.image = image;
       return this;
     }
 

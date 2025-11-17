@@ -48,7 +48,7 @@ public class TagsTester {
     Log.infof("Testing %s/%s:%s", registry, image, tag);
     var resultBuilder = TagTestResult.builder().tag(tag);
     var containerConfig = DoclingServeContainerConfig.builder()
-        .imageName("%s/%s:%s".formatted(registry, image, tag))
+        .image("%s/%s:%s".formatted(registry, image, tag))
         .startupTimeout(Duration.ofMinutes(2))
         .build();
 

@@ -25,7 +25,7 @@ class DoclingServeContainerAvailableTests {
   @Container
   private final DoclingServeContainer doclingContainer = new DoclingServeContainer(
     DoclingServeContainerConfig.builder()
-        .imageName(DoclingServeContainerConfig.DOCLING_IMAGE)
+        .image(DoclingServeContainerConfig.DOCLING_IMAGE)
         .enableUi(true)
         .build()
   );
