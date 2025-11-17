@@ -52,6 +52,9 @@ jobs:
           - docling-version-tests
     name: jvm-build-test-${{ matrix.module }}-java${{ matrix.java }}
     steps:
+      - name: Reclaim disk space
+        run: .github/ci-reclaim-disk-space.sh
+
       - uses: actions/checkout@v5
 
       - name: Set up Java ${{ matrix.java }}
