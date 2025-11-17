@@ -53,7 +53,9 @@ jobs:
     name: jvm-build-test-${{ matrix.module }}-java${{ matrix.java }}
     steps:
       - name: Reclaim disk space
-        run: .github/ci-reclaim-disk-space.sh
+        working-directory: .github
+        shell: bash
+        run: ci-reclaim-disk-space.sh
 
       - uses: actions/checkout@v5
 
