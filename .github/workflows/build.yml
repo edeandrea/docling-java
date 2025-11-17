@@ -55,7 +55,7 @@ jobs:
       - name: Reclaim disk space
         working-directory: .github
         shell: bash
-        run: ci-reclaim-disk-space.sh
+        run: ./ci-reclaim-disk-space.sh
 
       - uses: actions/checkout@v5
 
