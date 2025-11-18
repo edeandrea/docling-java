@@ -29,7 +29,9 @@ on:
         type: string
         default: results
       tags:
-        description: The tags to test (comma separated)
+        description: |
+          The tags to test (comma separated).
+          If blank, list of tags will be fetched dynamically
         required: false
         type: string
       createGithubIssue:
