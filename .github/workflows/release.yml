@@ -1,0 +1,50 @@
+name: Perform release
+
+env:
+  JAVA_VERSION: 17
+
+on:
+  pull_request:
+    types:
+      - closed
+    paths:
+      - .github/project.yml
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  attestations: write
+  id-token: write
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: temurin
+          cache: gradle
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+
+      - name: Build artifacts
+        run: ./gradlew --no-daemon -Pjava.version=${{ env.JAVA_VERSION }} assemble
+
+      - name: Release
+        env:
+          JRELEASER_DRY_RUN: true
+        run: ./gradlew --no-daemon :jreleaserFullRelease
