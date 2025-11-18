@@ -57,6 +57,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Reclaim disk space
+        working-directory: .github
+        shell: bash
+        run: ./ci-reclaim-disk-space.sh
+
       - name: Process tags and flags
         run: |
           INPUT="${{ inputs.tags }}"
