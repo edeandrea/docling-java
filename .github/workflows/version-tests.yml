@@ -138,4 +138,4 @@ jobs:
         if: (steps.create-pr.outputs.pull-request-operation == 'created') && steps.create-pr.outputs.pull-request-number
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: gh pr merge --merge --delete-branch "${{ steps.create-pr.outputs.pull-request-url }}"
+        run: gh pr merge --merge --admin --delete-branch "${{ steps.create-pr.outputs.pull-request-url }}"
