@@ -42,7 +42,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v5
 
       - name: Build artifacts
-        run: ./gradlew --no-daemon -Pjava.version=${{ env.JAVA_VERSION }} assemble
+        run: ./gradlew --no-daemon -Pjava.version=${{ env.JAVA_VERSION }} publish
 
       - name: Release
         env:
