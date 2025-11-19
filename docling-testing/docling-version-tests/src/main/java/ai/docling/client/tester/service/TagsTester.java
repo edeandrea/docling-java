@@ -10,6 +10,8 @@ import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
+import org.testcontainers.DockerClientFactory;
+
 import io.quarkus.logging.Log;
 
 import ai.docling.api.serve.DoclingServeApi;
@@ -64,6 +66,14 @@ public class TagsTester {
     }
     catch (AssertionError | Exception ex) {
       resultBuilder.result(Result.failure(ex));
+    }
+    finally {
+      // Clean up the image to save on disk space
+      DockerClientFactory.instance()
+          .client()
+          .removeImageCmd(containerConfig.image())
+          .withForce(true)
+          .exec();
     }
 
     return resultBuilder.build();
