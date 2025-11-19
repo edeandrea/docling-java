@@ -3,7 +3,7 @@ package ai.docling.client.tester.domain;
 import java.util.List;
 import java.util.concurrent.Executor;
 
-public record TagsTestRequest(String registry, String image, Executor executor, List<String> tags) {
+public record TagsTestRequest(String registry, String image, Executor executor, boolean cleanupContainerImages, List<String> tags) {
   public TagsTestRequest {
     if (executor == null) {
       throw new IllegalArgumentException("executor cannot be null");
@@ -11,7 +11,7 @@ public record TagsTestRequest(String registry, String image, Executor executor, 
   }
 
   private TagsTestRequest(Builder builder) {
-    this(builder.registry, builder.image, builder.executor, builder.tags);
+    this(builder.registry, builder.image, builder.executor, builder.cleanupContainerImages, builder.tags);
   }
 
   public Builder toBuilder() {
@@ -27,6 +27,7 @@ public record TagsTestRequest(String registry, String image, Executor executor, 
     private String image;
     private Executor executor;
     private List<String> tags;
+    private boolean cleanupContainerImages;
 
     private Builder() {
 
@@ -37,10 +38,16 @@ public record TagsTestRequest(String registry, String image, Executor executor, 
       this.image = request.image();
       this.executor = request.executor();
       this.tags = request.tags();
+      this.cleanupContainerImages = request.cleanupContainerImages();
     }
 
     public Builder registry(String registry) {
       this.registry = registry;
+      return this;
+    }
+
+    public Builder cleanupContainerImages(boolean cleanupContainerImages) {
+      this.cleanupContainerImages = cleanupContainerImages;
       return this;
     }
 

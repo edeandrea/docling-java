@@ -111,6 +111,7 @@ jobs:
             -i ${{ env.IMAGE }} \
             -r ${{ env.REGISTRY }} \
             -o ${{ env.OUTPUT_DIR }} \
+            --cleanup-container-images \
             ${{ env.TAGS }} ${{ env.CREATE_GITHUB_ISSUE_FLAG }}
 
       - name: Copy output markdown to docs

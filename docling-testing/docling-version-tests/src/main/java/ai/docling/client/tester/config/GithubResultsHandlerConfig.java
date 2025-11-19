@@ -12,6 +12,6 @@ public class GithubResultsHandlerConfig {
   @Produces
   @ApplicationScoped
   GithubIssueResultsHandler githubIssueResultsHandler(Config config, MarkdownFileResultsHandler markdownHandler, ParseResult parseResult) {
-    return new GithubIssueResultsHandler(config, markdownHandler, parseResult.matchedOptionValue("create-github-issue", !parseResult.hasMatchedOption("no-create-github-issue")));
+    return new GithubIssueResultsHandler(config, markdownHandler, parseResult.matchedOptionValue("create-github-issue", false));
   }
 }

@@ -39,14 +39,17 @@ public class TagsTester {
     WorkParallelizer.transformInParallelAndWait(
             request.executor(),
             request.tags(),
-            tag -> testTag(request.registry(), request.image(), tag)
+            tag -> testTag(request, tag)
         )
         .forEach(resultsBuilder::addResult);
 
     return resultsBuilder.build();
   }
 
-  private TagTestResult testTag(String registry, String image, String tag) {
+  private TagTestResult testTag(TagsTestRequest request, String tag) {
+    var registry = request.registry();
+    var image = request.image();
+
     Log.infof("Testing %s/%s:%s", registry, image, tag);
     var resultBuilder = TagTestResult.builder().tag(tag);
     var containerConfig = DoclingServeContainerConfig.builder()
@@ -68,12 +71,14 @@ public class TagsTester {
       resultBuilder.result(Result.failure(ex));
     }
     finally {
-      // Clean up the image to save on disk space
-      DockerClientFactory.instance()
-          .client()
-          .removeImageCmd(containerConfig.image())
-          .withForce(true)
-          .exec();
+      if (request.cleanupContainerImages()) {
+        // Clean up the image to save on disk space
+        DockerClientFactory.instance()
+            .client()
+            .removeImageCmd(containerConfig.image())
+            .withForce(true)
+            .exec();
+      }
     }
 
     var result = resultBuilder.build();

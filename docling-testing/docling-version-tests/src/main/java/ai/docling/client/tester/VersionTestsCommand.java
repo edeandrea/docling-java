@@ -71,10 +71,17 @@ public class VersionTestsCommand implements Runnable {
   @Option(
       names = { "-g", "--create-github-issue"},
       description = "Create a GitHub issue if any of the tests fail.",
-      negatable = true,
-      defaultValue = "true"
+      negatable = true
   )
   boolean createGithubIssue;
+
+  @Option(
+      names = { "-c", "--cleanup-container-images"},
+      description = "Cleanup the container images after the tests are complete.",
+      negatable = true,
+      defaultValue = "false"
+  )
+  boolean cleanupContainerImages;
 
   private final RegistryClientFactory clientFactory;
   private final TagsTester versionTester;
@@ -89,6 +96,9 @@ public class VersionTestsCommand implements Runnable {
   @Override
   public void run() {
     var executor = Executors.newFixedThreadPool(this.parallelism, new NamedThreadFactory("VersionTester"));
+
+    System.out.println("createGithubIssue: " + this.createGithubIssue);
+    System.out.println("cleanupContainerImages: " + this.cleanupContainerImages);
 
     try {
       var request = createTestRequest(executor);
@@ -129,6 +139,7 @@ public class VersionTestsCommand implements Runnable {
     var requestBuilder = TagsTestRequest.builder()
         .registry(this.registry)
         .image(this.image)
+        .cleanupContainerImages(this.cleanupContainerImages)
         .executor(executor);
 
     if ((this.tagsToTest != null) && !this.tagsToTest.isEmpty()) {
