@@ -76,7 +76,11 @@ public class TagsTester {
           .exec();
     }
 
-    return resultBuilder.build();
+    var result = resultBuilder.build();
+
+    Log.infof("Result [%s] = %s", result.tag(), result.result().status());
+
+    return result;
   }
 
   private void doConversion(DoclingServeContainer doclingContainer) {
