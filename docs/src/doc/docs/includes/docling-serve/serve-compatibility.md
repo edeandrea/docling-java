@@ -1,109 +1,41 @@
-# Results for ghcr.io/docling-project/docling-serve as of 2025-11-19T20:27:10.879727657Z
+# Results for ghcr.io/docling-project/docling-serve as of 2025-11-19T21:55:37.041610819Z
 
 Here are the results:
 
 | Tag | Result | Details |
 | --- | ------ | ------- |
-| v0.9.0 | ❌ FAILURE | [Click for run details](#v0.9.0-details) |
 | v0.7.0 | ❌ FAILURE | [Click for run details](#v0.7.0-details) |
 | v0.6.0 | ❌ FAILURE | [Click for run details](#v0.6.0-details) |
 | v0.8.0 | ❌ FAILURE | [Click for run details](#v0.8.0-details) |
+| v0.9.0 | ❌ FAILURE | [Click for run details](#v0.9.0-details) |
+| v0.10.0 | ❌ FAILURE | [Click for run details](#v0.10.0-details) |
 | v0.10.1 | ❌ FAILURE | [Click for run details](#v0.10.1-details) |
 | v0.11.0 | ❌ FAILURE | [Click for run details](#v0.11.0-details) |
 | v0.12.0 | ❌ FAILURE | [Click for run details](#v0.12.0-details) |
 | v0.13.0 | ❌ FAILURE | [Click for run details](#v0.13.0-details) |
 | v0.14.0 | ❌ FAILURE | [Click for run details](#v0.14.0-details) |
-| v0.16.0 | ❌ FAILURE | [Click for run details](#v0.16.0-details) |
-| v0.16.1 | ❌ FAILURE | [Click for run details](#v0.16.1-details) |
-| v1.0.1 | ❌ FAILURE | [Click for run details](#v1.0.1-details) |
-| v1.0.0 | ❌ FAILURE | [Click for run details](#v1.0.0-details) |
-| v0.10.0 | ❌ FAILURE | [Click for run details](#v0.10.0-details) |
 | v0.15.0 | ❌ FAILURE | [Click for run details](#v0.15.0-details) |
-| v1.2.0 | ❌ FAILURE | [Click for run details](#v1.2.0-details) |
-| v1.2.1 | ❌ FAILURE | [Click for run details](#v1.2.1-details) |
-| v1.1.0 | ❌ FAILURE | [Click for run details](#v1.1.0-details) |
-| v1.3.0 | ❌ FAILURE | [Click for run details](#v1.3.0-details) |
-| v1.2.2 | ❌ FAILURE | [Click for run details](#v1.2.2-details) |
-| v1.3.1 | ❌ FAILURE | [Click for run details](#v1.3.1-details) |
-| v1.4.0 | ❌ FAILURE | [Click for run details](#v1.4.0-details) |
-| v1.5.1 | ❌ FAILURE | [Click for run details](#v1.5.1-details) |
-| v1.6.0 | ❌ FAILURE | [Click for run details](#v1.6.0-details) |
-| v1.7.0 | ❌ FAILURE | [Click for run details](#v1.7.0-details) |
-| v1.7.1 | ❌ FAILURE | [Click for run details](#v1.7.1-details) |
-| v1.4.1 | ❌ FAILURE | [Click for run details](#v1.4.1-details) |
-| v1.7.2 | ❌ FAILURE | [Click for run details](#v1.7.2-details) |
-| v1.5.0 | ❌ FAILURE | [Click for run details](#v1.5.0-details) |
-| v1.8.0 | ❌ FAILURE | [Click for run details](#v1.8.0-details) |
+| v0.16.0 | ❌ FAILURE | [Click for run details](#v0.16.0-details) |
+| v1.0.0 | ✅ SUCCESS | [Click for run details](#v1.0.0-details) |
+| v0.16.1 | ❌ FAILURE | [Click for run details](#v0.16.1-details) |
+| v1.1.0 | ✅ SUCCESS | [Click for run details](#v1.1.0-details) |
+| v1.0.1 | ✅ SUCCESS | [Click for run details](#v1.0.1-details) |
+| v1.2.1 | ✅ SUCCESS | [Click for run details](#v1.2.1-details) |
+| v1.2.0 | ✅ SUCCESS | [Click for run details](#v1.2.0-details) |
+| v1.2.2 | ✅ SUCCESS | [Click for run details](#v1.2.2-details) |
+| v1.3.0 | ✅ SUCCESS | [Click for run details](#v1.3.0-details) |
+| v1.3.1 | ✅ SUCCESS | [Click for run details](#v1.3.1-details) |
+| v1.4.0 | ✅ SUCCESS | [Click for run details](#v1.4.0-details) |
+| v1.4.1 | ✅ SUCCESS | [Click for run details](#v1.4.1-details) |
+| v1.5.0 | ✅ SUCCESS | [Click for run details](#v1.5.0-details) |
+| v1.5.1 | ✅ SUCCESS | [Click for run details](#v1.5.1-details) |
+| v1.6.0 | ✅ SUCCESS | [Click for run details](#v1.6.0-details) |
+| v1.7.1 | ✅ SUCCESS | [Click for run details](#v1.7.1-details) |
+| v1.7.0 | ✅ SUCCESS | [Click for run details](#v1.7.0-details) |
+| v1.7.2 | ✅ SUCCESS | [Click for run details](#v1.7.2-details) |
+| v1.8.0 | ✅ SUCCESS | [Click for run details](#v1.8.0-details) |
 
 ## Details
-
-### ghcr.io/docling-project/docling-serve:v0.9.0
-
-<details id="v0.9.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-[Response tatus should not be null or empty] 
-Expecting actual not to be null
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-java.lang.AssertionError: [Response tatus should not be null or empty] 
-Expecting actual not to be null
-	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:101)
-	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:89)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:58)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-
-```
-
-</details>
-
-#### Docling server logs
-
-<details>
-<summary>click to expand</summary>
-
-```
-Starting production server 🚀
-
-Server started at http://0.0.0.0:5001
-Documentation at http://0.0.0.0:5001/docs
-
-Logs:
-INFO:     Started server process [1]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:50378 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:50384 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:50384 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
-
-```
-
-</details>
-
-</details>
 
 ### ghcr.io/docling-project/docling-serve:v0.7.0
 
@@ -130,10 +62,10 @@ Expecting actual not to be null
 ```
 java.lang.AssertionError: [Response tatus should not be null or empty] 
 Expecting actual not to be null
-	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:101)
-	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:89)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:58)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
 	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
 	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
 	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
@@ -163,9 +95,9 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:35588 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:35604 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:35604 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:46696 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46708 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46708 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 ```
 
@@ -198,10 +130,10 @@ Expecting actual not to be null
 ```
 java.lang.AssertionError: [Response tatus should not be null or empty] 
 Expecting actual not to be null
-	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:101)
-	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:89)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:58)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
 	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
 	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
 	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
@@ -231,9 +163,9 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:55868 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:55880 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:55880 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:46730 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46740 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46740 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 ```
 
@@ -266,10 +198,10 @@ Expecting actual not to be null
 ```
 java.lang.AssertionError: [Response tatus should not be null or empty] 
 Expecting actual not to be null
-	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:101)
-	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:89)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:58)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
 	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
 	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
 	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
@@ -299,9 +231,9 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:36042 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:36058 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:36058 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:42042 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42048 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42048 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 ```
 
@@ -309,9 +241,9 @@ INFO:     172.17.0.1:36058 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 </details>
 
-### ghcr.io/docling-project/docling-serve:v0.10.1
+### ghcr.io/docling-project/docling-serve:v0.9.0
 
-<details id="v0.10.1-details">
+<details id="v0.9.0-details">
 <summary>Click to expand</summary>
 
 #### Message
@@ -320,7 +252,8 @@ INFO:     172.17.0.1:36058 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.10.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
 ~~~
 
 </details>
@@ -331,12 +264,12 @@ Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docl
 <summary>Click to collapse</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.10.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
 	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
 	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
 	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
@@ -345,593 +278,30 @@ org.testcontainers.containers.ContainerFetchException: Can't get Docker image: R
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.10.1
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob116722338: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
 
 ```
 
 </details>
 
-</details>
+#### Docling server logs
 
-### ghcr.io/docling-project/docling-serve:v0.11.0
-
-<details id="v0.11.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.11.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
+<details>
+<summary>click to expand</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.11.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.11.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob1510418117: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v0.12.0
-
-<details id="v0.12.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.12.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.12.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.12.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: failed to register layer: write /usr/share/testpage/index.html: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v0.13.0
-
-<details id="v0.13.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.13.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.13.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.13.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob431635688: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v0.14.0
-
-<details id="v0.14.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.14.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.14.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.14.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob843002040: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v0.16.0
-
-<details id="v0.16.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.16.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.16.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.16.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob301058486: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v0.16.1
-
-<details id="v0.16.1-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.16.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.16.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.16.1
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob3793828327: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v1.0.1
-
-<details id="v1.0.1-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.0.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.0.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.0.1
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob1402901219: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v1.0.0
-
-<details id="v1.0.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.0.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.0.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.0.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob192598308: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:33610 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33624 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33624 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 ```
 
@@ -950,7 +320,8 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.10.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
 ~~~
 
 </details>
@@ -961,12 +332,12 @@ Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docl
 <summary>Click to collapse</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.10.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
 	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
 	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
 	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
@@ -975,33 +346,370 @@ org.testcontainers.containers.ContainerFetchException: Can't get Docker image: R
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.10.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: failed to register layer: write /opt/app-root/lib/python3.12/site-packages/google/cloud/obsolete/__init__.py: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:58280 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58288 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58288 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v0.10.1
+
+<details id="v0.10.1-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
+~~~
+
+</details>
+
+#### Full stack trace
+
+<details open>
+<summary>Click to collapse</summary>
+
+```
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
+	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
+	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
+	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
+	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
+	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:45976 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45982 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45982 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v0.11.0
+
+<details id="v0.11.0-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
+~~~
+
+</details>
+
+#### Full stack trace
+
+<details open>
+<summary>Click to collapse</summary>
+
+```
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
+	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
+	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
+	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
+	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
+	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:44062 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:44066 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:44066 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v0.12.0
+
+<details id="v0.12.0-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
+~~~
+
+</details>
+
+#### Full stack trace
+
+<details open>
+<summary>Click to collapse</summary>
+
+```
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
+	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
+	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
+	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
+	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
+	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:40612 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40626 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40626 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v0.13.0
+
+<details id="v0.13.0-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
+~~~
+
+</details>
+
+#### Full stack trace
+
+<details open>
+<summary>Click to collapse</summary>
+
+```
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
+	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
+	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
+	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
+	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
+	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:59426 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:59440 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:59440 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v0.14.0
+
+<details id="v0.14.0-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
+~~~
+
+</details>
+
+#### Full stack trace
+
+<details open>
+<summary>Click to collapse</summary>
+
+```
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
+	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
+	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
+	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
+	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
+	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:37158 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:37168 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:37168 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 ```
 
@@ -1020,7 +728,8 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.15.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
 ~~~
 
 </details>
@@ -1031,12 +740,12 @@ Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docl
 <summary>Click to collapse</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v0.15.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
 	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
 	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
 	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
@@ -1045,33 +754,31 @@ org.testcontainers.containers.ContainerFetchException: Can't get Docker image: R
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v0.15.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob2766928023: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:49170 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49184 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49184 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 ```
 
@@ -1079,9 +786,9 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 
 </details>
 
-### ghcr.io/docling-project/docling-serve:v1.2.0
+### ghcr.io/docling-project/docling-serve:v0.16.0
 
-<details id="v1.2.0-details">
+<details id="v0.16.0-details">
 <summary>Click to expand</summary>
 
 #### Message
@@ -1090,7 +797,8 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.2.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
 ~~~
 
 </details>
@@ -1101,12 +809,12 @@ Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docl
 <summary>Click to collapse</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.2.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
 	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
 	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
 	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
@@ -1115,33 +823,31 @@ org.testcontainers.containers.ContainerFetchException: Can't get Docker image: R
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.2.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob1161172098: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:44688 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:44690 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:44690 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 ```
 
@@ -1149,9 +855,9 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 
 </details>
 
-### ghcr.io/docling-project/docling-serve:v1.2.1
+### ghcr.io/docling-project/docling-serve:v1.0.0
 
-<details id="v1.2.1-details">
+<details id="v1.0.0-details">
 <summary>Click to expand</summary>
 
 #### Message
@@ -1160,7 +866,53 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.2.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.0.0 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:40254 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40256 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:40256 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v0.16.1
+
+<details id="v0.16.1-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+[Response tatus should not be null or empty] 
+Expecting actual not to be null
 ~~~
 
 </details>
@@ -1171,12 +923,12 @@ Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docl
 <summary>Click to collapse</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.2.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
+java.lang.AssertionError: [Response tatus should not be null or empty] 
+Expecting actual not to be null
+	at ai.docling.client.tester.service.TagsTester.checkDoclingResponse(TagsTester.java:111)
+	at ai.docling.client.tester.service.TagsTester.doConversion(TagsTester.java:99)
+	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:60)
+	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:42)
 	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
 	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
 	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
@@ -1185,33 +937,31 @@ org.testcontainers.containers.ContainerFetchException: Can't get Docker image: R
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.2.1
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob3442446778: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+
+```
+
+</details>
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:40902 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40918 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40918 - "POST /v1/convert/source HTTP/1.1" 404 Not Found
 
 ```
 
@@ -1230,58 +980,33 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.1.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.1.0 is ok
 ~~~
 
 </details>
 
-#### Full stack trace
 
-<details open>
-<summary>Click to collapse</summary>
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.1.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.1.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob887966167: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:36032 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36038 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:36038 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1289,9 +1014,9 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 
 </details>
 
-### ghcr.io/docling-project/docling-serve:v1.3.0
+### ghcr.io/docling-project/docling-serve:v1.0.1
 
-<details id="v1.3.0-details">
+<details id="v1.0.1-details">
 <summary>Click to expand</summary>
 
 #### Message
@@ -1300,58 +1025,123 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.3.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.0.1 is ok
 ~~~
 
 </details>
 
-#### Full stack trace
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:54282 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:54290 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:54290 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v1.2.1
+
+<details id="v1.2.1-details">
+<summary>Click to expand</summary>
+
+#### Message
 
 <details open>
 <summary>Click to collapse</summary>
 
+~~~markdown
+Tag v1.2.1 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.3.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.3.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob1887426520: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:52278 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:52280 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:52280 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v1.2.0
+
+<details id="v1.2.0-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+Tag v1.2.0 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:56468 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:56472 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:56472 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1370,58 +1160,78 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.2.2, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.2.2 is ok
 ~~~
 
 </details>
 
-#### Full stack trace
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:33610 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33626 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:33626 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v1.3.0
+
+<details id="v1.3.0-details">
+<summary>Click to expand</summary>
+
+#### Message
 
 <details open>
 <summary>Click to collapse</summary>
 
+~~~markdown
+Tag v1.3.0 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.2.2, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.2.2
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: failed to register layer: write /opt/app-root/bin/ruff: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:52530 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:52544 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:52544 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1440,58 +1250,33 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.3.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.3.1 is ok
 ~~~
 
 </details>
 
-#### Full stack trace
 
-<details open>
-<summary>Click to collapse</summary>
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.3.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.3.1
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: failed to register layer: write /usr/lib64/libnode.so.127: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:39654 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:39662 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:39662 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1510,338 +1295,33 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.4.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.4.0 is ok
 ~~~
 
 </details>
 
-#### Full stack trace
 
-<details open>
-<summary>Click to collapse</summary>
+#### Docling server logs
 
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.4.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.4.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob1608298106: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+<details>
+<summary>click to expand</summary>
 
 ```
+Starting production server 🚀
 
-</details>
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
 
-</details>
-
-### ghcr.io/docling-project/docling-serve:v1.5.1
-
-<details id="v1.5.1-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.5.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.5.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.5.1
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob1142504081: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v1.6.0
-
-<details id="v1.6.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.6.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.6.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.6.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob1226566749: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v1.7.0
-
-<details id="v1.7.0-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.7.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.7.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.7.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob45991829: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
-
-```
-
-</details>
-
-</details>
-
-### ghcr.io/docling-project/docling-serve:v1.7.1
-
-<details id="v1.7.1-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.7.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.7.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.7.1
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob1731279264: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:42240 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42242 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:42242 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1860,128 +1340,33 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.4.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.4.1 is ok
 ~~~
 
 </details>
 
-#### Full stack trace
 
-<details open>
-<summary>Click to collapse</summary>
+#### Docling server logs
 
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.4.1, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.4.1
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob2321095705: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+<details>
+<summary>click to expand</summary>
 
 ```
+Starting production server 🚀
 
-</details>
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
 
-</details>
-
-### ghcr.io/docling-project/docling-serve:v1.7.2
-
-<details id="v1.7.2-details">
-<summary>Click to expand</summary>
-
-#### Message
-
-<details open>
-<summary>Click to collapse</summary>
-
-~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.7.2, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-~~~
-
-</details>
-
-#### Full stack trace
-
-<details open>
-<summary>Click to collapse</summary>
-
-```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.7.2, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.7.2
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: write /var/lib/docker/tmp/GetImageBlob2303539401: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:40616 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40632 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:40632 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -2000,58 +1385,270 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.5.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.5.0 is ok
 ~~~
 
 </details>
 
-#### Full stack trace
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:60140 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:60150 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:60150 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v1.5.1
+
+<details id="v1.5.1-details">
+<summary>Click to expand</summary>
+
+#### Message
 
 <details open>
 <summary>Click to collapse</summary>
 
+~~~markdown
+Tag v1.5.1 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.5.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.5.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: failed to register layer: write /opt/app-root/lib/python3.12/site-packages/nvidia/cudnn/lib/libcudnn_engines_precompiled.so.9: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:46982 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46994 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:46994 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v1.6.0
+
+<details id="v1.6.0-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+Tag v1.6.0 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:36424 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36440 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:36440 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v1.7.1
+
+<details id="v1.7.1-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+Tag v1.7.1 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+[INFO] 2025-11-19 21:49:25,666 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:49:25,668 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2025-11-19 21:49:25,800 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:49:25,800 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2025-11-19 21:49:25,854 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:49:25,854 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:59944 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:59960 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:59960 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v1.7.0
+
+<details id="v1.7.0-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+Tag v1.7.0 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:55238 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:55248 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:55248 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
+
+### ghcr.io/docling-project/docling-serve:v1.7.2
+
+<details id="v1.7.2-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+Tag v1.7.2 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+[INFO] 2025-11-19 21:54:45,282 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:54:45,284 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2025-11-19 21:54:45,406 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:54:45,407 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2025-11-19 21:54:45,452 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:54:45,452 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:38686 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38690 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:38690 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -2070,58 +1667,39 @@ Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not 
 <summary>Click to collapse</summary>
 
 ~~~markdown
-Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.8.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
+Tag v1.8.0 is ok
 ~~~
 
 </details>
 
-#### Full stack trace
 
-<details open>
-<summary>Click to collapse</summary>
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
 
 ```
-org.testcontainers.containers.ContainerFetchException: Can't get Docker image: RemoteDockerImage(imageName=ghcr.io/docling-project/docling-serve:v1.8.0, imagePullPolicy=DefaultPullPolicy(), imageNameSubstitutor=org.testcontainers.utility.ImageNameSubstitutor$LogWrappedImageNameSubstitutor@185de27c)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1364)
-	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:351)
-	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:322)
-	at ai.docling.client.tester.service.TagsTester.testTag(TagsTester.java:57)
-	at ai.docling.client.tester.service.TagsTester.lambda$testTags$0(TagsTester.java:40)
-	at ai.docling.client.tester.service.WorkParallelizer.lambda$transformInParallelAndWait$1(WorkParallelizer.java:19)
-	at io.smallrye.context.impl.wrappers.SlowContextualSupplier.get(SlowContextualSupplier.java:21)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromItemSupplier.subscribe(UniCreateFromItemSupplier.java:28)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniRunSubscribeOn.lambda$subscribe$0(UniRunSubscribeOn.java:27)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-Caused by: org.testcontainers.containers.ContainerFetchException: Failed to get Docker client for ghcr.io/docling-project/docling-serve:v1.8.0
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:128)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:35)
-	at org.testcontainers.utility.LazyFuture.getResolvedValue(LazyFuture.java:20)
-	at org.testcontainers.utility.LazyFuture.get(LazyFuture.java:41)
-	at org.testcontainers.containers.GenericContainer.getDockerImageName(GenericContainer.java:1362)
-	... 12 more
-Caused by: com.github.dockerjava.api.exception.DockerClientException: Could not pull image: failed to register layer: write /opt/app-root/lib/python3.12/site-packages/torch/lib/libtorch_cuda.so: no space left on device
-	at com.github.dockerjava.api.command.PullImageResultCallback.checkDockerClientPullSuccessful(PullImageResultCallback.java:97)
-	at com.github.dockerjava.api.command.PullImageResultCallback.throwFirstError(PullImageResultCallback.java:112)
-	at com.github.dockerjava.api.async.ResultCallbackTemplate.awaitCompletion(ResultCallbackTemplate.java:93)
-	at org.testcontainers.images.TimeLimitedLoggedPullImageResultCallback.awaitCompletion(TimeLimitedLoggedPullImageResultCallback.java:58)
-	at org.testcontainers.images.RemoteDockerImage.pullImage(RemoteDockerImage.java:167)
-	at org.testcontainers.images.RemoteDockerImage.lambda$tryImagePullCommand$1(RemoteDockerImage.java:142)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition$ConditionEvaluationWrapper.eval(CallableCondition.java:99)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:248)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter$ConditionPoller.call(ConditionAwaiter.java:235)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
-	at org.testcontainers.shaded.org.awaitility.core.SameThreadExecutorService.execute(SameThreadExecutorService.java:79)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionAwaiter.await(ConditionAwaiter.java:101)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:78)
-	at org.testcontainers.shaded.org.awaitility.core.CallableCondition.await(CallableCondition.java:26)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:985)
-	at org.testcontainers.shaded.org.awaitility.core.ConditionFactory.until(ConditionFactory.java:954)
-	at org.testcontainers.images.RemoteDockerImage.resolve(RemoteDockerImage.java:109)
-	... 16 more
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+[INFO] 2025-11-19 21:55:26,709 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:55:26,710 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2025-11-19 21:55:26,776 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:55:26,776 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2025-11-19 21:55:26,811 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2025-11-19 21:55:26,811 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:40182 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40198 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:40198 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
