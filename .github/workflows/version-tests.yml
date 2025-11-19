@@ -48,15 +48,16 @@ defaults:
   run:
     shell: bash
 
+permissions:
+  actions: read
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   versions-tests:
     runs-on: ubuntu-latest
     if: github.repository == 'docling-project/docling-java'
-    permissions:
-      actions: read
-      contents: write
-      issues: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v5
 
