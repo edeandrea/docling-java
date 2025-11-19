@@ -122,13 +122,13 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
           add-paths: docs/src/doc/docs/includes/docling-serve/serve-compatibility.md
-          commit-message: "Update docling-serve compatibility table (from ${{ github.workflow }} run # ${{ github.run_number }})"
+          commit-message: "docs: Update docling-serve compatibility table (from ${{ github.workflow }} run # ${{ github.run_number }})"
           branch: update-serve-compatibility/sourceref
           branch-suffix: short-commit-hash
           delete-branch: true
           base: main
-          title: "Update docling-serve compatibility table (from ${{ github.workflow }} run # ${{ github.run_number }})"
-          body: "Update docling-serve compatibility table from [${{ github.workflow }} run # ${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), which was triggered by commit ${{ env.REF }}."
+          title: "docs: Update docling-serve compatibility table (from ${{ github.workflow }} run # ${{ github.run_number }})"
+          body: "docs: Update docling-serve compatibility table from [${{ github.workflow }} run # ${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), which was triggered by commit ${{ env.REF }}."
           labels: |
             automation
             documentation
