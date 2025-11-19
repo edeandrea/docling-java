@@ -97,9 +97,6 @@ public class VersionTestsCommand implements Runnable {
   public void run() {
     var executor = Executors.newFixedThreadPool(this.parallelism, new NamedThreadFactory("VersionTester"));
 
-    System.out.println("createGithubIssue: " + this.createGithubIssue);
-    System.out.println("cleanupContainerImages: " + this.cleanupContainerImages);
-
     try {
       var request = createTestRequest(executor);
       Log.infof("Going to test tags: %s", request.tags());
