@@ -110,10 +110,17 @@ jobs:
       - name: Copy output markdown to docs
         run: find docling-testing/docling-version-tests/${{ env.OUTPUT_DIR }} -name 'results.md' -exec cp -r '{}' docs/src/doc/docs/includes/docling-serve/serve-compatibility.md ';'
 
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.DOCLING_JAVA_CI_APP_ID }}
+          private-key: ${{ secrets.DOCLING_JAVA_CI_PRIVATE_KEY }}
+
       - name: Create docs PR
         id: create-pr
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ steps.app-token.outputs.token }}
           add-paths: docs/src/doc/docs/includes/docling-serve/serve-compatibility.md
           commit-message: "Update docling-serve compatibility table (from ${{ github.workflow }} run # ${{ github.run_number }})"
           branch: update-serve-compatibility/sourceref
@@ -130,5 +137,5 @@ jobs:
       - name: Merge PR
         if: (steps.create-pr.outputs.pull-request-operation == 'created') && steps.create-pr.outputs.pull-request-number
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: gh pr merge --merge --delete-branch "${{ steps.create-pr.outputs.pull-request-url }}"
