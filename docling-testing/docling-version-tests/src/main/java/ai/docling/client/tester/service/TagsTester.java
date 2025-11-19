@@ -111,7 +111,7 @@ public class TagsTester {
         .isNotNull();
 
     assertThat(response.getStatus())
-        .as("Response tatus should not be null or empty")
+        .as("Response status should not be null or empty")
         .isNotEmpty();
 
     assertThat(response.getErrors())
