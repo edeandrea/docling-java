@@ -127,6 +127,8 @@ jobs:
           branch-suffix: short-commit-hash
           delete-branch: true
           base: main
+          signoff: true
+          sign-commits: true
           title: "docs: Update docling-serve compatibility table (from ${{ github.workflow }} run # ${{ github.run_number }})"
           body: "docs: Update docling-serve compatibility table from [${{ github.workflow }} run # ${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), which was triggered by commit ${{ env.REF }}."
           labels: |
