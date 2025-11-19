@@ -29,6 +29,12 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.repository == 'docling-project/docling-java') && ((github.event_name == 'workflow_dispatch') || ((github.event_name == 'pull_request') && (github.event.pull_request.merged == true)))
     steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.DOCLING_JAVA_CI_APP_ID }}
+          private-key: ${{ secrets.DOCLING_JAVA_CI_PRIVATE_KEY }}
+    
       - uses: actions/checkout@v5
 
       - name: Setup Java
@@ -48,7 +54,7 @@ jobs:
         env:
           JRELEASER_MAVENCENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           JRELEASER_MAVENCENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
-          JRELEASER_GITHUB_TOKEN: ${{ secrets.CENTRAL_TOKEN }}
+          JRELEASER_GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           JRELEASER_GPG_PASSPHRASE: ${{ secrets.JRELEASER_GPG_PASSPHRASE }}
           JRELEASER_GPG_PUBLIC_KEY: ${{ secrets.JRELEASER_GPG_PUBLIC_KEY }}
           JRELEASER_GPG_SECRET_KEY: ${{ secrets.JRELEASER_GPG_SECRET_KEY }}
