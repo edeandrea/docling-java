@@ -29,6 +29,7 @@ jspecify = { group = "org.jspecify", name = "jspecify", version.ref = "jspecify"
 
 # JReleaser
 jreleaser-gradle-plugin = { group = "org.jreleaser", name = "jreleaser-gradle-plugin", version.ref = "jreleaser" }
+jreleaser-logger-api = { group = "org.jreleaser", name = "jreleaser-logger-api", version.ref = "jreleaser" }
 
 # JUnit
 junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
@@ -45,6 +46,9 @@ quarkus-bom = { group = "io.quarkus.platform", name = "quarkus-bom", version.ref
 quarkus-wiremock = { group = "io.quarkiverse.wiremock", name = "quarkus-wiremock", version.ref = "quarkus-wiremock" }
 quarkus-github-api = { group = "io.quarkiverse.githubapi", name = "quarkus-github-api", version.ref = "quarkus-github-api" }
 quarkus-wiremock-test = { group = "io.quarkiverse.wiremock", name = "quarkus-wiremock-test", version.ref = "quarkus-wiremock" }
+
+[bundles]
+jreleaser = ["jreleaser-gradle-plugin", "jreleaser-logger-api"]
 
 [plugins]
 lombok = { id = "io.freefair.lombok", version.ref = "lombok-gradle" }
