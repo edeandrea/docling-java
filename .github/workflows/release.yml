@@ -4,7 +4,7 @@ env:
   JAVA_VERSION: 17
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - closed
     branches:
@@ -39,7 +39,7 @@ defaults:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: (github.repository == 'docling-project/docling-java') && ((github.event_name == 'workflow_dispatch') || ((github.event_name == 'pull_request') && (github.event.pull_request.merged == true)))
+    if: (github.repository == 'docling-project/docling-java') && ((github.event_name == 'workflow_dispatch') || ((github.event_name == 'pull_request_target') && (github.event.pull_request.merged == true)))
     steps:
       - uses: actions/create-github-app-token@v1
         id: app-token
@@ -48,7 +48,7 @@ jobs:
           private-key: ${{ secrets.DOCLING_JAVA_CI_PRIVATE_KEY }}
 
       - name: Checkout before PR
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request_target'
         uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.base.sha }}
@@ -64,7 +64,7 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
 
       - name: Capture version before PR
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request_target'
         run: echo "PREVIOUS_VERSION=$(yq '.release.current-version' before/.github/project.yml)" >> $GITHUB_ENV
 
       - name: Set version to release
