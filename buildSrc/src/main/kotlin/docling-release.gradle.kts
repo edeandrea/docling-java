@@ -60,8 +60,8 @@ jreleaser {
     maven {
       mavenCentral {
         create("sonatype") {
-          retryDelay = 180
-          maxRetries: 100
+          retryDelay = 100
+          maxRetries = 100
           connectTimeout = 18000
           active = org.jreleaser.model.Active.ALWAYS
           url = "https://central.sonatype.com/api/v1/publisher"
