@@ -15,7 +15,7 @@ if [ -n "$ARTIFACT_ID" ] && [ "$ARTIFACT_ID" != "null" ]; then
   mkdir -p docs/build/mkdocs
   unzip -o artifact.zip -d /tmp/pages-artifact
   ls -la /tmp/pages-artifact
-  tar -xvzf /tmp/pages-artifact/artifact.tar -C docs/build/mkdocs
+  tar -xvf /tmp/pages-artifact/artifact.tar -C docs/build/mkdocs
 
   echo "Successfully extracted existing pages"
 else
