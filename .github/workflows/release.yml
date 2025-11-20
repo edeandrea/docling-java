@@ -10,6 +10,11 @@ on:
     paths:
       - .github/project.yml
   workflow_dispatch:
+    inputs:
+      version:
+        description: The version to release (e.g. 1.0.0)
+        required: true
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -34,8 +39,31 @@ jobs:
         with:
           app-id: ${{ vars.DOCLING_JAVA_CI_APP_ID }}
           private-key: ${{ secrets.DOCLING_JAVA_CI_PRIVATE_KEY }}
+
+      - name: Checkout before PR
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: before
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Capture version before PR
+        if: github.event_name == 'pull_request'
+        run: echo "PREVIOUS_VERSION=$(yq '.release.current-version' before/.github/project.yml)" >> $GITHUB_ENV
+
+      - name: Set version to release
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "PREVIOUS_VERSION=${{ inputs.version }}" >> $GITHUB_ENV
     
-      - uses: actions/checkout@v5
+      - name: Checkout current ref
+        uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          path: after
+
+      - name: Capture current version
+        run: echo "CURRENT_VERSION=$(yq '.release.current-version' after/.github/project.yml)" >> $GITHUB_ENV
 
       - name: Setup Java
         uses: actions/setup-java@v5
@@ -45,12 +73,15 @@ jobs:
           cache: gradle
 
       - name: Setup Gradle
+        working-directory: before
         uses: gradle/actions/setup-gradle@v5
 
       - name: Build artifacts
+        working-directory: before
         run: ./gradlew --no-daemon -Pjava.version=${{ env.JAVA_VERSION }} publish
 
       - name: Release
+        working-directory: before
         env:
           JRELEASER_MAVENCENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           JRELEASER_MAVENCENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
@@ -59,4 +90,6 @@ jobs:
           JRELEASER_GPG_PUBLIC_KEY: ${{ secrets.JRELEASER_GPG_PUBLIC_KEY }}
           JRELEASER_GPG_SECRET_KEY: ${{ secrets.JRELEASER_GPG_SECRET_KEY }}
           JRELEASER_DRY_RUN: true
-        run: ./gradlew --no-daemon :jreleaserFullRelease
+        run: |
+          echo "Releasing version ${{ env.PREVIOUS_VERSION }} -> ${{ env.CURRENT_VERSION }}"
+          ./gradlew --no-daemon :jreleaserFullRelease
