@@ -47,11 +47,10 @@ jobs:
 
       - name: Download existing GitHub Pages artifact
         continue-on-error: true
-        working-directory: .github/scripts
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
-        run: ./get-current-gh-pages.sh
+        run: .github/scripts/get-current-gh-pages.sh
 
       - name: Generate documentation
         run: ./gradlew --console=plain :docs:build
