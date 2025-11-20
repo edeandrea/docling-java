@@ -36,7 +36,6 @@ jreleaser {
   signing {
     active = org.jreleaser.model.Active.ALWAYS
     armored = true
-    verify = true
   }
 
   release {
@@ -49,10 +48,6 @@ jreleaser {
         links = true
         preset = "conventional-commits"
       }
-
-//      releaseNotes {
-//        enabled = true
-//      }
 
       issues {
         enabled = true
