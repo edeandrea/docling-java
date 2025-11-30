@@ -22,17 +22,14 @@ defaults:
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
-  pages: write
   id-token: write
+  pull-requests: write
 
 jobs:
   docs:
     runs-on: ubuntu-latest
     name: Build/publish Docs
     if: github.repository == 'docling-project/docling-java'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Setup env (release)
         if: github.event_name == 'release'
