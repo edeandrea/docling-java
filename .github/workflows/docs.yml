@@ -79,7 +79,7 @@ jobs:
         run: ./gradlew --console=plain :docs:build -Pdocs.alias=${{ env.DOCS_ALIAS }}
 
       - name: Copy to gh-pages
-        run: cp -Rf app/docs/build/mkdocs/ docs/
+        run: cp -Rf app/docs/build/mkdocs/* docs/
 
       - uses: actions/create-github-app-token@7e473efe3cb98aa54f8d4bac15400b15fad77d94 # v2.2.0
         id: app-token
