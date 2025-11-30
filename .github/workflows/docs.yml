@@ -95,7 +95,7 @@ jobs:
         uses: peter-evans/create-pull-request@84ae59a2cdc2258d6fa0732dd66352dddae2a412 # v7.0.9
         with:
           token: ${{ steps.app-token.outputs.token }}
-          add-paths: .
+          add-paths: docs
           commit-message: "docs: Build and publish docs (from ${{ github.workflow }} run # ${{ github.run_number }})"
           branch: build-docs/sourceref
           branch-suffix: short-commit-hash
