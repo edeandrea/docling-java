@@ -76,7 +76,10 @@ jobs:
 
       - name: Generate documentation
         working-directory: app
-        run: ./gradlew --console=plain :docs:build -Pdocs.alias=${{ env.DOCS_ALIAS }}
+        run: |
+          ./gradlew --console=plain :docs:build \
+            -Pdocs.alias=${{ env.DOCS_ALIAS }} \
+            -Pdocs.versionsFile=${{ github.workspace }}/docs/versions.json
 
       - name: Copy to gh-pages
         run: cp -Rf app/docs/build/mkdocs/* docs/
