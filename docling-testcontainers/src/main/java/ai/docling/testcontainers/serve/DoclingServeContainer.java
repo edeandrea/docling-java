@@ -1,7 +1,9 @@
 package ai.docling.testcontainers.serve;
 
-import java.util.logging.Logger;
+import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
@@ -18,7 +20,7 @@ import ai.docling.testcontainers.serve.config.DoclingServeContainerConfig;
  * health checks for the container.
  */
 public class DoclingServeContainer extends GenericContainer<DoclingServeContainer> {
-  private static final Logger LOG = Logger.getLogger(DoclingServeContainer.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(DoclingServeContainer.class);
 
   /**
    * The default container port that docling runs on
@@ -66,21 +68,20 @@ public class DoclingServeContainer extends GenericContainer<DoclingServeContaine
    * The URL where to access the Docling Serve API.
    */
   public String getApiUrl() {
-    return "http://" + getHost() + ":" + getPort();
+    return "http://%s:%d".formatted(getHost(), getPort());
   }
 
   /**
    * The URL where to access the Docling Serve UI, if enabled.
    */
-  public String getUiUrl() {
-    return getApiUrl() + "/ui";
+  public Optional<String> getUiUrl() {
+    return this.config.enableUi() ?
+        Optional.of("%s/ui".formatted(getApiUrl())) :
+        Optional.empty();
   }
 
   @Override
   protected void containerIsStarted(InspectContainerResponse containerInfo) {
-    if (config.enableUi()) {
-      LOG.info(() -> "Docling Serve UI: %s".formatted(getUiUrl()));
-    }
+    getUiUrl().ifPresent(url -> LOG.info("Docling Serve UI: {}", url));
   }
-
 }

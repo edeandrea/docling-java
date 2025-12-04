@@ -7,6 +7,7 @@ description = "Docling Serve Client"
 
 dependencies {
   api(project(":docling-serve-api"))
+  api(libs.slf4j.api)
   implementation(platform(libs.jackson.bom))
   implementation(libs.jackson.databind)
   implementation(libs.jackson2.databind)
@@ -14,4 +15,5 @@ dependencies {
   testImplementation(platform(libs.testcontainers.bom))
   testImplementation(libs.testcontainers.junit.jupiter)
   testImplementation(project(":docling-testcontainers"))
+  testImplementation(libs.slf4j.simple)
 }

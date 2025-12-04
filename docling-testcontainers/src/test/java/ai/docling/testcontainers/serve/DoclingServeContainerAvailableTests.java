@@ -30,11 +30,17 @@ class DoclingServeContainerAvailableTests {
         .build()
   );
 
+  @Container
+  private final DoclingServeContainer noUiDoclingContainer = new DoclingServeContainer(
+    DoclingServeContainerConfig.builder()
+        .image(DoclingServeContainerConfig.DOCLING_IMAGE)
+        .enableUi(false)
+        .build()
+  );
+
   @Test
-  void containerAvailable() throws IOException, InterruptedException {
-    var healthRequest = HttpRequest.newBuilder(
-        URI.create("%s/health".formatted(this.doclingContainer.getApiUrl()))
-    )
+  void containerNoUI() throws IOException, InterruptedException {
+    var healthRequest = HttpRequest.newBuilder(URI.create("%s/health".formatted(this.noUiDoclingContainer.getApiUrl())))
         .header("Accept", "application/json")
         .timeout(Duration.ofSeconds(10))
         .GET()
@@ -49,8 +55,31 @@ class DoclingServeContainerAvailableTests {
         .usingRecursiveComparison()
         .isEqualTo(new HealthResponse("ok"));
 
+    assertThat(this.noUiDoclingContainer.getUiUrl())
+        .isNotNull()
+        .isEmpty();
+  }
+
+  @Test
+  void containerAvailable() throws IOException, InterruptedException {
+    var healthRequest = HttpRequest.newBuilder(URI.create("%s/health".formatted(this.doclingContainer.getApiUrl())))
+        .header("Accept", "application/json")
+        .timeout(Duration.ofSeconds(10))
+        .GET()
+        .build();
+
+    var response = HttpClient.newHttpClient()
+        .send(healthRequest, jsonBodyHandler(DoclingServeContainerAvailableTests.HealthResponse.class))
+        .body();
+
+    assertThat(response)
+        .isNotNull()
+        .usingRecursiveComparison()
+        .isEqualTo(new HealthResponse("ok"));
+
     assertThat(this.doclingContainer.getUiUrl())
-        .isEqualTo(this.doclingContainer.getApiUrl() + "/ui");
+        .get()
+        .isEqualTo("%s/ui".formatted(this.doclingContainer.getApiUrl()));
   }
 
   private static <T> HttpResponse.BodyHandler<T> jsonBodyHandler(Class<T> type) {
