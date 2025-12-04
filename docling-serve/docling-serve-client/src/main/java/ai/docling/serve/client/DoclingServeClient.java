@@ -18,6 +18,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import ai.docling.serve.api.DoclingServeApi;
+import ai.docling.serve.api.chunk.request.HierarchicalChunkDocumentRequest;
+import ai.docling.serve.api.chunk.request.HybridChunkDocumentRequest;
+import ai.docling.serve.api.chunk.response.ChunkDocumentResponse;
 import ai.docling.serve.api.convert.request.ConvertDocumentRequest;
 import ai.docling.serve.api.convert.response.ConvertDocumentResponse;
 import ai.docling.serve.api.health.HealthCheckResponse;
@@ -125,6 +128,29 @@ public abstract class DoclingServeClient implements DoclingServeApi {
     }
   }
 
+  protected <I, O> O executePost(String uri, I request, Class<O> expectedReturnType) {
+    var httpRequest = createRequestBuilder(uri)
+        .header("Content-Type", "application/json")
+        .POST(new LoggingBodyPublisher<>(request))
+        .build();
+
+    return execute(httpRequest, expectedReturnType);
+  }
+
+  protected <O> O executeGet(String uri, Class<O> expectedReturnType) {
+    var httpRequest = createRequestBuilder(uri)
+        .GET()
+        .build();
+
+    return execute(httpRequest, expectedReturnType);
+  }
+
+  protected HttpRequest.Builder createRequestBuilder(String uri) {
+    return HttpRequest.newBuilder()
+           .uri(baseUrl.resolve(uri))
+           .header("Accept", "application/json");
+  }
+
   protected <T> T getResponse(HttpResponse<String> response, Class<T> expectedReturnType) {
     var body = response.body();
 
@@ -137,25 +163,22 @@ public abstract class DoclingServeClient implements DoclingServeApi {
 
   @Override
   public HealthCheckResponse health() {
-    var httpRequest = HttpRequest.newBuilder()
-        .uri(baseUrl.resolve("/health"))
-        .header("Accept", "application/json")
-        .GET()
-        .build();
-
-    return execute(httpRequest, HealthCheckResponse.class);
+    return executeGet("/health", HealthCheckResponse.class);
   }
 
   @Override
   public ConvertDocumentResponse convertSource(ConvertDocumentRequest request) {
-    var httpRequest = HttpRequest.newBuilder()
-        .uri(baseUrl.resolve("/v1/convert/source"))
-        .header("Accept", "application/json")
-        .header("Content-Type", "application/json")
-        .POST(new LoggingBodyPublisher<>(request))
-        .build();
+    return executePost("/v1/convert/source", request, ConvertDocumentResponse.class);
+  }
 
-    return execute(httpRequest, ConvertDocumentResponse.class);
+  @Override
+  public ChunkDocumentResponse chunkSourceWithHierarchicalChunker(HierarchicalChunkDocumentRequest request) {
+    return executePost("/v1/chunk/hierarchical/source", request, ChunkDocumentResponse.class);
+  }
+
+  @Override
+  public ChunkDocumentResponse chunkSourceWithHybridChunker(HybridChunkDocumentRequest request) {
+    return executePost("/v1/chunk/hybrid/source", request, ChunkDocumentResponse.class);
   }
 
   private class LoggingBodyPublisher<T> implements BodyPublisher {
