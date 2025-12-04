@@ -14,8 +14,9 @@ import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.Flow.Subscriber;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ai.docling.serve.api.DoclingServeApi;
 import ai.docling.serve.api.chunk.request.HierarchicalChunkDocumentRequest;
@@ -37,7 +38,7 @@ import ai.docling.serve.api.health.HealthCheckResponse;
  * {@link #writeValueAsString(Object)} for serialization and deserialization behavior.
  */
 public abstract class DoclingServeClient implements DoclingServeApi {
-  private static final Logger LOG = Logger.getLogger(DoclingServeClient.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(DoclingServeClient.class);
   protected static final URI DEFAULT_BASE_URL = URI.create("http://localhost:5001");
 
   private final URI baseUrl;
@@ -82,7 +83,7 @@ public abstract class DoclingServeClient implements DoclingServeApi {
   protected abstract <T> String writeValueAsString(T value);
 
   protected void logRequest(HttpRequest request) {
-    if (LOG.isLoggable(Level.INFO)) {
+    if (LOG.isInfoEnabled()) {
       var stringBuilder = new StringBuilder();
       stringBuilder.append("\n→ REQUEST: %s %s\n".formatted(request.method(), request.uri()));
       stringBuilder.append("  HEADERS:\n");
@@ -96,7 +97,7 @@ public abstract class DoclingServeClient implements DoclingServeApi {
   }
 
   protected void logResponse(HttpResponse<String> response, Optional<String> responseBody) {
-    if (LOG.isLoggable(Level.INFO)) {
+    if (LOG.isInfoEnabled()) {
       var stringBuilder = new StringBuilder();
       stringBuilder.append("\n← RESPONSE: %s\n".formatted(response.statusCode()));
       stringBuilder.append("  HEADERS:\n");
@@ -124,7 +125,7 @@ public abstract class DoclingServeClient implements DoclingServeApi {
     }
     finally {
       long duration = System.currentTimeMillis() - startTime;
-      LOG.info(() -> "Request [%s %s] took %d ms".formatted(request.method(), request.uri(), duration));
+      LOG.info("Request [{} {}] took {}ms", request.method(), request.uri(), duration);
     }
   }
 
@@ -198,7 +199,7 @@ public abstract class DoclingServeClient implements DoclingServeApi {
     @Override
     public void subscribe(Subscriber<? super ByteBuffer> subscriber) {
       if (logRequests) {
-        LOG.info(() -> "→ REQUEST BODY: %s".formatted(this.stringContent));
+        LOG.info("→ REQUEST BODY: {}", this.stringContent);
       }
 
       this.delegate.subscribe(subscriber);
