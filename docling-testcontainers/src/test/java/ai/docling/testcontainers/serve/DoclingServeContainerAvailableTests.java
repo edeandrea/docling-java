@@ -40,11 +40,6 @@ class DoclingServeContainerAvailableTests {
 
   @Test
   void containerNoUI() throws IOException, InterruptedException {
-    var config = DoclingServeContainerConfig.builder()
-        .image(DoclingServeContainerConfig.DOCLING_IMAGE)
-        .enableUi(false)
-        .build();
-
     var healthRequest = HttpRequest.newBuilder(URI.create("%s/health".formatted(this.noUiDoclingContainer.getApiUrl())))
         .header("Accept", "application/json")
         .timeout(Duration.ofSeconds(10))
@@ -60,7 +55,7 @@ class DoclingServeContainerAvailableTests {
         .usingRecursiveComparison()
         .isEqualTo(new HealthResponse("ok"));
 
-    assertThat(this.doclingContainer.getUiUrl())
+    assertThat(this.noUiDoclingContainer.getUiUrl())
         .isNotNull()
         .isEmpty();
   }

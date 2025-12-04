@@ -82,8 +82,6 @@ public class DoclingServeContainer extends GenericContainer<DoclingServeContaine
 
   @Override
   protected void containerIsStarted(InspectContainerResponse containerInfo) {
-    if (config.enableUi()) {
-      LOG.info("Docling Serve UI: {}", getUiUrl());
-    }
+    getUiUrl().ifPresent(url -> LOG.info("Docling Serve UI: {}", url));
   }
 }
