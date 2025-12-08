@@ -12,7 +12,7 @@ on:
         description: The number of versions to verify in parallel
         required: false
         type: number
-        default: 4
+        default: '2'
       image:
         description: The docling-serve image to fetch
         required: true
@@ -86,7 +86,7 @@ jobs:
           echo "CREATE_GITHUB_ISSUE_FLAG=$CREATE_GITHUB_ISSUE_FLAG" >> $GITHUB_ENV
           
           # Set defaults for scheduled runs
-          echo "PARALLELISM=${{ inputs.parallelism || '4' }}" >> $GITHUB_ENV
+          echo "PARALLELISM=${{ inputs.parallelism || '2' }}" >> $GITHUB_ENV
           echo "IMAGE=${{ inputs.image || 'docling-project/docling-serve' }}" >> $GITHUB_ENV
           echo "REGISTRY=${{ inputs.registry || 'ghcr.io' }}" >> $GITHUB_ENV
           echo "OUTPUT_DIR=${{ inputs.outputDir || 'results' }}" >> $GITHUB_ENV
