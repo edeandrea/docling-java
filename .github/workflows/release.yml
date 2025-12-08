@@ -69,19 +69,11 @@ jobs:
 
       - name: Capture version before PR
         if: steps.verify-files.outputs.should_release == 'true'
-        run: echo "PREVIOUS_VERSION=$(yq '.release.current-version' before/.github/project.yml)" >> $GITHUB_ENV
-
-      - name: Checkout current ref
-        if: steps.verify-files.outputs.should_release == 'true'
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-          path: after
-          fetch-depth: 0
+        run: echo "PREVIOUS_VERSION=$(yq '.release.previous-version' .github/project.yml)" >> $GITHUB_ENV
 
       - name: Capture current version
         if: steps.verify-files.outputs.should_release == 'true'
-        run: echo "CURRENT_VERSION=$(yq '.release.current-version' after/.github/project.yml)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(yq '.release.current-version' .github/project.yml)" >> $GITHUB_ENV
 
       - name: Setup Java
         if: steps.verify-files.outputs.should_release == 'true'
@@ -96,12 +88,10 @@ jobs:
 
       - name: Build artifacts
         if: steps.verify-files.outputs.should_release == 'true'
-        working-directory: before
         run: ./gradlew --no-daemon -Pjava.version=${{ env.JAVA_VERSION }} publish
 
       - name: Release
         if: steps.verify-files.outputs.should_release == 'true'
-        working-directory: before
         env:
           JRELEASER_MAVENCENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           JRELEASER_MAVENCENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
@@ -124,5 +114,5 @@ jobs:
         with:
           name: jreleaser-release
           path: |
-            before/build/jreleaser/trace.log
-            before/build/jreleaser/output.properties
+            build/jreleaser/trace.log
+            build/jreleaser/output.properties
