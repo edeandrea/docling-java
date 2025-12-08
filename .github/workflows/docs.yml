@@ -58,7 +58,7 @@ jobs:
         working-directory: app
         run: |
           echo "DOCS_ALIAS=dev" >> $GITHUB_ENV
-          echo "CURRENT_VERSION=$(yq '.release.current-version' .github/project.yml)" >> $GITHUB_ENV
+          echo "DOCS_VERSION=$(yq '.release.current-version' .github/project.yml)" >> $GITHUB_ENV
 
       - name: Get docs
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
