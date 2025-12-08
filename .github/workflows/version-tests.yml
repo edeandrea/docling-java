@@ -64,9 +64,21 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'docling-project/docling-java'
     steps:
+      - uses: actions/create-github-app-token@7e473efe3cb98aa54f8d4bac15400b15fad77d94 # v2.2.0
+        id: app-token
+        with:
+          app-id: ${{ vars.DOCLING_JAVA_CI_APP_ID }}
+          private-key: ${{ secrets.DOCLING_JAVA_CI_PRIVATE_KEY }}
+          permission-actions: read
+          permission-contents: write
+          permission-issues: write
+          permission-pull-requests: write
+
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
+          token: ${{ steps.app-token.outputs.token }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Reclaim disk space
         working-directory: .github/scripts
@@ -104,12 +116,6 @@ jobs:
 
       - name: Build version tester
         run: ./gradlew --no-daemon -Pjava.version=${{ env.JAVA_VERSION }} :docling-version-tests:build
-
-      - uses: actions/create-github-app-token@7e473efe3cb98aa54f8d4bac15400b15fad77d94 # v2.2.0
-        id: app-token
-        with:
-          app-id: ${{ vars.DOCLING_JAVA_CI_APP_ID }}
-          private-key: ${{ secrets.DOCLING_JAVA_CI_PRIVATE_KEY }}
 
       - name: Run version tester
         working-directory: docling-testing/docling-version-tests
