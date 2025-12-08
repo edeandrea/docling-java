@@ -38,6 +38,10 @@ jobs:
         with:
           app-id: ${{ vars.DOCLING_JAVA_CI_APP_ID }}
           private-key: ${{ secrets.DOCLING_JAVA_CI_PRIVATE_KEY }}
+          permission-attestations: write
+          permission-contents: write
+          permission-discussions: write
+          permission-issues: write
 
       - name: Checkout before
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
