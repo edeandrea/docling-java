@@ -38,6 +38,7 @@ on:
         description: A regex to exclude tags from testing. Tags matching this regex will be excluded.
         required: false
         type: string
+        default: '^v0.*'
       createGithubIssue:
         description: Create a GitHub issue if any of the tests fail
         required: true
