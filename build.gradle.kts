@@ -63,7 +63,7 @@ jreleaser {
       }
 
       issues {
-        enabled = false
+        enabled = true
         comment = "🎉 This issue has been resolved in `{{tagName}}` ([Release Notes]({{releaseNotesUrl}}))"
       }
 
