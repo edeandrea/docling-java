@@ -41,10 +41,13 @@ jacoco {
   toolVersion = libs.findVersion("jacoco").get().toString()
 }
 
-tasks.withType<Test> {
+tasks.withType<Test>().configureEach {
   // Use JUnit Platform for unit tests.
   useJUnitPlatform()
 
+  maxParallelForks = (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(1)
+  forkEvery = 100
+  
   finalizedBy(tasks.named("jacocoTestReport"))
 
   testLogging {
@@ -70,6 +73,10 @@ tasks.withType<Test> {
       .dir("java${project.property("java.version").toString()}")
     )
   }
+}
+
+tasks.withType<JavaCompile>().configureEach {
+  options.isFork = true
 }
 
 tasks.withType<Javadoc> {
