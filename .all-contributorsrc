@@ -96,6 +96,16 @@
       ]
     },
     {
+      "login": "insectengine",
+      "name": "insectengine",
+      "avatar_url": "https://avatars.githubusercontent.com/u/928656?v=4",
+      "profile": "https://github.com/insectengine",
+      "contributions": [
+        "content",
+        "design"
+      ]
+    },
+    {
       "login": "maxmnemonic",
       "name": "Maxim Lysak",
       "avatar_url": "https://avatars.githubusercontent.com/u/101627549?v=4",
