@@ -95,11 +95,11 @@ jreleaser {
       active = org.jreleaser.model.Active.RELEASE
     }
 
-    // discussions {
-    //  active = org.jreleaser.model.Active.RELEASE
-    //  organization = "docling-project"
-    //  team = "docling-java"
-    //  title = "{{projectNameCapitalized}} {{projectVersion}} released!"
-    }
+//     discussions {
+//      active = org.jreleaser.model.Active.RELEASE
+//      organization = "docling-project"
+//      team = "docling-java"
+//      title = "{{projectNameCapitalized}} {{projectVersion}} released!"
+//    }
   }
 }
