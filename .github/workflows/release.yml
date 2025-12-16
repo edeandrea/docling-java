@@ -105,7 +105,7 @@ jobs:
           JRELEASER_PREVIOUS_TAG_NAME: "v${{ env.PREVIOUS_VERSION }}"
         run: |
           echo "Releasing version ${{ env.PREVIOUS_VERSION }} -> ${{ env.CURRENT_VERSION }}"
-          ./gradlew --no-daemon :jreleaserFullRelease
+          ./gradlew --no-daemon -Dorg.gradle.configuration-cache=false :jreleaserFullRelease
 
       # Persist logs
       - name: JReleaser release output
