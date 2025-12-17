@@ -165,6 +165,10 @@ if (response.getDocument() != null && response.getDocument().getMarkdownContent(
 The exact transport-level exceptions (e.g., timeouts, connectivity) depend on the client implementation
 you use. The reference client throws standard Java exceptions for HTTP and I/O failures.
 
+### Validation errors
+
+In the case of a request validation error (i.e. `docling-serve` throws a `422` error), the docling-java API will throw an `ai.docling.serve.api.validation.ValidationException` which can be caught and inspected.
+
 ## Logging and builders
 
 `DoclingServeApi` exposes a `toBuilder()` method so implementations can be duplicated and tweaked. Most
