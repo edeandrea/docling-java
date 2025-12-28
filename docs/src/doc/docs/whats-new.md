@@ -5,6 +5,12 @@ Docling Java {{ gradle.project_version }} provides a number of new features, enh
 ## Docling Serve
 
 ### {{ gradle.project_version }}
+
+* Add S3-based source and target support with enhanced extensibility.
+* Introduce API extension point and enhance builder usage.
+
+### 0.4.1
+
 * Handle validation errors returned by Docling Serve (i.e. `422` responses).
 
 ### 0.4.0

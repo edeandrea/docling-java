@@ -53,7 +53,6 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import ai.docling.serve.api.DoclingServeApi;
 import ai.docling.serve.api.health.HealthCheckResponse;
-import ai.docling.serve.client.DoclingServeClientBuilderFactory;
 import ai.docling.testcontainers.serve.DoclingServeContainer;
 import ai.docling.testcontainers.serve.config.DoclingServeContainerConfig;
 
@@ -71,8 +70,7 @@ class DoclingContainerSmokeTest {
   void health_is_ok() {
     String base = "http://" + docling.getHost() + ":" + docling.getPort();
 
-    DoclingServeApi api = DoclingServeClientBuilderFactory
-        .newBuilder()
+    DoclingServeApi api = DoclingServeApi.builder()
         .baseUrl(base)
         .build();
 

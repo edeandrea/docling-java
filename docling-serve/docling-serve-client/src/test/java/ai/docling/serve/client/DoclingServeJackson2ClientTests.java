@@ -10,21 +10,27 @@ import ai.docling.serve.api.DoclingServeApi;
 class DoclingServeJackson2ClientTests extends AbstractDoclingServeClientTests {
   private static DoclingServeApi doclingClient;
   private static DoclingServeApi authDoclingClient;
+  private static DoclingServeApi wiremockDoclingClient;
 
   @BeforeAll
   static void setUp() {
-    var builder = DoclingServeJackson2Client.builder()
+    doclingClient = DoclingServeJackson2Client.builder()
         .logRequests()
         .logResponses()
         .prettyPrint()
-        .baseUrl(doclingContainer.getApiUrl());
+        .baseUrl(doclingContainer.getApiUrl())
+        .build();
 
-    doclingClient = builder.build();
-    authDoclingClient = builder.apiKey("key").build();
+    authDoclingClient = doclingClient.toBuilder().apiKey("key").build();
+    wiremockDoclingClient = doclingClient.toBuilder().baseUrl("http://localhost:%d".formatted(wireMockExtension.getPort())).build();
   }
 
   @Override
-  protected DoclingServeApi getDoclingClient(boolean requiresAuth) {
-    return requiresAuth ? authDoclingClient : doclingClient;
+  protected DoclingServeApi getDoclingClient(boolean requiresAuth, boolean useWiremock) {
+    if (requiresAuth) {
+      return authDoclingClient;
+    }
+
+    return useWiremock ? wiremockDoclingClient : doclingClient;
   }
 }

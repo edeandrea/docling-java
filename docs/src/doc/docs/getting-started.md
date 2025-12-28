@@ -7,9 +7,8 @@ import ai.docling.serve.api.DoclingServeApi;
 import ai.docling.serve.api.convert.request.ConvertDocumentRequest;
 import ai.docling.serve.api.convert.request.source.HttpSource;
 import ai.docling.serve.api.convert.response.ConvertDocumentResponse;
-import ai.docling.serve.client.DoclingServeClientBuilderFactory;
 
-DoclingServeApi doclingServeApi = DoclingServeClientBuilderFactory.newBuilder()
+DoclingServeApi doclingServeApi = DoclingServeApi.builder()
     .baseUrl("<location of docling serve instance>")
     .build();
 

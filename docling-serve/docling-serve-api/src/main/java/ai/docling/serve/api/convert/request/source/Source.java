@@ -17,22 +17,25 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 )
 @JsonSubTypes({
     @Type(value = FileSource.class, name = "file"),
-    @Type(value = HttpSource.class, name = "http")
+    @Type(value = HttpSource.class, name = "http"),
+    @Type(value = S3Source.class, name = "s3")
 })
 @lombok.Getter
 @lombok.ToString
-public abstract sealed class Source permits FileSource, HttpSource {
+public abstract sealed class Source permits FileSource, HttpSource, S3Source {
   /**
    * Enum representing the type of {@link Source}.
    * <ul>
    *   <li>{@code HTTP} - Represents an HTTP-based source (identified by {@code "http"}).</li>
    *   <li>{@code FILE} - Represents a file-based source (identified by {@code "file"}).</li>
+   *   <li>{@code S3} - Represents an S3-based source (identified by {@code "s3"}).</li>
    * </ul>
    * The enum values are serialized and deserialized using their respective JSON property
    * values as defined by the {@link JsonProperty} annotation.
    */
   enum Kind {
     @JsonProperty("http") HTTP,
-    @JsonProperty("file") FILE
+    @JsonProperty("file") FILE,
+    @JsonProperty("s3") S3
   }
 }

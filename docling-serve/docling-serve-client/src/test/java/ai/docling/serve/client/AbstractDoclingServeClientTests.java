@@ -1,5 +1,15 @@
 package ai.docling.serve.client;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.containing;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalToJson;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -35,6 +45,9 @@ import org.junit.jupiter.api.extension.TestWatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
+import com.github.tomakehurst.wiremock.junit5.WireMockTest;
+
 import ai.docling.core.DoclingDocument;
 import ai.docling.core.DoclingDocument.DocItemLabel;
 import ai.docling.serve.api.DoclingServeApi;
@@ -52,6 +65,8 @@ import ai.docling.serve.api.convert.request.options.ConvertDocumentOptions;
 import ai.docling.serve.api.convert.request.options.OutputFormat;
 import ai.docling.serve.api.convert.request.options.TableFormerMode;
 import ai.docling.serve.api.convert.request.source.HttpSource;
+import ai.docling.serve.api.convert.request.source.S3Source;
+import ai.docling.serve.api.convert.request.target.S3Target;
 import ai.docling.serve.api.convert.response.ConvertDocumentResponse;
 import ai.docling.serve.api.health.HealthCheckResponse;
 import ai.docling.serve.api.task.request.TaskResultRequest;
@@ -66,6 +81,7 @@ import ai.docling.serve.client.DoclingServeClient.DoclingServeClientBuilder;
 import ai.docling.testcontainers.serve.DoclingServeContainer;
 import ai.docling.testcontainers.serve.config.DoclingServeContainerConfig;
 
+@WireMockTest
 abstract class AbstractDoclingServeClientTests {
   private static final Logger LOG = LoggerFactory.getLogger(AbstractDoclingServeClientTests.class);
 
@@ -96,14 +112,24 @@ abstract class AbstractDoclingServeClientTests {
     }
   };
 
+  @RegisterExtension
+  static WireMockExtension wireMockExtension = WireMockExtension.newInstance()
+      .options(wireMockConfig().dynamicPort())
+      .configureStaticDsl(true)
+      .build();
+
   static {
     doclingContainer.start();
   }
 
-  protected abstract DoclingServeApi getDoclingClient(boolean requiresAuth);
+  protected abstract DoclingServeApi getDoclingClient(boolean requiresAuth, boolean useWiremock);
+
+  protected DoclingServeApi getDoclingClient(boolean requiresAuth) {
+    return getDoclingClient(requiresAuth, false);
+  }
 
   protected DoclingServeApi getDoclingClient() {
-    return getDoclingClient(true);
+    return getDoclingClient(true, false);
   }
 
   private <T> T readValue(String json, Class<T> valueType) {
@@ -400,6 +426,60 @@ abstract class AbstractDoclingServeClientTests {
                           .build()
                   ).build()
             );
+    }
+
+    @Test
+    void shouldConvertS3SourceSuccessfully() {
+      // Need to use Wiremock here rather than a "real" backend because Docling Serve requires kubeflow
+      // See https://github.com/docling-project/docling-serve/issues/462
+      var request = ConvertDocumentRequest.builder()
+          .source(
+              S3Source.builder()
+                  .endpoint("source-s3-endpoint")
+                  .bucket("source-bucket")
+                  .accessKey("source-access-key")
+                  .secretKey("source-secret-key")
+                  .verifySsl(false)
+                  .build()
+          )
+          .target(
+              S3Target.builder()
+                  .endpoint("target-s3-endpoint")
+                  .bucket("target-bucket")
+                  .accessKey("target-access-key")
+                  .secretKey("target-secret-key")
+                  .verifySsl(false)
+                  .build()
+          ).build();
+
+      stubFor(
+          post("/v1/convert/source")
+              .withRequestBody(equalToJson(writeValueAsString(request)))
+              .withHeader("Content-Type", equalTo("application/json"))
+              .withHeader("Accept", equalTo("application/json"))
+              .willReturn(okJson("{}"))
+      );
+
+      var response = getDoclingClient(false, true).convertSource(request);
+      assertThat(response).isNotNull();
+
+      verify(
+          1,
+          postRequestedFor(urlPathEqualTo("/v1/convert/source"))
+              .withHeader("Content-Type", equalTo("application/json"))
+              .withRequestBody(
+                  containing("\"kind\" : \"s3\"")
+                      .and(containing("\"verify_ssl\" : false"))
+                      .and(containing("source-s3-endpoint"))
+                      .and(containing("source-bucket"))
+                      .and(containing("source-access-key"))
+                      .and(containing("source-secret-key"))
+                      .and(containing("target-s3-endpoint"))
+                      .and(containing("target-bucket"))
+                      .and(containing("target-access-key"))
+                      .and(containing("target-secret-key"))
+              )
+      );
     }
 
     @Test

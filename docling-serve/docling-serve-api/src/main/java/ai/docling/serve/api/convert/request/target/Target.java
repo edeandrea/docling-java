@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
  * Represents an abstract target for defining where and how the converted document should be delivered.
  *
  * <p>The {@link Target} class is a sealed type that is extended by specific concrete implementations:
- * {@link InBodyTarget}, {@link PutTarget}, and {@link ZipTarget}. These implementations specify different
+ * {@link InBodyTarget}, {@link PutTarget}, {@link S3Target}, and {@link ZipTarget}. These implementations specify different
  * delivery methods, such as including the document in the response body, sending it to a specified URI, or
  * zipping it for inclusion in the response.
  */
@@ -23,14 +23,16 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
     @Type(value = InBodyTarget.class, name = "inbody"),
     @Type(value = PutTarget.class, name = "put"),
-    @Type(value = ZipTarget.class, name = "zip")
+    @Type(value = ZipTarget.class, name = "zip"),
+    @Type(value = S3Target.class, name = "s3")
 })
 @lombok.Getter
 @lombok.ToString
-public sealed abstract class Target permits InBodyTarget, PutTarget, ZipTarget {
+public abstract sealed class Target permits InBodyTarget, PutTarget, S3Target, ZipTarget {
   enum Kind {
     @JsonProperty("inbody") INBODY,
     @JsonProperty("put") PUT,
-    @JsonProperty("zip") ZIP
+    @JsonProperty("zip") ZIP,
+    @JsonProperty("s3") S3
   }
 }
