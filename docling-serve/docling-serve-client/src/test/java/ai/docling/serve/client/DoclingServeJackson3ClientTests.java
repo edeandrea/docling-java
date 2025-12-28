@@ -1,6 +1,11 @@
 package ai.docling.serve.client;
 
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+
+import com.github.tomakehurst.wiremock.WireMockServer;
 
 import ai.docling.serve.api.DoclingServeApi;
 
@@ -11,9 +16,11 @@ class DoclingServeJackson3ClientTests extends AbstractDoclingServeClientTests {
   private static DoclingServeApi doclingClient;
   private static DoclingServeApi authDoclingClient;
   private static DoclingServeApi wiremockDoclingClient;
+  private static WireMockServer wireMockServer = new WireMockServer(options().dynamicPort());
 
   @BeforeAll
   static void setUp() {
+    wireMockServer.start();
     doclingClient = DoclingServeJackson3Client.builder()
         .logRequests()
         .logResponses()
@@ -22,7 +29,17 @@ class DoclingServeJackson3ClientTests extends AbstractDoclingServeClientTests {
         .build();
 
     authDoclingClient = doclingClient.toBuilder().apiKey("key").build();
-    wiremockDoclingClient = doclingClient.toBuilder().baseUrl("http://localhost:%d".formatted(wireMockExtension.getPort())).build();
+    wiremockDoclingClient = doclingClient.toBuilder().baseUrl(wireMockServer.baseUrl()).build();
+  }
+
+  @AfterAll
+  static void afterAll() {
+    wireMockServer.stop();
+  }
+
+  @Override
+  protected WireMockServer getWiremockServer() {
+    return wireMockServer;
   }
 
   @Override

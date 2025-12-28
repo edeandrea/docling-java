@@ -1,15 +1,12 @@
 package ai.docling.serve.client;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalToJson;
+import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.verify;
-import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -45,8 +42,7 @@ import org.junit.jupiter.api.extension.TestWatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
-import com.github.tomakehurst.wiremock.junit5.WireMockTest;
+import com.github.tomakehurst.wiremock.WireMockServer;
 
 import ai.docling.core.DoclingDocument;
 import ai.docling.core.DoclingDocument.DocItemLabel;
@@ -81,7 +77,6 @@ import ai.docling.serve.client.DoclingServeClient.DoclingServeClientBuilder;
 import ai.docling.testcontainers.serve.DoclingServeContainer;
 import ai.docling.testcontainers.serve.config.DoclingServeContainerConfig;
 
-@WireMockTest
 abstract class AbstractDoclingServeClientTests {
   private static final Logger LOG = LoggerFactory.getLogger(AbstractDoclingServeClientTests.class);
 
@@ -112,16 +107,19 @@ abstract class AbstractDoclingServeClientTests {
     }
   };
 
-  @RegisterExtension
-  static WireMockExtension wireMockExtension = WireMockExtension.newInstance()
-      .options(wireMockConfig().dynamicPort())
-      .configureStaticDsl(true)
-      .build();
+//  @RegisterExtension
+//  static WireMockExtension wireMockExtension = WireMockExtension.newInstance()
+//      .options(wireMockConfig().dynamicPort())
+//      .configureStaticDsl(true)
+//      .failOnUnmatchedRequests(true)
+//      .resetOnEachTest(true)
+//      .build();
 
   static {
     doclingContainer.start();
   }
 
+  protected abstract WireMockServer getWiremockServer();
   protected abstract DoclingServeApi getDoclingClient(boolean requiresAuth, boolean useWiremock);
 
   protected DoclingServeApi getDoclingClient(boolean requiresAuth) {
@@ -452,7 +450,9 @@ abstract class AbstractDoclingServeClientTests {
                   .build()
           ).build();
 
-      stubFor(
+      var wireMockServer = getWiremockServer();
+
+      wireMockServer.stubFor(
           post("/v1/convert/source")
               .withRequestBody(equalToJson(writeValueAsString(request)))
               .withHeader("Content-Type", equalTo("application/json"))
@@ -463,21 +463,23 @@ abstract class AbstractDoclingServeClientTests {
       var response = getDoclingClient(false, true).convertSource(request);
       assertThat(response).isNotNull();
 
-      verify(
+      wireMockServer.verify(
           1,
           postRequestedFor(urlPathEqualTo("/v1/convert/source"))
               .withHeader("Content-Type", equalTo("application/json"))
               .withRequestBody(
-                  containing("\"kind\" : \"s3\"")
-                      .and(containing("\"verify_ssl\" : false"))
-                      .and(containing("source-s3-endpoint"))
-                      .and(containing("source-bucket"))
-                      .and(containing("source-access-key"))
-                      .and(containing("source-secret-key"))
-                      .and(containing("target-s3-endpoint"))
-                      .and(containing("target-bucket"))
-                      .and(containing("target-access-key"))
-                      .and(containing("target-secret-key"))
+                  matchingJsonPath("$.sources[0].kind", equalTo("s3"))
+                      .and(matchingJsonPath("$.sources[0].endpoint", equalTo("source-s3-endpoint")))
+                      .and(matchingJsonPath("$.sources[0].bucket", equalTo("source-bucket")))
+                      .and(matchingJsonPath("$.sources[0].access_key", equalTo("source-access-key")))
+                      .and(matchingJsonPath("$.sources[0].secret_key", equalTo("source-secret-key")))
+                      .and(matchingJsonPath("$.sources[0].verify_ssl", equalTo("false")))
+                      .and(matchingJsonPath("$.target.kind", equalTo("s3")))
+                      .and(matchingJsonPath("$.target.endpoint", equalTo("target-s3-endpoint")))
+                      .and(matchingJsonPath("$.target.bucket", equalTo("target-bucket")))
+                      .and(matchingJsonPath("$.target.access_key", equalTo("target-access-key")))
+                      .and(matchingJsonPath("$.target.secret_key", equalTo("target-secret-key")))
+                      .and(matchingJsonPath("$.target.verify_ssl", equalTo("false")))
               )
       );
     }
