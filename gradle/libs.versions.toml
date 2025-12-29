@@ -16,6 +16,7 @@ testcontainers = "2.0.3"
 quarkus = "3.30.5"
 quarkus-github-api = "1.330.0"
 quarkus-wiremock = "1.5.3"
+wiremock = "3.13.2"
 
 [libraries]
 # assertj
@@ -59,6 +60,9 @@ quarkus-bom = { group = "io.quarkus.platform", name = "quarkus-bom", version.ref
 quarkus-wiremock = { group = "io.quarkiverse.wiremock", name = "quarkus-wiremock", version.ref = "quarkus-wiremock" }
 quarkus-github-api = { group = "io.quarkiverse.githubapi", name = "quarkus-github-api", version.ref = "quarkus-github-api" }
 quarkus-wiremock-test = { group = "io.quarkiverse.wiremock", name = "quarkus-wiremock-test", version.ref = "quarkus-wiremock" }
+
+# Wiremock
+wiremock = { group = "org.wiremock", name = "wiremock", version.ref = "wiremock" }
 
 [plugins]
 lombok = { id = "io.freefair.lombok", version.ref = "lombok-gradle" }

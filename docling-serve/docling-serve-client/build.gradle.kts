@@ -22,4 +22,6 @@ dependencies {
   testImplementation(libs.jackson2.databind)
 
   testImplementation(libs.awaitility)
+
+  testImplementation(libs.wiremock)
 }

@@ -1,11 +1,11 @@
 package ai.docling.serve.api;
 
 import java.nio.file.Path;
-import java.util.Optional;
 import java.util.concurrent.CompletionStage;
 
 import org.jspecify.annotations.Nullable;
 
+import ai.docling.serve.api.chunk.request.ChunkType;
 import ai.docling.serve.api.chunk.request.HierarchicalChunkDocumentRequest;
 import ai.docling.serve.api.chunk.request.HybridChunkDocumentRequest;
 import ai.docling.serve.api.chunk.response.ChunkDocumentResponse;
@@ -39,6 +39,20 @@ public interface DoclingServeChunkApi {
    */
   default ChunkDocumentResponse chunkFilesWithHierarchicalChunker(Path... files) {
     return chunkFilesWithHierarchicalChunker(null, files);
+  }
+
+  /**
+   * Splits the given files into smaller chunks based on the specified chunking type.
+   *
+   * @param chunkType the type of chunking to be applied, determining the chunking strategy
+   * @param files the array of file paths to be processed and chunked
+   * @return a ChunkDocumentResponse containing the results of the chunking operation
+   */
+  default ChunkDocumentResponse chunkFiles(ChunkType chunkType, Path... files) {
+    return switch(chunkType) {
+      case HYBRID -> chunkFilesWithHybridChunker(files);
+      case HIERARCHICAL -> chunkFilesWithHierarchicalChunker(files);
+    };
   }
 
   /**
@@ -152,6 +166,20 @@ public interface DoclingServeChunkApi {
   }
 
   /**
+   * Asynchronously chunks the provided files based on the specified chunk type.
+   *
+   * @param chunkType the type of chunking to apply, determining the chunking strategy
+   * @param files the array of file paths to be chunked
+   * @return a CompletionStage that, when completed, contains the result of the chunking operation as a ChunkDocumentResponse
+   */
+  default CompletionStage<ChunkDocumentResponse> chunkFilesAsync(ChunkType chunkType, Path... files) {
+    return switch(chunkType) {
+      case HYBRID -> chunkFilesWithHybridChunkerAsync(files);
+      case HIERARCHICAL -> chunkFilesWithHierarchicalChunkerAsync(files);
+    };
+  }
+
+  /**
    * Asynchronously processes the provided document source(s) by converting and chunking them
    * into smaller documents using the hybrid chunker. This operation facilitates non-blocking
    * processing of large document tasks by leveraging a hybrid chunking strategy.
@@ -195,9 +223,9 @@ public interface DoclingServeChunkApi {
   private HierarchicalChunkDocumentRequest createHierarchicalChunkRequest(@Nullable HierarchicalChunkDocumentRequest request, Path... files) {
     ValidationUtils.ensureNotEmpty(files, "files");
 
-    var builder = Optional.ofNullable(request)
-        .map(HierarchicalChunkDocumentRequest::toBuilder)
-        .orElseGet(HierarchicalChunkDocumentRequest::builder);
+    var builder = (request != null) ?
+        request.toBuilder() :
+        HierarchicalChunkDocumentRequest.builder();
 
     FileUtils.createFileSources(files)
         .forEach(builder::source);
@@ -208,9 +236,9 @@ public interface DoclingServeChunkApi {
   private HybridChunkDocumentRequest createHybridChunkRequest(@Nullable HybridChunkDocumentRequest request, Path... files) {
     ValidationUtils.ensureNotEmpty(files, "files");
 
-    var builder = Optional.ofNullable(request)
-        .map(HybridChunkDocumentRequest::toBuilder)
-        .orElseGet(HybridChunkDocumentRequest::builder);
+    var builder = (request != null) ?
+        request.toBuilder() :
+        HybridChunkDocumentRequest.builder();
 
     FileUtils.createFileSources(files)
         .forEach(builder::source);

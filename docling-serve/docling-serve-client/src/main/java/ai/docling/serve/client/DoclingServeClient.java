@@ -346,7 +346,7 @@ public abstract class DoclingServeClient extends HttpOperations implements Docli
     @Override
     public void subscribe(Subscriber<? super ByteBuffer> subscriber) {
       if (logRequests) {
-        LOG.info("→ REQUEST BODY: \n{}", this.stringContent);
+        LOG.info("\n→ REQUEST BODY: \n{}", this.stringContent);
       }
 
       this.delegate.subscribe(subscriber);
@@ -395,6 +395,11 @@ public abstract class DoclingServeClient extends HttpOperations implements Docli
       this.baseUrl = doclingClient.baseUrl;
       this.httpClientBuilder = HttpClient.newBuilder();
       this.apiKey = doclingClient.apiKey;
+      this.logRequests = doclingClient.logRequests;
+      this.logResponses = doclingClient.logResponses;
+      this.prettyPrintJson = doclingClient.prettyPrintJson;
+      this.asyncPollInterval = doclingClient.asyncPollInterval;
+      this.asyncTimeout = doclingClient.asyncTimeout;
     }
 
     /**
