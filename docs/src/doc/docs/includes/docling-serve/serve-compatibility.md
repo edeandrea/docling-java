@@ -1,4 +1,4 @@
-# Results for ghcr.io/docling-project/docling-serve as of 2026-01-05T04:46:46.094186425Z
+# Results for ghcr.io/docling-project/docling-serve as of 2026-01-12T04:43:06.277192472Z
 
 Here are the results:
 
@@ -57,18 +57,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-01-05 04:46:35,852 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:46:35,854 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-01-05 04:46:35,924 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:46:35,924 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-01-05 04:46:35,961 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:46:35,961 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-01-12 04:42:57,825 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:42:57,826 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-01-12 04:42:57,885 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:42:57,886 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-01-12 04:42:57,910 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:42:57,910 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:50042 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:50058 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33948 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33964 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:50058 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33964 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -108,18 +108,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-01-05 04:43:51,883 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:43:51,886 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-01-05 04:43:51,997 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:43:51,997 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-01-05 04:43:52,036 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:43:52,036 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-01-12 04:40:26,229 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:40:26,230 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-01-12 04:40:26,281 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:40:26,281 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-01-12 04:40:26,308 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:40:26,308 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:36148 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:36150 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47682 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47692 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:36150 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47692 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -159,18 +159,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-01-05 04:43:40,834 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:43:40,837 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-01-05 04:43:40,972 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:43:40,973 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-01-05 04:43:41,032 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:43:41,032 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-01-12 04:38:59,909 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:38:59,910 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-01-12 04:39:00,002 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:39:00,003 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-01-12 04:39:00,048 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:39:00,048 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:54624 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:54632 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58120 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58122 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:54632 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58122 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -210,18 +210,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-01-05 04:39:50,057 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:39:50,060 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-01-05 04:39:50,212 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:39:50,213 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-01-05 04:39:50,289 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-01-05 04:39:50,290 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-01-12 04:35:55,043 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:35:55,045 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-01-12 04:35:55,106 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:35:55,106 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-01-12 04:35:55,137 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-01-12 04:35:55,137 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:49850 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:49866 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:34288 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:34292 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:49866 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:34292 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -263,10 +263,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:57850 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:57864 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:39908 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:39910 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:57864 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:39910 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -308,10 +308,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:41182 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:41186 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36656 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36670 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:41186 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36670 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -353,10 +353,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:44002 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:44006 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:57124 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:57130 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:44006 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:57130 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -398,10 +398,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:38902 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:38914 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49214 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49228 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:38914 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49228 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -443,10 +443,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:44208 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:44212 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:55532 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:55540 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:44212 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:55540 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -488,10 +488,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:36514 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:36528 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:34970 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:34980 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:36528 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:34980 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -533,10 +533,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:47926 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:47942 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:43400 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:43402 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:47942 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:43402 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -578,10 +578,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:39152 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:39168 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46542 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46556 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:39168 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46556 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -623,10 +623,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:38754 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:38758 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33810 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33816 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:38758 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33816 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -668,10 +668,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:47656 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:47664 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:37914 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:37916 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:47664 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:37916 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -713,10 +713,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:38592 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:38604 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58664 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58674 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:38604 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58674 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -758,10 +758,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:55368 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:55384 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58232 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58244 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:55384 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:58244 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -803,10 +803,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:38438 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:38444 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47292 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47300 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:38444 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47300 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -848,10 +848,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:33162 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:33164 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:51600 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:51612 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:33164 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:51612 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
