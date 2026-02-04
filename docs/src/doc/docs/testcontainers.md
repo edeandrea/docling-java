@@ -70,10 +70,8 @@ class DoclingContainerSmokeTest {
 
   @Test
   void health_is_ok() {
-    String base = "http://" + docling.getHost() + ":" + docling.getPort();
-
     DoclingServeApi api = DoclingServeApi.builder()
-        .baseUrl(base)
+        .baseUrl(docling.getApiUrl())
         .build();
 
     HealthCheckResponse health = api.health();
@@ -85,7 +83,6 @@ class DoclingContainerSmokeTest {
 ???+ note
 
     - `@Container` manages container lifecycle for you. Use a `static` field to reuse the container across tests in the class.
-    - `getHost()` and `getPort()` are provided by Testcontainers/`GenericContainer`; `getPort()` maps the container’s internal port to a random free host port.
 
 ## Using it with the reference client for conversions
 
@@ -100,8 +97,10 @@ import ai.docling.serve.api.convert.request.source.HttpSource;
 import ai.docling.serve.api.convert.request.target.InBodyTarget;
 import ai.docling.serve.api.convert.response.ConvertDocumentResponse;
 
-String baseUrl = "http://" + docling.getHost() + ":" + docling.getPort();
-DoclingServeApi api = DoclingServeClientBuilderFactory.newBuilder().baseUrl(baseUrl).build();
+String baseUrl = docling.getApiUrl();
+DoclingServeApi api = DoclingServeApi.builder()
+    .baseUrl(baseUrl)
+    .build();
 
 ConvertDocumentRequest request = ConvertDocumentRequest.builder()
     .source(HttpSource.builder().url(URI.create("https://arxiv.org/pdf/2408.09869")).build())
