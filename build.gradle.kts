@@ -46,7 +46,8 @@ jreleaser {
       repoOwner = "docling-project"
       name = rootProject.name
       sign = true
-      discussionCategoryName = "announcements"
+      discussionCategoryName = "Announcements"
+      skipTag = true
 
       changelog {
         formatted = org.jreleaser.model.Active.ALWAYS
@@ -57,7 +58,7 @@ jreleaser {
         }
         hide {
           categories = listOf("merge")
-          contributors = listOf("GitHub", "dependabot", "docling-java-ops")
+          contributors = listOf("GitHub", "dependabot", "docling-java-ops", "all-contributors")
         }
         extraProperties.put("categorizeScopes", true)
       }
