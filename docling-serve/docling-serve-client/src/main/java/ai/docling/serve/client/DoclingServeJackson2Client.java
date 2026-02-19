@@ -20,7 +20,7 @@ public class DoclingServeJackson2Client extends DoclingServeClient {
   private final JsonMapper jsonMapper;
 
   private DoclingServeJackson2Client(Builder builder) {
-    super(builder);;
+    super(builder);
     this.jsonMapper = ensureNotNull(builder.jsonMapperBuilder, "jsonMapperBuilder").build();
   }
 

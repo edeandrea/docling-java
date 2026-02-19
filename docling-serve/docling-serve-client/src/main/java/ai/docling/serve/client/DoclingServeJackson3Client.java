@@ -14,7 +14,7 @@ public class DoclingServeJackson3Client extends DoclingServeClient {
   private final JsonMapper jsonMapper;
 
   private DoclingServeJackson3Client(Builder builder) {
-    super(builder);;
+    super(builder);
     this.jsonMapper = ensureNotNull(builder.jsonMapperBuilder, "jsonMapperBuilder").build();
   }
 
