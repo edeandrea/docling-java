@@ -39,7 +39,7 @@ signing:
 release:
   github:
     enabled: true
-    overwrite: true
+    overwrite: false
     name: docling-java
     sign: true
     discussionCategoryName: Announcements
@@ -49,6 +49,7 @@ release:
       formatted: ALWAYS
       links: true
       preset: conventional-commits
+      maxLength: 15000
       contributors:
         format: '- {{contributorName}}{{#contributorUsernameAsLink}} ({{.}}){{/contributorUsernameAsLink}}'
       hide:
