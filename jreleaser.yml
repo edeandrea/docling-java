@@ -35,7 +35,6 @@ release:
   github:
     enabled: true
     overwrite: true
-    repoOwner: docling-project
     name: docling-java
     sign: true
     discussionCategoryName: Announcements
