@@ -112,6 +112,7 @@ jobs:
           JRELEASER_DRY_RUN: ${{ inputs.dryrun }}
           JRELEASER_TAG_NAME: "v${{ env.CURRENT_VERSION }}"
           JRELEASER_PREVIOUS_TAG_NAME: "v${{ env.PREVIOUS_VERSION }}"
+          JRELEASER_PROJECT_VERSION: ${{ env.CURRENT_VERSION }}
         with:
           setup-java: false
 

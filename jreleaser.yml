@@ -26,6 +26,11 @@ project:
     vcsBrowser: https://{{repoHost}}/{{repoOwner}}/{{repoName}}
     help: https://{{repoHost}}/{{repoOwner}}/{{repoName}}/discussions
     contribute: https://{{repoHost}}/{{repoOwner}}/{{repoName}}/blob/main/CONTRIBUTING.md
+  languages:
+    java:
+      groupId: ai.docling
+      version: 17
+      multiProject: true
 
 signing:
   active: ALWAYS
