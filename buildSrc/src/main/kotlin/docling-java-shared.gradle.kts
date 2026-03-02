@@ -2,6 +2,7 @@ plugins {
   id("docling-shared")
   `java-library`
   `jacoco`
+  id("com.diffplug.spotless")
 }
 
 repositories {
@@ -39,6 +40,20 @@ testing {
 
 jacoco {
   toolVersion = libs.findVersion("jacoco").get().toString()
+}
+
+spotless {
+  ratchetFrom("origin/main")
+
+  java {
+    toggleOffOn()
+    target("src/*/java/**/*.java")
+
+    // Only going to enforce import order for now
+    importOrderFile("${rootProject.layout.projectDirectory}/.spotless/import-order.txt")
+
+    // Project maintainers need to decide what the formatting rules should be
+  }
 }
 
 tasks.withType<Test>().configureEach {
