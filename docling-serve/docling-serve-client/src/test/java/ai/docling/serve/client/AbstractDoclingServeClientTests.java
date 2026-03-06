@@ -214,6 +214,39 @@ abstract class AbstractDoclingServeClientTests {
           .extracting(ClearResponse::getStatus)
           .isEqualTo("ok");
     }
+
+    @Test
+    void shouldThrowExceptionWhenClearResultsRequestIsNull() {
+      assertThatThrownBy(() -> getDoclingClient().clearResults(null))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining("request");
+    }
+
+    @Test
+    void shouldClearResultsWithDuration() {
+      // Setup WireMock stub
+      getWiremockServer().stubFor(
+        get(urlPathEqualTo("/v1/clear/results"))
+          .withQueryParam("older_then", equalTo("86400"))  // 24 hours = 86400 seconds
+          .willReturn(okJson("{\"status\": \"ok\"}"))
+                                 );
+
+      var request = ClearResultsRequest.builder()
+                                       .olderThen(Duration.ofHours(24))
+                                       .build();
+
+      var response = getDoclingClient(false, true).clearResults(request);
+
+      // Verify response
+      assertThat(response)
+        .isNotNull()
+        .extracting(ClearResponse::getStatus)
+        .isEqualTo("ok");
+
+      // Verify the request was made with correct query parameter
+      getWiremockServer().verify(getRequestedFor(urlPathEqualTo("/v1/clear/results"))
+                                   .withQueryParam("older_then", equalTo("86400")));
+    }
   }
 
   @Nested
