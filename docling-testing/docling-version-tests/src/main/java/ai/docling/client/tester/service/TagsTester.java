@@ -2,6 +2,7 @@ package ai.docling.client.tester.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.atIndex;
+import static org.assertj.core.api.Assertions.fail;
 
 import java.net.URI;
 import java.time.Duration;
@@ -24,6 +25,7 @@ import ai.docling.serve.api.convert.request.options.OutputFormat;
 import ai.docling.serve.api.convert.request.source.HttpSource;
 import ai.docling.serve.api.convert.response.ConvertDocumentResponse;
 import ai.docling.serve.api.convert.response.DocumentResponse;
+import ai.docling.serve.api.convert.response.InBodyConvertDocumentResponse;
 import ai.docling.serve.api.health.HealthCheckResponse;
 import ai.docling.testcontainers.serve.DoclingServeContainer;
 import ai.docling.testcontainers.serve.config.DoclingServeContainerConfig;
@@ -109,57 +111,63 @@ public class TagsTester {
   }
 
   private void checkDoclingResponse(ConvertDocumentResponse response) {
-    Log.debugf("Response: %s", response);
+    switch(response.getResponseType()) {
+      case IN_BODY -> {
+        var inBodyResponse = (InBodyConvertDocumentResponse)response;
+        Log.debugf("Response: %s", inBodyResponse);
 
-    assertThat(response)
-        .as("Response should not be null")
-        .isNotNull();
+        assertThat(inBodyResponse)
+            .as("Response should not be null")
+            .isNotNull();
 
-    assertThat(response.getStatus())
-        .as("Response status should not be null or empty")
-        .isNotEmpty();
+        assertThat(inBodyResponse.getStatus())
+            .as("Response status should not be null or empty")
+            .isNotEmpty();
 
-    assertThat(response.getErrors())
-        .as("Response should not have errors")
-        .isNullOrEmpty();
+        assertThat(inBodyResponse.getErrors())
+            .as("Response should not have errors")
+            .isNullOrEmpty();
 
-    assertThat(response.getDocument())
-        .as("Response should have a valid document")
-        .isNotNull()
-        .extracting(
-            DocumentResponse::getFilename,
-            DocumentResponse::getMarkdownContent,
-            DocumentResponse::getTextContent,
-            DocumentResponse::getJsonContent
-        )
-        .satisfies(o ->
-                assertThat(o)
-                    .as("Document should have a filename")
-                    .asString()
-                    .isNotEmpty(),
-            atIndex(0)
-        )
-        .satisfies(o ->
-                assertThat(o)
-                    .as("Document should have markdown content")
-                    .asString()
-                    .isNotEmpty(),
-            atIndex(1)
-        )
-        .satisfies(o ->
-                assertThat(o)
-                    .as("Document should have text content")
-                    .asString()
-                    .isNotEmpty(),
-            atIndex(2)
-        )
-        .satisfies(o ->
-                assertThat(o)
-                    .as("Document should have JSON content")
-                    .asInstanceOf(InstanceOfAssertFactories.type(DoclingDocument.class))
-                    .isNotNull(),
-            atIndex(3)
-        );
+        assertThat(inBodyResponse.getDocument())
+            .as("Response should have a valid document")
+            .isNotNull()
+            .extracting(
+                DocumentResponse::getFilename,
+                DocumentResponse::getMarkdownContent,
+                DocumentResponse::getTextContent,
+                DocumentResponse::getJsonContent
+            )
+            .satisfies(o ->
+                    assertThat(o)
+                        .as("Document should have a filename")
+                        .asString()
+                        .isNotEmpty(),
+                atIndex(0)
+            )
+            .satisfies(o ->
+                    assertThat(o)
+                        .as("Document should have markdown content")
+                        .asString()
+                        .isNotEmpty(),
+                atIndex(1)
+            )
+            .satisfies(o ->
+                    assertThat(o)
+                        .as("Document should have text content")
+                        .asString()
+                        .isNotEmpty(),
+                atIndex(2)
+            )
+            .satisfies(o ->
+                    assertThat(o)
+                        .as("Document should have JSON content")
+                        .asInstanceOf(InstanceOfAssertFactories.type(DoclingDocument.class))
+                        .isNotNull(),
+                atIndex(3)
+            );
+      }
+      case PRE_SIGNED_URL, ZIP_ARCHIVE -> fail("Expected InBodyConvertDocumentResponse but got %s", response.getResponseType());
+    }
   }
 
   private void checkDoclingHealthy(DoclingServeApi doclingClient) {
