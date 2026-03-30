@@ -1,9 +1,10 @@
-# Results for ghcr.io/docling-project/docling-serve as of 2026-03-23T05:40:53.534326781Z
+# Results for ghcr.io/docling-project/docling-serve as of 2026-03-30T06:01:07.447916432Z
 
 Here are the results:
 
 | Tag | Result | Details |
 | --- | ------ | ------- |
+| v1.15.0 | ✅ SUCCESS | [Click for run details](#v1.15.0-details) |
 | v1.14.3 | ✅ SUCCESS | [Click for run details](#v1.14.3-details) |
 | v1.14.2 | ✅ SUCCESS | [Click for run details](#v1.14.2-details) |
 | v1.14.1 | ✅ SUCCESS | [Click for run details](#v1.14.1-details) |
@@ -33,6 +34,58 @@ Here are the results:
 | v1.0.0 | ✅ SUCCESS | [Click for run details](#v1.0.0-details) |
 
 ## Details
+
+### ghcr.io/docling-project/docling-serve:v1.15.0
+
+<details id="v1.15.0-details">
+<summary>Click to expand</summary>
+
+#### Message
+
+<details open>
+<summary>Click to collapse</summary>
+
+~~~markdown
+Tag v1.15.0 is ok
+~~~
+
+</details>
+
+
+#### Docling server logs
+
+<details>
+<summary>click to expand</summary>
+
+```
+Starting production server 🚀
+
+Server started at http://0.0.0.0:5001
+Documentation at http://0.0.0.0:5001/docs
+Scalar docs at http://0.0.0.0:5001/scalar
+
+Logs:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+2026-03-30 06:00:54.612907149 [W:onnxruntime:Default, device_discovery.cc:132 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[INFO] 2026-03-30 06:00:55,304 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 06:00:55,306 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 06:00:55,438 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 06:00:55,438 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 06:00:55,485 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 06:00:55,486 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
+INFO:     172.17.0.1:45436 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45448 - "GET /health HTTP/1.1" 200 OK
+WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
+INFO:     172.17.0.1:45448 - "POST /v1/convert/source HTTP/1.1" 200 OK
+
+```
+
+</details>
+
+</details>
 
 ### ghcr.io/docling-project/docling-serve:v1.14.3
 
@@ -66,19 +119,19 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-2026-03-23 05:40:43.914075047 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-[INFO] 2026-03-23 05:40:44,355 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:40:44,357 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:40:44,443 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:40:44,443 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:40:44,485 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:40:44,485 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+2026-03-30 06:00:54.489042441 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[INFO] 2026-03-30 06:00:55,236 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 06:00:55,239 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 06:00:55,349 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 06:00:55,349 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 06:00:55,393 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 06:00:55,394 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:36734 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:36742 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:37560 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:37568 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:36742 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:37568 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -118,19 +171,19 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-2026-03-23 05:38:48.481146936 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-[INFO] 2026-03-23 05:38:49,033 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:38:49,035 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:38:49,146 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:38:49,147 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:38:49,189 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:38:49,189 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+2026-03-30 05:58:06.777220406 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[INFO] 2026-03-30 05:58:07,475 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:58:07,477 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:58:07,564 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:58:07,564 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:58:07,606 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:58:07,607 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:40800 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:40806 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35968 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35980 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:40806 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35980 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -170,19 +223,19 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-2026-03-23 05:38:48.164782385 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-[INFO] 2026-03-23 05:38:48,731 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:38:48,733 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:38:48,838 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:38:48,838 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:38:48,898 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:38:48,898 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+2026-03-30 05:58:06.546158137 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[INFO] 2026-03-30 05:58:07,157 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:58:07,160 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:58:07,265 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:58:07,265 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:58:07,307 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:58:07,307 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:37996 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:38006 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38974 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38976 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:38006 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38976 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -222,19 +275,19 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-2026-03-23 05:36:17.732672384 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-[INFO] 2026-03-23 05:36:18,274 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:36:18,276 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:36:18,377 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:36:18,377 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:36:18,436 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:36:18,436 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+2026-03-30 05:55:38.042862848 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[INFO] 2026-03-30 05:55:38,610 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:55:38,614 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:55:38,693 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:55:38,693 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:55:38,735 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:55:38,735 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:45474 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:45484 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45682 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45698 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:45484 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45698 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -274,19 +327,19 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-2026-03-23 05:36:10.279577715 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-[INFO] 2026-03-23 05:36:10,898 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:36:10,901 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:36:11,030 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:36:11,030 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:36:11,079 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:36:11,079 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+2026-03-30 05:55:32.580630740 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[INFO] 2026-03-30 05:55:33,184 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:55:33,186 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:55:33,299 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:55:33,299 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:55:33,365 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:55:33,365 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:37510 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:51198 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45790 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45806 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:51198 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45806 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -326,19 +379,19 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-2026-03-23 05:33:41.486653469 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-[INFO] 2026-03-23 05:33:42,206 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:33:42,208 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:33:42,397 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:33:42,398 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:33:42,486 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:33:42,486 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+2026-03-30 05:53:06.431007168 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[INFO] 2026-03-30 05:53:07,058 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:53:07,060 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:53:07,178 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:53:07,178 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:53:07,225 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:53:07,226 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:52236 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:52246 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49332 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49338 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:52246 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49338 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -378,19 +431,19 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-2026-03-23 05:33:27.790395866 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-[INFO] 2026-03-23 05:33:28,534 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:33:28,537 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:33:28,727 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:33:28,727 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:33:28,819 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:33:28,820 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+2026-03-30 05:52:58.465225989 [W:onnxruntime:Default, device_discovery.cc:131 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename ""5620e0c7-8062-4dce-aeb7-520c7ef76171"" dit not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[INFO] 2026-03-30 05:52:59,375 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:52:59,386 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:52:59,481 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:52:59,482 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:52:59,529 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:52:59,529 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:54224 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:54232 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:43442 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:43456 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:54232 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:43456 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -430,18 +483,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-03-23 05:30:36,768 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:30:36,872 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:30:37,671 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:30:37,671 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:30:37,726 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:30:37,726 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-03-30 05:50:13,787 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:50:13,789 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:50:13,856 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:50:13,857 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:50:13,893 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:50:13,893 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:36878 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:36880 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:55898 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:55902 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:36880 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:55902 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -481,18 +534,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-03-23 05:30:56,588 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:30:56,590 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:30:58,132 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:30:58,132 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:30:58,181 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:30:58,181 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-03-30 05:50:16,490 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:50:16,492 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:50:16,561 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:50:16,561 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:50:16,597 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:50:16,597 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:32856 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:32866 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50222 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50230 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:32866 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50230 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -532,18 +585,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-03-23 05:27:39,813 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:27:39,815 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:27:39,909 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:27:39,909 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:27:39,964 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:27:39,965 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-03-30 05:47:17,492 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:47:17,494 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:47:17,566 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:47:17,566 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:47:17,604 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:47:17,604 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:36038 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:36044 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48894 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48904 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:36044 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48904 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -583,18 +636,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-03-23 05:27:37,180 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:27:37,182 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:27:37,309 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:27:37,310 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:27:37,373 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:27:37,373 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-03-30 05:47:15,488 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:47:15,491 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:47:15,559 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:47:15,559 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:47:15,596 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:47:15,596 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:53016 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:53026 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53444 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53446 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:53026 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53446 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -634,18 +687,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-03-23 05:24:20,053 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:24:20,055 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:24:20,155 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:24:20,155 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:24:20,212 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:24:20,212 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-03-30 05:44:26,437 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:44:26,439 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:44:26,508 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:44:26,508 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:44:26,545 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:44:26,546 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:54550 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:54562 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33468 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33484 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:54562 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:33484 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -685,18 +738,18 @@ Scalar docs at http://0.0.0.0:5001/scalar
 Logs:
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
-[INFO] 2026-03-23 05:24:22,726 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:24:22,728 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
-[INFO] 2026-03-23 05:24:22,821 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:24:22,821 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
-[INFO] 2026-03-23 05:24:22,876 [RapidOCR] base.py:22: Using engine_name: onnxruntime
-[INFO] 2026-03-23 05:24:22,877 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
+[INFO] 2026-03-30 05:44:18,302 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:44:18,304 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/det/ch_PP-OCRv4_det_infer.onnx
+[INFO] 2026-03-30 05:44:18,397 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:44:18,397 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/cls/ch_ppocr_mobile_v2.0_cls_infer.onnx
+[INFO] 2026-03-30 05:44:18,459 [RapidOCR] base.py:22: Using engine_name: onnxruntime
+[INFO] 2026-03-30 05:44:18,460 [RapidOCR] main.py:53: Using /opt/app-root/src/.cache/docling/models/RapidOcr/onnx/PP-OCRv4/rec/ch_PP-OCRv4_rec_infer.onnx
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:33610 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:33614 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50684 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50686 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:33614 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50686 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -738,10 +791,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:40766 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:40772 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38798 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38810 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:40772 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38810 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -783,10 +836,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:60838 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:60848 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38910 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38922 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:60848 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:38922 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -828,10 +881,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:44966 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:44974 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:60194 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:60204 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:44974 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:60204 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -873,10 +926,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:39370 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:39382 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:59566 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:59582 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:39382 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:59582 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -918,10 +971,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:46434 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:46444 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42440 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42446 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:46444 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42446 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -963,10 +1016,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:38722 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:38734 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:54568 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:54582 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:38734 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:54582 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1008,10 +1061,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:47992 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:48002 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48542 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48556 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:48002 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48556 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1053,10 +1106,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:34282 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:34290 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40710 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40724 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:34290 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:40724 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1098,10 +1151,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:34234 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:34242 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50398 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50408 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:34242 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50408 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1143,10 +1196,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:51122 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:51128 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35422 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35426 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:51128 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35426 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1188,10 +1241,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:53616 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:53632 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49460 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49470 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:53632 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49470 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1233,10 +1286,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:58116 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:58124 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:57256 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:57264 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:58124 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:57264 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1278,10 +1331,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:44468 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:44482 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50708 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50712 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:44482 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:50712 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
@@ -1323,10 +1376,10 @@ INFO:     Started server process [1]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
-INFO:     172.17.0.1:57438 - "GET /health HTTP/1.1" 200 OK
-INFO:     172.17.0.1:57454 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42450 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42454 - "GET /health HTTP/1.1" 200 OK
 WARNING:docling_core.types.doc.document:Parameter `strict_text` has been deprecated and will be ignored.
-INFO:     172.17.0.1:57454 - "POST /v1/convert/source HTTP/1.1" 200 OK
+INFO:     172.17.0.1:42454 - "POST /v1/convert/source HTTP/1.1" 200 OK
 
 ```
 
