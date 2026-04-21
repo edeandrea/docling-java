@@ -66,6 +66,7 @@ DoclingServeApi api = DoclingServeApi.builder()
     .logRequests() // log HTTP requests
     .logResponses() // log HTTP responses
     .prettyPrint() // pretty-print JSON requests/responses
+    .apiKey("optionally your api key")
     .build();
 
 ConvertDocumentRequest request = ConvertDocumentRequest.builder()
