@@ -10,6 +10,7 @@ import ai.docling.serve.api.convert.response.InBodyConvertDocumentResponse;
 
 DoclingServeApi doclingServeApi = DoclingServeApi.builder()
     .baseUrl("<location of docling serve instance>")
+    .apiKey("optionally your api key")
     .build();
 
 ConvertDocumentRequest request = ConvertDocumentRequest.builder()
