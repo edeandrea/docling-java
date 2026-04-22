@@ -17,8 +17,9 @@ If you only need the request/response model (without HTTP), use the API module:
 !!! question "Using Quarkus or Spring Boot?"
 
     If you **ARE** using [Quarkus](https://quarkus.io) or [Spring Boot](https://spring.io/projects/spring-boot):
-    - For Quarkus, use the [Quarkus Docling extension](https://docs.quarkiverse.io/quarkus-docling/dev)
-    - For Spring Boot, use [Arconia](https://docs.arconia.io/arconia/latest/integrations/docling)
+    
+        - For Quarkus, use the [Quarkus Docling extension](https://docs.quarkiverse.io/quarkus-docling/dev)
+        - For Spring Boot, use [Arconia](https://docs.arconia.io/arconia/latest/integrations/docling)
     
 - You want a ready‑to‑use HTTP client for Docling Serve with minimal setup.
 - You prefer a small dependency footprint (Java `HttpClient` + Jackson).
