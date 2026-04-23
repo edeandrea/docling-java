@@ -95,6 +95,13 @@ jobs:
         env:
           JRELEASER_TAG_NAME: "v${{ env.CURRENT_VERSION }}"
         run: |
+          set -euo pipefail
+
+          if git ls-remote --tags origin "${JRELEASER_TAG_NAME}" | grep -q .; then
+            echo "Tag ${JRELEASER_TAG_NAME} already exists on origin; skipping tag creation."
+            exit 0
+          fi
+          
           git tag ${{ env.JRELEASER_TAG_NAME }}
           git push origin ${{ env.JRELEASER_TAG_NAME }}
 
