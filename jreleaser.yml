@@ -39,7 +39,7 @@ signing:
 release:
   github:
     enabled: true
-    overwrite: false
+    overwrite: true
     name: docling-java
     sign: true
     discussionCategoryName: Announcements
