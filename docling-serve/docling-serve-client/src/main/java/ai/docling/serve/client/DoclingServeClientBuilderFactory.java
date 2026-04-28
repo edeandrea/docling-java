@@ -51,11 +51,11 @@ public final class DoclingServeClientBuilderFactory implements DoclingServeApiBu
 
         For Jackson 2:
           Maven:  com.fasterxml.jackson.core:jackson-databind
-          Gradle: implementation("com.fasterxml.jackson.core:jackson-databind:$version")
+          Gradle: implementation("com.fasterxml.jackson.core:jackson-databind:<version>")
 
         For Jackson 3:
           Maven:  tools.jackson.core:jackson-databind
-          Gradle: implementation("tools.jackson.core:jackson-databind:$version")
+          Gradle: implementation("tools.jackson.core:jackson-databind:<version>")
         """);
   }
 
