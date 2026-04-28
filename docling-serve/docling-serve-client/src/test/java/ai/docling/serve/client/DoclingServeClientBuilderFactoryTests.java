@@ -28,7 +28,9 @@ class DoclingServeClientBuilderFactoryTests {
 
     assertThatExceptionOfType(IllegalStateException.class)
         .isThrownBy(() -> DoclingServeClientBuilderFactory.<DoclingServeClient, DoclingServeClientBuilder>newBuilder(classLoader))
-        .withMessage("Neither Jackson 2 or 3 is on the classpath");
+        .withMessageContaining("Neither Jackson 2 nor Jackson 3 is on the classpath")
+        .withMessageContaining("com.fasterxml.jackson.core:jackson-databind")
+        .withMessageContaining("tools.jackson.core:jackson-databind");
   }
 
   @ParameterizedTest

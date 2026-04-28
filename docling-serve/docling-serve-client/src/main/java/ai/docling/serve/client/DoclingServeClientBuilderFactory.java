@@ -46,7 +46,17 @@ public final class DoclingServeClientBuilderFactory implements DoclingServeApiBu
       return (B) DoclingServeJackson2Client.builder();
     }
 
-    throw new IllegalStateException("Neither Jackson 2 or 3 is on the classpath");
+    throw new IllegalStateException("""
+        Neither Jackson 2 nor Jackson 3 is on the classpath. You must add one of the following dependencies:
+
+        For Jackson 2:
+          Maven:  com.fasterxml.jackson.core:jackson-databind
+          Gradle: implementation("com.fasterxml.jackson.core:jackson-databind:<version>")
+
+        For Jackson 3:
+          Maven:  tools.jackson.core:jackson-databind
+          Gradle: implementation("tools.jackson.core:jackson-databind:<version>")
+        """);
   }
 
   /**
