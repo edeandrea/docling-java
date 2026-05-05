@@ -7,6 +7,7 @@ Docling Java {{ gradle.project_version }} includes important breaking changes, a
 ### {{ gradle.project_version }}
 
 * **New `docling-bom` module** — A Maven BOM (`ai.docling:docling-bom`) is now published, allowing consumers to align all Docling Java module versions with a single import.
+* **Codecov configuration fixes** — Fixed module path mappings, ignore rules, and added per-Java-version coverage flags for accurate coverage reporting across all modules.
 
 ### 0.5.1
 
