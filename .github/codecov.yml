@@ -8,6 +8,7 @@ coverage:
       default:
         target: auto
         threshold: 1%
+        after_n_builds: 3
         if_not_found: success
       docling-core:
         target: auto
@@ -37,8 +38,21 @@ coverage:
         target: auto
         threshold: 1%
         paths:
-          - "docling/testing/docling-version-tests/src/main/java/**"
+          - "docling-testing/docling-version-tests/src/main/java/**"
         if_not_found: success
+flags:
+  java17:
+    paths:
+      - "!**/test/**"
+    carryforward: true
+  java21:
+    paths:
+      - "!**/test/**"
+    carryforward: true
+  java25:
+    paths:
+      - "!**/test/**"
+    carryforward: true
 comment:
   layout: "header,diff,flags,tree,footer"
   behavior: default
@@ -49,5 +63,3 @@ ignore:
   - "**/test/**"
   - "docs/**"
   - "buildSrc/**"
-  - "docling-testcontainers/**"
-  - "docling-testing/**"
