@@ -78,7 +78,6 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
           fetch-depth: 0
-          persist-credentials: false
 
       - name: Reclaim disk space
         working-directory: .github/scripts
