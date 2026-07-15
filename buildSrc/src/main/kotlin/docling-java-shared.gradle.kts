@@ -31,10 +31,8 @@ dependencies {
 }
 
 testing {
-  suites {
-    getByName<JvmTestSuite>("test") {
-      useJUnitJupiter()
-    }
+  suites.withType<JvmTestSuite> {
+    useJUnitJupiter()
   }
 }
 
