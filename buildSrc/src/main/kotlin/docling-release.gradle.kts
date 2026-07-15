@@ -30,10 +30,11 @@ publishing {
           extension = "json"
         }
 
-        artifact(cyclonedxTask.flatMap { it.xmlOutput }) {
-          classifier = "cyclonedx"
-          extension = "xml"
-        }
+artifact(cyclonedxTask.flatMap { it.xmlOutput }) {
+  classifier = "cyclonedx"
+  extension = "xml"
+  builtBy(cyclonedxTask)
+}
       }
 
       pom {
