@@ -28,13 +28,14 @@ publishing {
         artifact(cyclonedxTask.flatMap { it.jsonOutput }) {
           classifier = "cyclonedx"
           extension = "json"
+          builtBy(cyclonedxTask)
         }
 
-artifact(cyclonedxTask.flatMap { it.xmlOutput }) {
-  classifier = "cyclonedx"
-  extension = "xml"
-  builtBy(cyclonedxTask)
-}
+        artifact(cyclonedxTask.flatMap { it.xmlOutput }) {
+          classifier = "cyclonedx"
+          extension = "xml"
+          builtBy(cyclonedxTask)
+        }
       }
 
       pom {
