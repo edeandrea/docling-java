@@ -17,7 +17,7 @@ quarkus = "3.37.1"
 quarkus-github-api = "1.330.0"
 quarkus-wiremock = "1.6.3"
 wiremock = "3.13.2"
-cyclonedx = "3.2.4"
+cyclonedx = "3.3.0"
 
 [libraries]
 # assertj
