@@ -218,7 +218,7 @@
       "profile": "http://linkedin.com/in/margi212",
       "contributions": [
         "test"
-        ]
+      ]
     },
     {
       "login": "seanJosephFitzpatrick",
@@ -227,6 +227,15 @@
       "profile": "https://github.com/seanJosephFitzpatrick",
       "contributions": [
         "test"
+      ]
+    },
+    {
+      "login": "swetasamasti2310",
+      "name": "Sweta Kumari",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30685943?v=4",
+      "profile": "https://github.com/swetasamasti2310",
+      "contributions": [
+        "maintenance"
       ]
     }
   ]

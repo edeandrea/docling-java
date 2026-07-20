@@ -145,6 +145,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://romankudryashov.com"><img src="https://avatars.githubusercontent.com/u/37952224?v=4?s=100" width="100px;" alt="Roman Kudryashov"/><br /><sub><b>Roman Kudryashov</b></sub></a><br /><a href="#bug-rkudryashov" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://linkedin.com/in/margi212"><img src="https://avatars.githubusercontent.com/u/39212098?v=4?s=100" width="100px;" alt="Margi"/><br /><sub><b>Margi</b></sub></a><br /><a href="#test-margi212" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/seanJosephFitzpatrick"><img src="https://avatars.githubusercontent.com/u/9217947?v=4?s=100" width="100px;" alt="Sean Fitzpatrick"/><br /><sub><b>Sean Fitzpatrick</b></sub></a><br /><a href="#test-seanJosephFitzpatrick" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/swetasamasti2310"><img src="https://avatars.githubusercontent.com/u/30685943?v=4?s=100" width="100px;" alt="Sweta Kumari"/><br /><sub><b>Sweta Kumari</b></sub></a><br /><a href="#maintenance-swetasamasti2310" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
