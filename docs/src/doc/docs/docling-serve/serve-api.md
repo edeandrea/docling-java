@@ -266,6 +266,7 @@ you use. The reference client throws standard Java exceptions for HTTP and I/O f
 ### Validation errors
 
 In the case of a request validation error (i.e. `docling-serve` throws a `422` error), the docling-java API will throw an `ai.docling.serve.api.validation.ValidationException` which can be caught and inspected.
+A `422` response that carries no validation details, such as one produced by a gateway or proxy in front of `docling-serve`, is reported as a `DoclingServeClientException`, like any other error response, so that the status code and the response body remain available.
 
 ## Logging and builders
 

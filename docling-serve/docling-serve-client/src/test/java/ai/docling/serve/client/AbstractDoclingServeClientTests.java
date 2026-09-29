@@ -51,6 +51,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -549,6 +551,60 @@ abstract class AbstractDoclingServeClientTests {
                   aResponse()
                       .withStatus(status)
                       .withHeader("Content-Type", contentType)
+                      .withBody(body)
+              )
+      );
+    }
+  }
+
+  // A 422 response is only a validation error when its body carries validation details. ValidationError is read
+  // leniently, so any JSON object is read into one, which is empty when the body has no details
+  @Nested
+  class UnprocessableEntityResponseTests {
+    @AfterEach
+    void resetStubs() {
+      getWiremockServer().resetAll();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+        "{\"error\":\"gateway says no\"}",
+        "{}",
+        "{\"detail\":[]}"
+    })
+    void jsonBodyWithoutValidationDetailsKeepsStatusAndBody(String body) {
+      stubHealth(body);
+
+      assertThatThrownBy(() -> getDoclingClient(false, true).health())
+          .isNotInstanceOf(ValidationException.class)
+          .asInstanceOf(InstanceOfAssertFactories.type(DoclingServeClientException.class))
+          .returns(422, DoclingServeClientException::getStatusCode)
+          .returns(body, DoclingServeClientException::getResponseBody);
+    }
+
+    @Test
+    void jsonBodyWithValidationDetailsIsAValidationException() {
+      stubHealth("{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"sources\"],\"msg\":\"Field required\"}]}");
+
+      assertThatThrownBy(() -> getDoclingClient(false, true).health())
+          .isNotInstanceOf(DoclingServeClientException.class)
+          .asInstanceOf(InstanceOfAssertFactories.throwable(ValidationException.class))
+          .hasMessageEndingWith(":\nField required")
+          .extracting(ValidationException::getValidationError)
+          .extracting(ValidationError::getErrorDetails)
+          .asInstanceOf(InstanceOfAssertFactories.list(ValidationErrorDetail.class))
+          .singleElement()
+          .extracting(ValidationErrorDetail::getMessage)
+          .isEqualTo("Field required");
+    }
+
+    private void stubHealth(String body) {
+      getWiremockServer().stubFor(
+          get(urlPathEqualTo("/health"))
+              .willReturn(
+                  aResponse()
+                      .withStatus(422)
+                      .withHeader("Content-Type", "application/json")
                       .withBody(body)
               )
       );

@@ -363,20 +363,26 @@ public abstract class DoclingServeClient extends HttpOperations implements Docli
       }
 
       if (statusCode == 422) {
-        var validationError = readValue(body.toString(), ValidationError.class);
-        var errorText = validationError.getErrorDetails()
-            .stream()
-            .map(ValidationErrorDetail::getMessage)
-            .filter(Objects::nonNull)
-            .collect(Collectors.joining("\n"));
+        // ValidationError is deserialized leniently, so any JSON object yields one. Only a
+        // ValidationError with details is a validation error; anything else is a generic error.
+        var validationError = Optional.ofNullable(readValue(body.toString(), ValidationError.class))
+            .filter(error -> !error.getErrorDetails().isEmpty());
 
-        throw new ValidationException(
-            validationError, "An error occurred while making %s request to %s:\n%s".formatted(request.method(), request.uri(), errorText)
-        );
+        if (validationError.isPresent()) {
+          var errorText = validationError.get()
+              .getErrorDetails()
+              .stream()
+              .map(ValidationErrorDetail::getMessage)
+              .filter(Objects::nonNull)
+              .collect(Collectors.joining("\n"));
+
+          throw new ValidationException(
+              validationError.get(), "An error occurred while making %s request to %s:\n%s".formatted(request.method(), request.uri(), errorText)
+          );
+        }
       }
-      else {
-        throw new DoclingServeClientException("An error occurred: %s".formatted(body.toString()), statusCode, body.toString());
-      }
+
+      throw new DoclingServeClientException("An error occurred: %s".formatted(body.toString()), statusCode, body.toString());
     }
 
     if (StreamResponse.class.equals(expectedReturnType)) {
