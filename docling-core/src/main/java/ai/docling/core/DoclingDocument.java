@@ -19,7 +19,6 @@ import com.fasterxml.jackson.annotation.Nulls;
  * content, and metadata.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@tools.jackson.databind.annotation.JsonDeserialize(builder = DoclingDocument.Builder.class)
 @lombok.extern.jackson.Jacksonized
 @lombok.Builder(toBuilder = true)
 @lombok.Getter
@@ -95,7 +94,6 @@ public class DoclingDocument {
   // Inner classes for nested types
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = DocumentOrigin.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -114,7 +112,6 @@ public class DoclingDocument {
     @Nullable
     private String uri;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -160,7 +157,6 @@ public class DoclingDocument {
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = GroupItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -192,13 +188,11 @@ public class DoclingDocument {
     @JsonProperty("label")
     private GroupLabel label;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = RefItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -207,7 +201,6 @@ public class DoclingDocument {
     @JsonProperty("$ref")
     private String ref;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -218,7 +211,6 @@ public class DoclingDocument {
    * {@code [start, end]} to match the Python {@code tuple[int, int]} wire format.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = FineRef.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -236,7 +228,6 @@ public class DoclingDocument {
     @lombok.Singular("range")
     private List<Integer> range;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -246,7 +237,6 @@ public class DoclingDocument {
    * Serialized as a flat JSON object with a {@code "kind": "track"} discriminator field.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = TrackSource.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -270,7 +260,6 @@ public class DoclingDocument {
     @Nullable
     private String voice;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
       /**
        * Guards the {@code kind} discriminator: it is fixed to {@code "track"} and may not be set to
@@ -291,7 +280,6 @@ public class DoclingDocument {
    * Detected human language of a document node, expressed as a BCP 47 code (e.g. {@code "en"}).
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = LanguageMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -308,7 +296,6 @@ public class DoclingDocument {
     @JsonProperty("code")
     private String code;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -318,7 +305,6 @@ public class DoclingDocument {
    * and an optional character span as a 2-element JSON array {@code [start, end]}.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = EntityMention.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -353,7 +339,6 @@ public class DoclingDocument {
     @lombok.Singular("charspan")
     private List<Integer> charspan;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -362,7 +347,6 @@ public class DoclingDocument {
    * Container for named entity mentions associated with a document node.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = EntitiesMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -373,7 +357,6 @@ public class DoclingDocument {
     @lombok.Singular
     private List<EntityMention> mentions;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -383,7 +366,6 @@ public class DoclingDocument {
    * Values are order-preserving and deduplicated.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = KeywordsMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -402,7 +384,6 @@ public class DoclingDocument {
       return values == null ? List.of() : List.copyOf(new java.util.LinkedHashSet<>(values));
     }
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -412,7 +393,6 @@ public class DoclingDocument {
    * document node. Values are order-preserving and deduplicated.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = TopicsMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -431,13 +411,11 @@ public class DoclingDocument {
       return values == null ? List.of() : List.copyOf(new java.util.LinkedHashSet<>(values));
     }
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = BaseMeta.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -463,13 +441,11 @@ public class DoclingDocument {
     @Nullable
     private TopicsMetaField topics;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = SummaryMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -487,7 +463,6 @@ public class DoclingDocument {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String text;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -639,7 +614,6 @@ public class DoclingDocument {
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = Formatting.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -660,13 +634,11 @@ public class DoclingDocument {
     @JsonProperty("script")
     private Script script;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = TitleItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -725,13 +697,11 @@ public class DoclingDocument {
     @lombok.Singular
     private List<FineRef> comments;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = SectionHeaderItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -793,13 +763,11 @@ public class DoclingDocument {
     @JsonProperty("level")
     private Integer level;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = FieldHeadingItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -861,13 +829,11 @@ public class DoclingDocument {
     @JsonProperty("level")
     private Integer level;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = ListItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -933,13 +899,11 @@ public class DoclingDocument {
     @Nullable
     private String marker;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = CodeItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1021,13 +985,11 @@ public class DoclingDocument {
     @Nullable
     private String codeLanguage;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = FormulaItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1086,13 +1048,11 @@ public class DoclingDocument {
     @lombok.Singular
     private List<FineRef> comments;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = TextItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1151,13 +1111,11 @@ public class DoclingDocument {
     @lombok.Singular
     private List<FineRef> comments;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = FieldValueItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1220,13 +1178,11 @@ public class DoclingDocument {
     @Nullable
     private String kind;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = PictureItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1290,13 +1246,11 @@ public class DoclingDocument {
     @lombok.Singular
     private List<Map<String, Object>> annotations;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = PictureMeta.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1342,7 +1296,6 @@ public class DoclingDocument {
     @Nullable
     private CodeMetaField code;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -1353,7 +1306,6 @@ public class DoclingDocument {
    * raw string to mirror the lenient handling of {@code code_language} elsewhere in the model.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = CodeMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1375,13 +1327,11 @@ public class DoclingDocument {
     @Nullable
     private String language;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = DescriptionMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1399,13 +1349,11 @@ public class DoclingDocument {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String text;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = PictureClassificationMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1416,13 +1364,11 @@ public class DoclingDocument {
     @lombok.Singular
     private List<PictureClassificationPrediction> predictions;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = PictureClassificationPrediction.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1439,13 +1385,11 @@ public class DoclingDocument {
     @JsonProperty("class_name")
     private String className;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = MoleculeMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1462,13 +1406,11 @@ public class DoclingDocument {
     @JsonProperty("smi")
     private String smi;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = TabularChartMetaField.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1489,13 +1431,11 @@ public class DoclingDocument {
     @JsonProperty("chart_data")
     private TableData chartData;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = ProvenanceItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1512,13 +1452,11 @@ public class DoclingDocument {
     @lombok.Singular("charspan")
     private List<Integer> charspan;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = BoundingBox.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1540,13 +1478,11 @@ public class DoclingDocument {
     @Nullable
     private String coordOrigin;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = ImageRef.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1564,13 +1500,11 @@ public class DoclingDocument {
     @JsonProperty("uri")
     private String uri;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = Size.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1582,13 +1516,11 @@ public class DoclingDocument {
     @JsonProperty("height")
     private Double height;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = TableItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1658,13 +1590,11 @@ public class DoclingDocument {
     @lombok.Singular
     private List<Map<String, Object>> annotations;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = FloatingMeta.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1694,13 +1624,11 @@ public class DoclingDocument {
     @Nullable
     private DescriptionMetaField description;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = TableData.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1726,13 +1654,11 @@ public class DoclingDocument {
     @Nullable
     private Orientation orientation;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = TableCell.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1779,13 +1705,11 @@ public class DoclingDocument {
     @Nullable
     private RefItem ref;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = KeyValueItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1850,13 +1774,11 @@ public class DoclingDocument {
     @lombok.Singular
     private List<FineRef> comments;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = GraphData.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1872,7 +1794,6 @@ public class DoclingDocument {
     @lombok.Singular
     private List<GraphLink> links;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -1889,7 +1810,6 @@ public class DoclingDocument {
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = GraphCell.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1917,7 +1837,6 @@ public class DoclingDocument {
     @Nullable
     private RefItem itemRef;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -1936,7 +1855,6 @@ public class DoclingDocument {
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = GraphLink.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -1951,13 +1869,11 @@ public class DoclingDocument {
     @JsonProperty("target_cell_id")
     private Integer targetCellId;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = FormItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -2022,7 +1938,6 @@ public class DoclingDocument {
     @lombok.Singular
     private List<FineRef> comments;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -2032,7 +1947,6 @@ public class DoclingDocument {
    * document. Corresponds to the Python {@code FieldRegionItem} with label {@code "field_region"}.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = FieldRegionItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -2075,7 +1989,6 @@ public class DoclingDocument {
     @lombok.Singular
     private List<FineRef> comments;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
@@ -2086,7 +1999,6 @@ public class DoclingDocument {
    * {@code "field_item"}.
    */
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = FieldItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -2129,13 +2041,11 @@ public class DoclingDocument {
     @lombok.Singular
     private List<FineRef> comments;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  @tools.jackson.databind.annotation.JsonDeserialize(builder = PageItem.Builder.class)
   @lombok.extern.jackson.Jacksonized
   @lombok.Builder(toBuilder = true)
   @lombok.Getter
@@ -2151,12 +2061,10 @@ public class DoclingDocument {
     @JsonProperty("page_no")
     private Integer pageNo;
 
-    @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
     }
   }
 
-  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   public static class Builder {
   }
 

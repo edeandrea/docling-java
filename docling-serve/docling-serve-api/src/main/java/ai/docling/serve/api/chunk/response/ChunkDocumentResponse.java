@@ -18,7 +18,6 @@ import ai.docling.serve.api.response.ProcessedDocumentResponse;
  * @see ProcessedDocumentResponse
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@tools.jackson.databind.annotation.JsonDeserialize(builder = ChunkDocumentResponse.Builder.class)
 @lombok.extern.jackson.Jacksonized
 @lombok.Builder(toBuilder = true)
 @lombok.Getter
@@ -69,7 +68,6 @@ public final class ChunkDocumentResponse extends ProcessedDocumentResponse {
    * <li>{@code processingTime(Double)} - Set the processing time in seconds</li>
    * </ul>
    */
-  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   public static class Builder {
   }
 

@@ -29,7 +29,6 @@ import ai.docling.serve.api.request.DocumentRequest;
  * are omitted from the serialized JSON using {@link JsonInclude}.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@tools.jackson.databind.annotation.JsonDeserialize(builder = BatchConvertDocumentRequest.BuilderImpl.class)
 @lombok.extern.jackson.Jacksonized
 @lombok.experimental.SuperBuilder(toBuilder = true)
 @lombok.Getter
@@ -68,7 +67,6 @@ public final class BatchConvertDocumentRequest extends DocumentRequest {
     return Objects.requireNonNull(super.getTarget(), "target is marked non-null but is null");
   }
 
-  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   public abstract static class BatchConvertDocumentRequestBuilder<C extends BatchConvertDocumentRequest, B extends BatchConvertDocumentRequestBuilder<C, B>> extends DocumentRequest.DocumentRequestBuilder<C, B> {
   }
 
