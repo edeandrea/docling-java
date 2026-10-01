@@ -14,7 +14,6 @@ import ai.docling.serve.api.convert.request.target.Target;
  * using the Docling hybrid chunker.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@tools.jackson.databind.annotation.JsonDeserialize(builder = HybridChunkDocumentRequest.BuilderImpl.class)
 @lombok.extern.jackson.Jacksonized
 @lombok.experimental.SuperBuilder(toBuilder = true)
 @lombok.Getter
@@ -45,7 +44,6 @@ public final class HybridChunkDocumentRequest extends ChunkDocumentRequest {
    * <li>{@code chunkingOptions(HybridChunkerOptions)} - Set the hybrid chunker options</li>
    * </ul>
    */
-  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   public static abstract class HybridChunkDocumentRequestBuilder extends ChunkDocumentRequest.ChunkDocumentRequestBuilder<HybridChunkDocumentRequest, HybridChunkDocumentRequestBuilder> {
   }
 

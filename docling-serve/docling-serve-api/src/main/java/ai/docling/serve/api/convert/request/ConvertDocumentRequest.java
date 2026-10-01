@@ -19,7 +19,6 @@ import ai.docling.serve.api.request.DocumentRequest;
  * are omitted from the serialized JSON using {@link JsonInclude}.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@tools.jackson.databind.annotation.JsonDeserialize(builder = ConvertDocumentRequest.BuilderImpl.class)
 @lombok.extern.jackson.Jacksonized
 @lombok.experimental.SuperBuilder(toBuilder = true)
 @lombok.Getter
@@ -37,7 +36,6 @@ public final class ConvertDocumentRequest extends DocumentRequest {
   @lombok.Builder.Default
   private ConvertDocumentOptions options = ConvertDocumentOptions.builder().build();
 
-  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   public abstract static class ConvertDocumentRequestBuilder<C extends ConvertDocumentRequest, B extends ConvertDocumentRequestBuilder<C, B>> extends DocumentRequest.DocumentRequestBuilder<C, B> {
   }
 

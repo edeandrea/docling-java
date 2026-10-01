@@ -14,7 +14,6 @@ import ai.docling.serve.api.convert.request.target.Target;
  * using the Docling hierarchical chunker.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@tools.jackson.databind.annotation.JsonDeserialize(builder = HierarchicalChunkDocumentRequest.BuilderImpl.class)
 @lombok.extern.jackson.Jacksonized
 @lombok.experimental.SuperBuilder(toBuilder = true)
 @lombok.Getter
@@ -45,7 +44,6 @@ public final class HierarchicalChunkDocumentRequest extends ChunkDocumentRequest
    * <li>{@code chunkingOptions(HierarchicalChunkerOptions)} - Set the hierarchical chunker options</li>
    * </ul>
    */
-  @tools.jackson.databind.annotation.JsonPOJOBuilder(withPrefix = "")
   public static abstract class HierarchicalChunkDocumentRequestBuilder extends ChunkDocumentRequest.ChunkDocumentRequestBuilder<HierarchicalChunkDocumentRequest, HierarchicalChunkDocumentRequestBuilder> {
   }
 
